@@ -5,7 +5,8 @@ import { Section, SectionHeading } from "@/components/section";
 import { SuiteCard } from "@/components/suite-card";
 import { AmenityGrid } from "@/components/amenity-grid";
 import { CtaBand, FinalCta } from "@/components/cta-band";
-import { ReviewsGrid } from "@/components/reviews";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
+import { SpecialOffers } from "@/components/special-offers";
 import { Gallery } from "@/components/gallery";
 import { FaqList } from "@/components/faq";
 import { Img } from "@/components/manifest-image";
@@ -19,8 +20,6 @@ export const metadata: Metadata = {
   description:
     "צימר מיקאסה בשעל, רמת הגולן. שתי סוויטות זוגיות עם ג'קוזי, מרפסת ואווירה כפרית רומנטית בלב טבע הגולן. חייגו למיקה 054-586-9818",
 };
-
-const trust = ["צימר זוגי בוטיק", "ג'קוזי פרטי", "נוף הגולן", "אירוח אישי של מיקה"];
 
 const galleryPreview = [
   "forest-suite/forest-suite-jacuzzi-romantic.webp",
@@ -36,28 +35,31 @@ const galleryPreview = [
 export default function Home() {
   return (
     <>
-      {/* 2. Hero (Almaris split) */}
+      {/* Hero (Almaris split) */}
       <HeroSplit
         title="צימר מיקאסה, אירוח זוגי כפרי ורומנטי ברמת הגולן"
-        body="שתי סוויטות זוגיות בוטיק עם ג'קוזי פרטי, מרפסת ונוף, לחופשה שקטה בחיק טבע הגולן."
-        image="forest-suite/forest-suite-jacuzzi-romantic.webp"
-        ctaLabel="להזמנת סוויטה"
+        body="גבוה בצפון רמת הגולן, מוקפת בטבע ובשקט, שוכנת מיקאסה. שתי סוויטות זוגיות בלבד, כל אחת עם ג'קוזי פרטי ומרפסת, מזמינות אתכם לחופשה אינטימית ומפנקת הרחק מהשגרה."
+        image="exterior/exterior-garden-hero.webp"
+        ctaLabel="הזמינו את השהייה שלכם"
         ctaHref="/contact"
       />
 
-      {/* 3. Trust bar */}
-      <div style={{ background: "var(--color-cream-2)", borderBlock: "1px solid var(--color-line)" }}>
-        <div className="container-content py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm" style={{ color: "var(--color-ink-soft)" }}>
-          {trust.map((t) => (
-            <span key={t} className="flex items-center gap-2">
-              <span aria-hidden style={{ color: "var(--color-gold)" }}>◆</span>
-              {t}
-            </span>
-          ))}
+      {/* Our Suites — directly after hero, like Almaris Accommodation */}
+      <Section band="cream" id="suites">
+        <SectionHeading title="הסוויטות שלנו" center />
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <SuiteCard suite={suites.forest} />
+          <SuiteCard suite={suites.rain} />
         </div>
-      </div>
+      </Section>
 
-      {/* 4. Short about */}
+      {/* Testimonials carousel — Almaris style, no eyebrow/title */}
+      <TestimonialsCarousel />
+
+      {/* Special Offers — Almaris packages cards */}
+      <SpecialOffers />
+
+      {/* Short about */}
       <Section band="cream">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -71,38 +73,25 @@ export default function Home() {
             </p>
             <Link href="/about" className="btn btn-outline mt-6">הסיפור של מיקאסה</Link>
           </div>
-          <div className="relative rounded-[--radius-card] overflow-hidden aspect-[4/3]">
+          <div
+            className="relative overflow-hidden aspect-[4/3]"
+            style={{ borderRadius: "var(--radius-card)", boxShadow: "var(--shadow-card)" }}
+          >
             <Img file="exterior/exterior-entrance-01.webp" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover" />
           </div>
         </div>
       </Section>
 
-      {/* 5 + 6. Suites (Almaris accommodation grid) */}
-      <Section band="cream-2" id="suites">
-        <SectionHeading eyebrow="הסוויטות שלנו" title="שתי סוויטות, אווירה אחת של שקט ורומנטיקה"
-          intro="שתי הסוויטות זהות במתקנים, ג'קוזי פרטי, מרפסת ומטבחון. ההבדל הוא באווירה: יער ירוק וטבעי מול אבן חמה ואינטימית." />
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-          <SuiteCard suite={suites.forest} />
-          <SuiteCard suite={suites.rain} />
-        </div>
-      </Section>
-
-      {/* 7. Mid CTA band */}
+      {/* Mid CTA band */}
       <CtaBand location="home-mid" />
 
-      {/* 8. Amenities */}
+      {/* Amenities */}
       <Section band="cream">
         <SectionHeading eyebrow="מה כולל הצימר" title="הכל מוכן לחופשה זוגית נינוחה" center />
         <AmenityGrid />
       </Section>
 
-      {/* 9. Reviews */}
-      <Section band="cream-2">
-        <SectionHeading eyebrow="אורחים מספרים" title="מה אומרים עלינו בגוגל" center />
-        <ReviewsGrid />
-      </Section>
-
-      {/* 10. Gallery preview */}
+      {/* Gallery preview */}
       <Section band="cream">
         <SectionHeading eyebrow="הצצה למיקאסה" title="גלריית תמונות" center />
         <Gallery images={galleryPreview} columns={4} />
@@ -111,7 +100,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 11. Area & attractions */}
+      {/* Area & attractions */}
       <Section band="cream-2">
         <SectionHeading eyebrow="האזור שלנו" title="מה יש לעשות סביב מיקאסה"
           intro="שעל יושב בצפון רמת הגולן, קרוב לטבע, למים, ליקבים ולחרמון." />
@@ -128,13 +117,13 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 12. FAQ */}
+      {/* FAQ */}
       <Section band="cream">
         <SectionHeading eyebrow="שאלות ותשובות" title="כל מה שרציתם לדעת" center />
         <FaqList items={homeFaqs} />
       </Section>
 
-      {/* 13. Final CTA */}
+      {/* Final CTA */}
       <FinalCta location="home-final" />
     </>
   );

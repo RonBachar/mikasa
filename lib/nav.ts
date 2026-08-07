@@ -8,7 +8,7 @@ export type NavItem = {
 export const mainNav: NavItem[] = [
   { label: "בית", href: "/" },
   {
-    label: "הסוויטות",
+    label: "הסוויטות שלנו",
     href: "/#suites",
     children: [
       { label: "סוויטת יער", href: "/suites/forest" },

@@ -18,7 +18,7 @@ const display = Frank_Ruhl_Libre({
 const body = Heebo({
   variable: "--font-body",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 

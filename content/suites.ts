@@ -19,13 +19,43 @@ export type Suite = {
 };
 
 // Shared amenities — do not diverge between suites.
-export const sharedAmenities: { icon: string; label: string; note?: string }[] = [
-  { icon: "jacuzzi", label: "ג'קוזי פרטי" },
-  { icon: "balcony", label: "מרפסת פרטית" },
-  { icon: "kitchen", label: "מטבחון מאובזר" },
-  { icon: "breakfast", label: "ארוחת בוקר בתיאום מראש", note: "בתשלום, בהזמנה מראש" },
-  { icon: "parking", label: "חניה פרטית" },
-  { icon: "ac", label: "מיזוג בכל עונה" },
+export const sharedAmenities: {
+  icon: string;
+  label: string;
+  blurb: string;
+  note?: string;
+}[] = [
+  {
+    icon: "jacuzzi",
+    label: "ג'קוזי פרטי",
+    blurb: "פינת פינוק אינטימית בתוך הסוויטה, מושלמת לערב זוגי רגוע.",
+  },
+  {
+    icon: "balcony",
+    label: "מרפסת פרטית",
+    blurb: "יציאה פרטית אל האוויר הצח ונופי הגולן, לקפה בבוקר או כוס יין בערב.",
+  },
+  {
+    icon: "kitchen",
+    label: "מטבחון מאובזר",
+    blurb: "כל מה שצריך לארוחה קלה או קפה טרי, בלי לצאת מהסוויטה.",
+  },
+  {
+    icon: "breakfast",
+    label: "ארוחת בוקר",
+    blurb: "ארוחת בוקר כפרית בתיאום מראש, בתשלום.",
+    note: "בתשלום, בהזמנה מראש",
+  },
+  {
+    icon: "parking",
+    label: "חניה פרטית",
+    blurb: "חניה צמודה ונוחה ליד הסוויטה, בלי דאגות.",
+  },
+  {
+    icon: "ac",
+    label: "מיזוג בכל עונה",
+    blurb: "נעים בקיץ וחם בחורף, כדי שתישארו ממוקדים רק בחופשה.",
+  },
 ];
 
 export const suites: Record<Suite["slug"], Suite> = {

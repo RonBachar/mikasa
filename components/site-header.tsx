@@ -8,7 +8,7 @@ import { Logo } from "./logo";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "./icons";
 
 const RESERVE_HREF = "/contact";
-const RESERVE_LABEL = "להזמנת סוויטה";
+const RESERVE_LABEL = "להזמנת חייגו עכשיו";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,47 +38,43 @@ export function SiteHeader() {
 
   return (
     <header
-      className="sticky top-0 z-50 transition-all"
+      className="sticky top-0 z-50"
       style={{
-        background: "var(--color-cream)",
+        background: scrolled ? "#ffffff" : "var(--color-cream)",
         borderBottom: scrolled
           ? "1px solid var(--color-line)"
           : "1px solid transparent",
         boxShadow: scrolled ? "0 1px 12px rgba(43,38,32,0.06)" : "none",
+        transition:
+          "background-color 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.45s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 0.61, 0.36, 1)",
       }}
     >
-      <div className="container-content flex flex-row-reverse lg:flex-row items-center justify-between gap-4 py-4">
+      <div className="container-content flex flex-row-reverse lg:flex-row items-center justify-between gap-4 py-3.5 lg:py-4">
         <Logo />
 
-        {/* Desktop nav: plain elegant text links */}
-        <nav aria-label="ניווט ראשי" className="hidden lg:flex items-center gap-7">
+        {/* Desktop nav: slim elegant text links (Almaris) */}
+        <nav aria-label="ניווט ראשי" className="hidden lg:flex items-center gap-6 xl:gap-8">
           {mainNav.map((item) =>
             item.children ? (
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-1 py-2 tracking-wide transition-colors"
-                  style={{ color: isActive(item.href) ? "var(--color-gold)" : "var(--color-ink)" }}
+                  className={`nav-link inline-flex items-center gap-1 ${isActive(item.href) ? "is-active" : ""}`}
                 >
                   {item.label}
-                  <ChevronDownIcon className="opacity-70" />
+                  <ChevronDownIcon className="opacity-60" />
                 </Link>
-                {/* Dropdown panel: white, soft radius, gold-row hover */}
-                <div className="absolute top-full start-0 pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible transition-all duration-200">
+                <div className="nav-dropdown">
                   <ul
-                    className="min-w-56 overflow-hidden bg-white"
+                    className="min-w-52 overflow-hidden bg-white"
                     style={{
-                      border: "1px solid var(--color-line)",
-                      borderRadius: "6px",
-                      boxShadow: "0 12px 34px rgba(43,38,32,0.14)",
+                      borderRadius: 4,
+                      boxShadow: "0 4px 18px rgba(43, 38, 32, 0.12)",
                     }}
                   >
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          className="block px-5 py-3.5 text-[--color-ink] transition-colors duration-150 hover:bg-[--color-gold] hover:text-white"
-                        >
+                        <Link href={child.href} className="nav-dropdown-link">
                           {child.label}
                         </Link>
                       </li>
@@ -90,8 +86,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="py-2 tracking-wide transition-colors hover:text-[--color-gold]"
-                style={{ color: isActive(item.href) ? "var(--color-gold)" : "var(--color-ink)" }}
+                className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>
@@ -99,14 +94,13 @@ export function SiteHeader() {
           )}
         </nav>
 
-        {/* Reservation button: clean gold rectangle, text only */}
+        {/* Compact gold CTA — Almaris BOOK NOW proportions */}
         <div className="hidden lg:block">
           <Link href={RESERVE_HREF} className="btn btn-primary">
             {RESERVE_LABEL}
           </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           className="lg:hidden p-2"
@@ -120,7 +114,6 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div
           id="mobile-menu"
@@ -133,7 +126,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block py-3.5 text-lg transition-colors hover:bg-[--color-gold] hover:text-white rounded-[6px] px-3"
+                    className="block py-3 text-lg font-light transition-colors hover:bg-[--color-gold] hover:text-white rounded-[12px] px-3"
                     style={{ color: isActive(item.href) ? "var(--color-gold)" : "var(--color-ink)" }}
                   >
                     {item.label}
@@ -144,7 +137,7 @@ export function SiteHeader() {
                         <li key={child.href}>
                           <Link
                             href={child.href}
-                            className="block py-2.5 px-3 rounded-[6px] transition-colors hover:bg-[--color-gold] hover:text-white text-[--color-ink-soft]"
+                            className="block py-2.5 px-3 rounded-[12px] font-light transition-colors hover:bg-[--color-gold] hover:text-white text-[--color-ink-soft]"
                           >
                             {child.label}
                           </Link>

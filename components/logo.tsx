@@ -18,8 +18,8 @@ export function Logo({
       <span
         className="font-display tracking-tight"
         style={{
-          fontSize: "1.7rem",
-          fontWeight: 500,
+          fontSize: "1.65rem",
+          fontWeight: 400,
           color: onDark ? "var(--color-cream)" : "var(--color-ink)",
         }}
       >
@@ -31,9 +31,9 @@ export function Logo({
         style={{ background: "var(--color-gold)" }}
       />
       <span
-        className="uppercase"
+        className="uppercase font-light"
         style={{
-          fontSize: "0.6rem",
+          fontSize: "0.58rem",
           letterSpacing: "0.28em",
           color: onDark ? "var(--color-gold-soft)" : "var(--color-gold)",
         }}

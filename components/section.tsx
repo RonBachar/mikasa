@@ -54,7 +54,7 @@ export function SectionHeading({
         </span>
       )}
       <h2
-        className="text-4xl mt-5"
+        className={`text-4xl ${eyebrow ? "mt-5" : ""}`}
         style={onDark ? { color: "var(--color-white)" } : undefined}
       >
         {title}

@@ -2,11 +2,11 @@ import type { SVGProps } from "react";
 import { sharedAmenities } from "@/content/suites";
 
 const iconBase = {
-  width: 28,
-  height: 28,
+  width: 22,
+  height: 22,
   viewBox: "0 0 24 24",
   fill: "none",
-  stroke: "var(--color-gold)",
+  stroke: "#fff",
   strokeWidth: 1.5,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
@@ -67,21 +67,45 @@ function Icon({ name, ...p }: { name: string } & SVGProps<SVGSVGElement>) {
   );
 }
 
+/**
+ * Almaris "The Facilities" layout: tan icon square + serif title + soft body.
+ */
 export function AmenityGrid({ compact = false }: { compact?: boolean }) {
   return (
     <ul
-      className={`grid gap-4 ${compact ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"}`}
+      className={`grid gap-x-8 gap-y-10 ${
+        compact
+          ? "grid-cols-1 sm:grid-cols-2"
+          : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      }`}
     >
       {sharedAmenities.map((a) => (
-        <li
-          key={a.label}
-          className="card p-5 flex flex-col items-center text-center gap-3"
-        >
-          <Icon name={a.icon} />
-          <span className="font-semibold leading-snug">{a.label}</span>
-          {a.note && (
-            <span className="text-xs text-[--color-ink-soft]">{a.note}</span>
-          )}
+        <li key={a.label} className="flex items-start gap-4">
+          <span
+            className="shrink-0 flex items-center justify-center"
+            style={{
+              width: "3.25rem",
+              height: "3.25rem",
+              borderRadius: "8px",
+              background: "var(--color-gold)",
+            }}
+          >
+            <Icon name={a.icon} />
+          </span>
+          <span className="min-w-0 pt-0.5">
+            <span
+              className="block font-display text-lg md:text-xl"
+              style={{ color: "var(--color-ink)", fontWeight: 500, lineHeight: 1.3 }}
+            >
+              {a.label}
+            </span>
+            <span
+              className="mt-1.5 block text-sm font-light leading-relaxed"
+              style={{ color: "var(--color-ink-soft)" }}
+            >
+              {a.blurb}
+            </span>
+          </span>
         </li>
       ))}
     </ul>
