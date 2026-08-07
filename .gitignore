@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Project working folders (not deployed)
+/_raw-images/
+/scratch-sheets/
+mikasa-blueprint.md
+
+# Local Claude settings (personal)
+.claude/settings.local.json
