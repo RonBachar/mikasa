@@ -8,6 +8,30 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 640, 828, 1080, 1200, 1920],
     imageSizes: [96, 160, 256, 384],
+    // 31 days. Files under public/ are served with `max-age=0,
+    // must-revalidate`, and an optimized image takes the LARGER of that and
+    // this — so without a value here every visitor re-downloaded every photo
+    // on every visit, even though the bytes had not changed.
+    minimumCacheTTL: 2678400,
+  },
+  async headers() {
+    return [
+      {
+        // The processed photos and share cards. These are outputs of
+        // scripts/convert-images.mjs and scripts/make-og-images.mjs, and
+        // their names are stable, so a long cache is safe — with one rule:
+        // REPLACING A PHOTO MEANS GIVING IT A NEW FILENAME. Overwriting
+        // an existing name leaves returning visitors on the old picture
+        // for up to a year, with no way to purge it.
+        source: "/:dir(images|og)/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [
