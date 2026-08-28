@@ -48,6 +48,8 @@ export const imageAlts: Record<string, string> = {
   "exterior/exterior-garden-lawn-01.webp": "מדשאה ירוקה ופינות ישיבה בגינת צימר מיקאסה בשעל",
   "exterior/exterior-garden-hammock-hero.webp": "ערסל לבן על רקע מדשאה וגינה פורחת בצימר מיקאסה",
   "exterior/exterior-garden-path-03.webp": "שביל אבן בין צמחייה עשירה וכדי חרס בגינת מיקאסה בשעל",
+  "exterior/exterior-garden-patio-hero.webp":
+    "מרפסת עץ מרוהטת עם כיסא נדנדה תלוי, פינות ישיבה וגינה ירוקה בצימר מיקאסה, מושב שעל שברמת הגולן",
   "exterior/amenity-breakfast-01.webp": "ארוחת בוקר עשירה עם ביצים, לחם, סלט ומיץ תפוזים בצימר מיקאסה",
   "exterior/exterior-garden-building.webp": "מבנה הצימר משקיף על גינה מטופחת עם פרחים בצימר מיקאסה",
   "exterior/exterior-garden-lawn-02.webp": "מדשאה ירוקה ועצים בגינת צימר מיקאסה בשעל",

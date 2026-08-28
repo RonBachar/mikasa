@@ -94,6 +94,10 @@ add("exterior", "exterior-garden-lawn-01", "מדשאה ירוקה ופינות �
 add("exterior", "exterior-garden-hammock-hero", "ערסל לבן על רקע מדשאה וגינה פורחת בצימר מיקאסה", { file: "Gallery/gallery-02.jpg" });
 add("exterior", "exterior-garden-path-03", "שביל אבן בין צמחייה עשירה וכדי חרס בגינת מיקאסה בשעל", { file: "Gallery/gallery-03.jpg" });
 add("exterior", "amenity-breakfast-01", "ארוחת בוקר עשירה עם ביצים, לחם, סלט ומיץ תפוזים בצימר מיקאסה", { file: "Breakfast/breakfast-01.jpg" });
+// The /gallery hero. Owner-supplied at full resolution 2026-08-28, replacing
+// exterior-garden-egg-chair-01, which is the same scene at 740x491 and went
+// visibly soft stretched full-bleed across a desktop viewport.
+add("exterior", "exterior-garden-patio-hero", "מרפסת עץ מרוהטת עם כיסא נדנדה תלוי, פינות ישיבה וגינה ירוקה בצימר מיקאסה, מושב שעל שברמת הגולן", { file: "Garden/garden-patio-hero.jpg" });
 
 // GARDEN (dir "Garden", numeric; keep curated idx)
 const garden = {

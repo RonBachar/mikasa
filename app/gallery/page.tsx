@@ -21,7 +21,11 @@ export default function GalleryPage() {
     <>
       <PageHero
         breadcrumbs={[{ label: "בית", href: "/" }, { label: "גלריה", href: "/gallery" }]}
-        image="exterior/exterior-garden-egg-chair-01.webp"
+        // The same scene at full resolution. The previous file was 740x491,
+        // which is under half the width of a desktop viewport it has to fill
+        // edge to edge — it looked soft, and on the gallery page of all
+        // places that is the wrong first impression.
+        image="exterior/exterior-garden-patio-hero.webp"
         eyebrow="הצצה למיקאסה"
         title="גלריית תמונות ממיקאסה"
         body={"מבט פנימה אל הסוויטות המעוצבות, אל הגינה הירוקה ואל הנוף הפנורמי. כל התמונות צולמו כאן אצלנו במושב שעל."}
