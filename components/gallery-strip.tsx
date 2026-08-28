@@ -58,7 +58,12 @@ export function GalleryStrip({
                     src={im.src}
                     alt={im.alt}
                     fill
-                    loading="eager"
+                    // Lazy, not eager. This strip sits directly above the
+                    // footer, so nobody sees it until they have scrolled the
+                    // whole page — but `loading="eager"` made Next emit a
+                    // <link rel="preload"> for all eight tiles, which then
+                    // competed with the hero for a phone's bandwidth. The
+                    // home page was preloading nine images to paint one.
                     sizes="(max-width: 768px) 25vw, 12.5vw"
                     className="object-cover"
                   />

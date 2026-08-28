@@ -90,7 +90,12 @@ export function Lightbox({
             fill
             sizes="90vw"
             className="object-contain"
-            priority
+            // Not `preload`: this only mounts once someone opens the lightbox,
+            // so there is nothing to preload from the head — it just needs to
+            // skip lazy-loading and fetch at once. (`priority` did both, and
+            // Next 16 deprecated it.)
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <figcaption className="mt-3 text-center text-sm" style={{ color: "var(--color-cream)" }}>

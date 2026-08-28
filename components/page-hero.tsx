@@ -64,7 +64,7 @@ export function PageHero({
       className="img-tint hero-shell"
       style={{ "--image-tint-opacity": "0.22" } as React.CSSProperties}
     >
-      <Img file={image} fill priority sizes="100vw" className="object-cover -z-10" />
+      <Img file={image} fill preload sizes="100vw" className="object-cover -z-10" />
 
       {/* Warm floor gradient, so the photo still reads underneath a light
           card without darkening the whole frame. */}

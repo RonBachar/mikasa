@@ -9,14 +9,24 @@ export function Img({
   file,
   fill = false,
   sizes,
-  priority = false,
+  preload = false,
   className,
   width,
 }: {
   file: string;
   fill?: boolean;
   sizes?: string;
-  priority?: boolean;
+  /**
+   * Emits a <link rel="preload"> for this image so the browser starts it from
+   * the head instead of waiting to parse it out of the body. Set it on the one
+   * image that is the page's LCP element and nothing else.
+   *
+   * This replaces `priority`, which Next 16 deprecated. The rename is not
+   * cosmetic: `priority` had become a no-op here, so every hero on the site
+   * was loading at default priority with no preload hint, and PageSpeed
+   * measured the home page's LCP at 3.5s on mobile because of it.
+   */
+  preload?: boolean;
   className?: string;
   width?: number;
 }) {
@@ -33,7 +43,7 @@ export function Img({
         alt={m.alt}
         fill
         sizes={sizes ?? "100vw"}
-        priority={priority}
+        preload={preload}
         className={className}
         {...blur}
       />
@@ -48,7 +58,7 @@ export function Img({
       width={w}
       height={h}
       sizes={sizes}
-      priority={priority}
+      preload={preload}
       className={className}
       {...blur}
     />
