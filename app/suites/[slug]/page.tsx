@@ -55,7 +55,11 @@ export default async function SuitePage(props: { params: Promise<Params> }) {
               { label: suite.name, href: `/suites/${suite.slug}` },
             ]}
         image={suite.heroImage}
-        eyebrow={suite.name}
+        // Was suite.name, which the h1 now opens with — the card showed the
+        // suite's name twice, stacked, and the variety tag beside it made
+        // three. The category is the thing the eyebrow can say that the
+        // heading does not.
+        eyebrow="סוויטה זוגית"
         title={suite.h1}
         body={suite.teaser}
         angle={isForest ? -1.9 : 1.2}
