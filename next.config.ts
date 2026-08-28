@@ -11,7 +11,26 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Canonical host + legacy WordPress URL map is added in Phase 9.
-    return [];
+    return [
+      {
+        // /packages became /prices when the site started publishing rates:
+        // one page now answers "how much" for the suite, breakfast and the
+        // packages together, instead of splitting that across two.
+        source: "/packages",
+        destination: "/prices",
+        permanent: true,
+      },
+      {
+        // /area's content (attractions, drive times) now lives on the
+        // homepage's own "מה תוכלו לעשות סביב מיקאסה" section. The journal
+        // it briefly redirected to (/blog/around-mikasa) was deleted
+        // entirely (owner's call), so this points at the closest surviving
+        // equivalent instead of a page that no longer exists.
+        source: "/area",
+        destination: "/",
+        permanent: true,
+      },
+    ];
   },
 };
 

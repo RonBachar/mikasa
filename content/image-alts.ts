@@ -77,10 +77,14 @@ export const imageAlts: Record<string, string> = {
   "area/area-mount-bental.webp": "תצפית הר בנטל אל מרחבי רמת הגולן",
   "area/area-gamla.webp": "שמורת גמלא והקניון הירוק ברמת הגולן",
   "area/area-hexagon-pool.webp": "בריכת המשושים ועמודי הבזלת ברמת הגולן",
-  "blog/blog-golan-spring.webp": "מעיין מים זכים בטבע רמת הגולן",
-  "blog/blog-kinneret-sunset.webp": "שקיעה מעל הכנרת בנוף צפון הארץ",
-  "blog/blog-hermon-ski.webp": "אתר החרמון המושלג בעונת הסקי",
-  "blog/blog-cherry-picking.webp": "קטיף דובדבנים אדומים מהעץ ברמת הגולן",
+  "packages/package-breakfast.webp":
+    "ארוחת בוקר כפרית עשירה עם ביצי עין, לחם כפרי אפוי וקפה, מוגשת לזוג",
+  "packages/package-birthday.webp":
+    "עוגת יום הולדת עם נרות דולקים ובלונים צבעוניים, חבילת יום הולדת לזוגות",
+  "packages/package-anniversary.webp":
+    "זוג מרים כוסות יין לבן לחיים לצד זר טוליפים ורודים, חבילת יום נישואין ורומנטיקה",
+  "packages/package-massage.webp":
+    "מטפלת מעסה גב בעיסוי מרגיע באור טבעי, חבילת עיסוי זוגי בסוויטה",
 };
 
 export function altFor(file: string): string {

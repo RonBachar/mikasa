@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import type { ImgMeta } from "@/lib/images";
-import { CloseIcon } from "./icons";
+import { Lightbox, useLightbox } from "./lightbox";
 
 export function Gallery({
   images,
@@ -12,30 +11,7 @@ export function Gallery({
   images: ImgMeta[];
   columns?: 2 | 3 | 4;
 }) {
-  const [open, setOpen] = useState<number | null>(null);
-
-  const close = useCallback(() => setOpen(null), []);
-  const go = useCallback(
-    (dir: number) =>
-      setOpen((i) => (i === null ? i : (i + dir + images.length) % images.length)),
-    [images.length]
-  );
-
-  useEffect(() => {
-    if (open === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      // In RTL, ArrowRight = previous, ArrowLeft = next.
-      if (e.key === "ArrowLeft") go(1);
-      if (e.key === "ArrowRight") go(-1);
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [open, close, go]);
+  const { open, setOpen, close, go } = useLightbox(images.length);
 
   const colClass =
     columns === 4
@@ -46,22 +22,28 @@ export function Gallery({
 
   return (
     <>
-      <ul className={`grid grid-cols-2 gap-3 md:gap-4 ${colClass}`}>
+      {/* Below sm: a swipeable snap carousel, one photo (mostly) in frame at a
+          time — a 2-col grid on a narrow phone means every tile is too small
+          to actually look at. From sm up: back to a real grid, and the
+          carousel classes (flex, overflow, snap, fixed tile width) are
+          switched off rather than layered under the grid ones. */}
+      <ul
+        className={`gallery-scroller flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:overflow-visible sm:gap-4 md:gap-6 ${colClass}`}
+      >
         {images.map((im, i) => (
-          <li key={im.file}>
+          <li key={im.file} className="gallery-scroller__item shrink-0 sm:shrink sm:w-auto">
             <button
               type="button"
               onClick={() => setOpen(i)}
-              className="group block w-full overflow-hidden rounded-[--radius-card] border"
-              style={{ borderColor: "color-mix(in srgb, var(--color-gold) 30%, transparent)" }}
+              className="group block w-full overflow-hidden rounded-[--radius-card]"
               aria-label={`הגדלת תמונה: ${im.alt}`}
             >
-              <span className="block aspect-[4/3] relative">
+              <span className="img-tint block aspect-[4/3] relative">
                 <Image
                   src={im.src}
                   alt={im.alt}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </span>
@@ -70,65 +52,7 @@ export function Gallery({
         ))}
       </ul>
 
-      {open !== null && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="גלריית תמונות"
-          className="fixed inset-0 z-[80] flex items-center justify-center p-4"
-          style={{ background: "rgba(30,27,23,0.94)" }}
-          onClick={close}
-        >
-          <button
-            type="button"
-            onClick={close}
-            aria-label="סגירת הגלריה"
-            className="absolute top-4 end-4 p-2 text-cream"
-            style={{ color: "var(--color-cream)" }}
-          >
-            <CloseIcon />
-          </button>
-
-          <button
-            type="button"
-            onClick={(e) => { e.stopPropagation(); go(-1); }}
-            aria-label="התמונה הקודמת"
-            className="absolute end-2 md:end-8 text-4xl px-3 py-2"
-            style={{ color: "var(--color-gold)" }}
-          >
-            ›
-          </button>
-
-          <figure
-            className="max-w-5xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative w-full" style={{ aspectRatio: "3 / 2" }}>
-              <Image
-                src={images[open].src}
-                alt={images[open].alt}
-                fill
-                sizes="90vw"
-                className="object-contain"
-                priority
-              />
-            </div>
-            <figcaption className="mt-3 text-center text-sm" style={{ color: "var(--color-cream)" }}>
-              {images[open].alt}
-            </figcaption>
-          </figure>
-
-          <button
-            type="button"
-            onClick={(e) => { e.stopPropagation(); go(1); }}
-            aria-label="התמונה הבאה"
-            className="absolute start-2 md:start-8 text-4xl px-3 py-2"
-            style={{ color: "var(--color-gold)" }}
-          >
-            ‹
-          </button>
-        </div>
-      )}
+      <Lightbox images={images} open={open} close={close} go={go} />
     </>
   );
 }

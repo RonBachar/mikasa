@@ -1,10 +1,17 @@
 import { PhoneCTA, WhatsAppCTA } from "./cta";
-import { siteConfig } from "@/lib/site-config";
 
-/** Mid-page dark CTA band with the phone number spelled out. */
+/**
+ * The site's closing CTA. Dark band, phone + WhatsApp, and it ends every page
+ * except /contact (where the whole page is already the ask), so a visitor
+ * never reaches the footer without having been offered a way to book.
+ *
+ * The defaults below are the copy the block ships with; they are defaults
+ * precisely so the ask is worded the same everywhere. Pass `title`/`subtitle`
+ * only where a page has a genuinely better line.
+ */
 export function CtaBand({
-  title = "מתלבטים? מיקה תשמח לעזור.",
-  subtitle,
+  title = "בואו נבדוק תאריכים",
+  subtitle = "רוצים לדעת אם הסוויטה פנויה בתאריכים שלכם? שלחו הודעה קצרה או התקשרו, ואשמח לעזור.",
   location = "cta-band",
 }: {
   title?: string;
@@ -14,46 +21,16 @@ export function CtaBand({
   return (
     <section className="on-dark" style={{ background: "var(--color-dark)", color: "var(--color-cream)" }}>
       <div className="hairline" />
+      {/* No eyebrow. "מיקאסה, שעל" sat above the heading on every page of a
+          site that is already Mikasa's, and it pushed the actual ask down. */}
       <div className="container-content py-20 md:py-24 text-center">
-        <span className="eyebrow mx-auto" style={{ color: "var(--color-gold-soft)" }}>
-          מיקאסה, שעל
-        </span>
-        <h2 className="text-4xl mt-5" style={{ color: "var(--color-white)" }}>
+        <h2 className="text-4xl" style={{ color: "var(--color-white)" }}>
           {title}
         </h2>
-        <p className="mt-3 text-lg opacity-90">
-          {subtitle ?? (
-            <>
-              חייגו{" "}
-              <a href={siteConfig.telHref} dir="ltr" className="tabular-nums font-semibold" style={{ color: "var(--color-gold-soft)" }}>
-                {siteConfig.phoneDisplay}
-              </a>
-            </>
-          )}
-        </p>
+        <p className="mt-3 text-lg opacity-90 max-w-2xl mx-auto">{subtitle}</p>
         <div className="mt-7 flex flex-wrap gap-4 justify-center">
-          <PhoneCTA location={location} showNumber />
-          <WhatsAppCTA location={location} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Final CTA block (phone + WhatsApp), used at the bottom of most pages. */
-export function FinalCta({ location = "final-cta" }: { location?: string }) {
-  return (
-    <section style={{ background: "var(--color-cream-2)" }}>
-      <div className="container-content py-20 md:py-24 text-center">
-        <span className="eyebrow mx-auto">מוכנים לחופשה?</span>
-        <h2 className="text-4xl mt-5">שריינו את התאריכים שלכם במיקאסה</h2>
-        <p className="mt-6 text-lg text-[--color-ink-soft] max-w-xl mx-auto">
-          ההזמנה פשוטה, בשיחה או בהודעה ישירה למיקה. נשמח לבדוק תאריכים ולתאם עבורכם
-          חופשה זוגית מושלמת בגולן.
-        </p>
-        <div className="mt-7 flex flex-wrap gap-4 justify-center">
-          <PhoneCTA location={location} showNumber />
-          <WhatsAppCTA location={location} />
+          <PhoneCTA location={location}>התקשרו עכשיו</PhoneCTA>
+          <WhatsAppCTA location={location}>בואו נדבר בוואטסאפ</WhatsAppCTA>
         </div>
       </div>
     </section>

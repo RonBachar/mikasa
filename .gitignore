@@ -45,5 +45,16 @@ next-env.d.ts
 /scratch-sheets/
 mikasa-blueprint.md
 
+# Design-skill session output (critiques, live-annotation sessions, question
+# logs). Regenerated per run and specific to one machine, so it is working
+# state rather than project history. The durable design record is docs/.
+/.impeccable/
+
 # Local Claude settings (personal)
 .claude/settings.local.json
+
+# Third-party skills cloned in for local use. ui-ux-pro-max-skill is a 24MB
+# GitHub checkout that carries its own nested .git, which git cannot commit as
+# ordinary files — it would land as a broken gitlink. Personal tooling, not
+# project source.
+.claude/skills/

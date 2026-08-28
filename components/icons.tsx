@@ -1,12 +1,14 @@
 import type { SVGProps } from "react";
 
+// Bolder, more deliberate stroke than a generic icon-library default —
+// reads like a hand-cut stencil mark, matching the crate-label world.
 const base = {
-  width: 20,
-  height: 20,
+  width: 22,
+  height: 22,
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 1.7,
+  strokeWidth: 2.2,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   "aria-hidden": true,
@@ -22,7 +24,7 @@ export function PhoneIcon(p: SVGProps<SVGSVGElement>) {
 
 export function WhatsAppIcon(p: SVGProps<SVGSVGElement>) {
   return (
-    <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
+    <svg width={22} height={22} viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}>
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24.044 12.045.044 5.463.044.102 5.405.099 11.987c0 2.096.546 4.142 1.588 5.945L0 24l6.304-1.654a11.9 11.9 0 0 0 5.737 1.459h.005c6.581 0 11.943-5.361 11.946-11.945 0-3.19-1.24-6.19-3.472-8.471" />
     </svg>
   );
@@ -48,6 +50,45 @@ export function ChevronDownIcon(p: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} width={16} height={16} {...p}>
       <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+/** Camera glyph — bolder crate-stencil treatment, used for gallery links and hover badges. */
+export function GalleryIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M4 8h3.2l1.3-2h6l1.3 2H20a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" />
+      <circle cx="12" cy="13.2" r="3.4" />
+    </svg>
+  );
+}
+
+/** Envelope glyph — bolder crate-stencil treatment, used for the contact link. */
+export function MailIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="3" y="5.5" width="18" height="13" rx="1.5" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
+
+/** Single-leaf mark — variety glyph for סוויטת יער (Forest). */
+export function LeafIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M5 19c0-7.5 5-13 14-14-1 9-6.5 14-14 14Z" />
+      <path d="M5 19c2.5-3 5-5.5 9-9" />
+    </svg>
+  );
+}
+
+/** Single-drop mark — variety glyph for סוויטת גשם (Rain). */
+export function DropletIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M12 3c3.5 4.2 6 7.8 6 11a6 6 0 0 1-12 0c0-3.2 2.5-6.8 6-11Z" />
     </svg>
   );
 }

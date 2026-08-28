@@ -1,86 +1,78 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
-import { CtaBand, FinalCta } from "@/components/cta-band";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import { PageHero } from "@/components/page-hero";
+import { CtaBand } from "@/components/cta-band";
 import { Img } from "@/components/manifest-image";
 
 export const metadata: Metadata = {
-  title: "הסיפור של מיקאסה | אירוח זוגי כפרי בשעל, גולן",
+  title: "הסיפור האישי של מיקאסה | אירוח זוגי כפרי בשעל, גולן",
   description:
-    "הסיפור של צימר מיקאסה, אירוח זוגי אישי וחם של מיקה במושב שעל שברמת הגולן. הכירו את המקום ואת האנשים. חייגו 054-586-9818.",
+    "הכירו את מיקאסה: הסיפור האישי של צימר בוטיק לזוגות במושב שעל, רמת הגולן. אירוח חם ומלא השראה ממיקה. לפרטים, חייגו: 054-586-9818.",
   alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <Section band="cream-2" className="!pt-28">
-        <Breadcrumbs items={[{ label: "בית", href: "/" }, { label: "אודות", href: "/about" }]} />
-        <div className="mt-6 max-w-3xl">
-          <span className="eyebrow">נעים להכיר</span>
-          <h1 className="text-5xl mt-3">הסיפור של מיקאסה</h1>
-          <div className="hairline-short mt-4" />
-        </div>
-      </Section>
-
-      {/* Owner-pending notice (remove before launch) */}
-      <div style={{ background: "#fff7e6", borderBlock: "1px solid var(--color-gold)" }}>
-        <div className="container-content py-3 text-sm text-[--color-ink-soft]">
-          הערה לצוות: זו טיוטה (גרסה א׳) לאישור מיקה לפני העלייה לאוויר. יש להסיר את
-          ההערה הזו לאחר האישור.
-        </div>
-      </div>
+      <PageHero
+        breadcrumbs={[{ label: "בית", href: "/" }, { label: "אודות", href: "/about" }]}
+        image="exterior/exterior-building-01.webp"
+        eyebrow="נעים להכיר"
+        title="הסיפור של מיקאסה"
+        body={"שתי סוויטות ותשע-עשרה שנות ניסיון אירוח כפרי. זה הסיפור שלנו, בקצרה."}
+        angle={1.4}
+        cardAlign="end"
+      />
 
       <Section band="cream">
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
           <article className="prose-mikasa max-w-2xl text-lg leading-relaxed text-[--color-ink] space-y-5">
             <p className="text-xl text-[--color-ink-soft]">נעים מאוד, אני מיקה.</p>
             <p>
-              לפני [כמה] שנים, כשהחלטנו להפוך את הפינה הזאת שלנו במושב שעל למקום
-              אירוח, לא חיפשנו להקים ״עסק״. חיפשנו לתת לזוגות בדיוק את מה שאנחנו הכי
-              אוהבים בעצמנו, פינה שקטה בטבע, הרחק מהרעש, שבה אפשר סוף סוף לנשום.
+              משפחת בכר היא משפחת חקלאים הנושמת את האדמה כבר למעלה מ-40 שנה. המטעים והכרמים שלנו - גפנים, דובדבנים, אפרסקים, קיווי ותפוחי עץ הנהנים מהגובה והאקלים המיוחד של צפון הגולן, ומקיפים את הבית שלנו בירוק שמתחלף עם עונות השנה. כחלק משגרת החיים הזו, הטבע והשקט הם חלק בלתי נפרד ממי שאנחנו.
             </p>
             <p>
-              שעל יושב בצפון רמת הגולן, בגובה, מוקף מטעים ונוף שנפתח אל עמק החולה,
-              החרמון והכינרת. באביב הכל פורח, בקיץ האוויר צלול וקריר, ובחורף לפעמים
-              יורד שלג ומכסה הכל בלבן. זה מקום שמרגיש רחוק מהעולם, אבל הוא קרוב לכל
-              מה שיפה בגולן.
+              לפני 19 שנה, כשהחלטנו להפוך את הפינה הפרטית שלנו במושב שעל למקום אירוח, חלמנו להעניק לזוגות בדיוק את מה שאנחנו אוהבים יותר מכל - פינה שקטה בלב הטבע, הרחק מהרעש, מקום שבו אפשר לצאת מהמרוץ ולנשום עמוק.
             </p>
             <p>
-              במיקאסה יש שתי סוויטות, סוויטת יער וסוויטת גשם. כל אחת מהן עוצבה
-              באהבה, עם ג׳קוזי פרטי, מרפסת ופינה חמה משלכם. אין כאן הרבה יחידות ואין
-              המולה, וזה בכוונה. אני אוהבת שכל זוג שמגיע מרגיש שהמקום כולו שלו.
+              אני מלווה אתכם באופן אישי משיחת הטלפון הראשונה - מייעצת על מסלולי טיול, יקבים ומסעדות טובות, ודואגת שתגיעו לחופשה שלכם בנחת ובראש שקט.
             </p>
-            <p>
-              אני מלווה כל אורח באופן אישי, מהשיחה הראשונה בטלפון ועד הרגע שאתם
-              עוזבים. אשמח לעזור לכם לתכנן את החופשה, להמליץ על מסלול טיול או יקב, או
-              פשוט לדאוג שיהיה לכם הכל כדי לנוח.
-            </p>
-            <p>
-              אתם מוזמנים להתקשר אליי. אשמח להכיר אתכם ולעזור לכם למצוא את התאריך
-              המושלם.
-            </p>
-            <p className="font-display text-2xl text-[--color-ink]">
-              בחום,
-              <br />
-              מיקה
-            </p>
+            <p>מחכה לראות אתכם בין אורחינו,</p>
+            <p className="font-display text-2xl text-[--color-ink]">באהבה מיקה</p>
           </article>
 
-          <div className="space-y-5">
-            <div className="relative rounded-[--radius-card] overflow-hidden aspect-[4/5]">
-              <Img file="exterior/exterior-sign-mikasa.webp" fill sizes="(max-width:1024px) 100vw, 33vw" className="object-cover" />
+          {/* A stack of two square-ish prints, not two full-width panels.
+              The back one sits high and toward the reading start (right, in
+              RTL); the front one overlaps it lower and toward the end,
+              carries a slight counter-tilt and the stronger shadow, and reads
+              as physically resting on top — the same "photo pinned to a
+              crate" language as .hero-card and .suite-card, applied to two
+              images instead of one label. Owner-sketched layout, 2026-08-27. */}
+          <div className="photo-stack">
+            <div className="photo-stack__back">
+              <Img
+                file="exterior/exterior-sign-mikasa.webp"
+                fill
+                sizes="(max-width:1024px) 60vw, 24vw"
+                className="object-cover"
+              />
             </div>
-            <div className="relative rounded-[--radius-card] overflow-hidden aspect-[4/3]">
-              <Img file="exterior/exterior-building-01.webp" fill sizes="(max-width:1024px) 100vw, 33vw" className="object-cover" />
+            {/* Was exterior-building-01 (the same photo already used as this
+                page's own hero background, right above); a Golan view reads
+                better here than a repeat of the building. */}
+            <div className="photo-stack__front">
+              <Img
+                file="views/view-golan-valley.webp"
+                fill
+                sizes="(max-width:1024px) 60vw, 24vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </Section>
 
-      <CtaBand location="about" title="בואו נכיר." subtitle="חייגו למיקה, ונתכנן יחד את החופשה הזוגית שלכם בגולן." />
-
-      <FinalCta location="about-final" />
+      <CtaBand location="about" />
     </>
   );
 }

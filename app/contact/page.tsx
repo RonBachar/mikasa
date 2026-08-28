@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import { PageHero } from "@/components/page-hero";
 import { PhoneCTA, WhatsAppCTA } from "@/components/cta";
 import { PhoneIcon, WhatsAppIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "הזמנת סוויטה ויצירת קשר | צימר מיקאסה, שעל",
+  title: "הזמנת סוויטה אישית ויצירת קשר | צימר מיקאסה, שעל",
   description:
-    "יצירת קשר עם מיקאסה בשעל, רמת הגולן. הזמנה בטלפון או בוואטסאפ, כתובת ושעות. חייגו למיקה 054-586-9818.",
+    "ליצירת קשר עם מיקאסה בשעל, רמת הגולן, והזמנת סוויטה בטלפון או בוואטסאפ. כתובת, שעות ודרכי הגעה. חייגו למיקה: 054-586-9818.",
   alternates: { canonical: "/contact" },
 };
 
@@ -17,25 +17,21 @@ const mapsQuery = encodeURIComponent(siteConfig.address.full);
 export default function ContactPage() {
   return (
     <>
-      <Section band="cream-2" className="!pt-28">
-        <Breadcrumbs items={[{ label: "בית", href: "/" }, { label: "צור קשר", href: "/contact" }]} />
-        <div className="mt-6 max-w-3xl">
-          <span className="eyebrow">נשמח לשמוע מכם</span>
-          <h1 className="text-5xl mt-3">הזמנת סוויטה ויצירת קשר</h1>
-          <div className="hairline-short mt-4" />
-          <p className="mt-5 text-xl text-[--color-ink-soft] leading-relaxed">
-            ההזמנה במיקאסה אישית ופשוטה, בשיחת טלפון או הודעת וואטסאפ ישירה למיקה.
-            אין הזמנה אונליין, כי אנחנו אוהבים לתאם ולהכיר אתכם.
-          </p>
-        </div>
-      </Section>
+      <PageHero
+        breadcrumbs={[{ label: "בית", href: "/" }, { label: "צור קשר", href: "/contact" }]}
+        image="exterior/exterior-patio-01.webp"
+        eyebrow="נשמח לשמוע מכם"
+        title="הזמנת סוויטה ויצירת קשר"
+        body={"הזמנה כאן היא תמיד אישית: שיחה או הודעת וואטסאפ ישירה אליי, מיקה. אני מעדיפה להכיר אתכם לפני שאתם מגיעים."}
+        angle={-1.3}
+      />
 
       <Section band="cream">
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact details */}
           <div className="space-y-6">
             <div className="card p-7">
-              <h2 className="font-display text-2xl text-[--color-ink]">דברו עם מיקה</h2>
+              <h2 className="font-display text-2xl text-[--color-ink]">להזמנות ומידע נוסף צרו קשר</h2>
               <div className="hairline-short my-4" />
               <div className="space-y-4">
                 <p className="flex items-center gap-3 text-lg">
@@ -52,8 +48,8 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <PhoneCTA location="contact" showNumber className="w-full" />
-                <WhatsAppCTA location="contact" className="w-full" />
+                <PhoneCTA location="contact" className="w-full">בטלפון</PhoneCTA>
+                <WhatsAppCTA location="contact" className="w-full">בוואטסאפ</WhatsAppCTA>
               </div>
             </div>
 
@@ -85,7 +81,7 @@ export default function ContactPage() {
                 <p className="font-display text-2xl text-[--color-ink]">מושב שעל, רמת הגולן</p>
                 <p className="mt-3 text-[--color-ink-soft] max-w-xs mx-auto">
                   {/* TODO owner: לאשר מיקום מדויק להטמעת מפה חיה */}
-                  אנחנו בצפון הגולן, קרוב לחרמון, לסער ולבירכת רם.
+                  אנחנו ממוקמים בלב ליבו של צפון הגולן, מרחק קצר מהחרמון, מפל סער ובריכת רם הקסומה.
                 </p>
               </div>
             </div>

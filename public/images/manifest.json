@@ -467,5 +467,49 @@
     "alt": "מפל ובריכה טבעית בנחל סמוך למיקאסה ברמת הגולן",
     "w": 1920,
     "h": 1280
+  },
+  {
+    "file": "packages/package-breakfast.webp",
+    "folder": "packages",
+    "alt": "ארוחת בוקר כפרית עשירה עם ביצי עין, לחם כפרי אפוי וקפה, מוגשת לזוג",
+    "w": 640,
+    "h": 427,
+    "kb": 63,
+    "src": "Packages/breakfast.jpg",
+    "license": "stock",
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoMAAgAA4BaJbACdAYs3nY9LflgYAD+rGtjhowsdu7FnOba1fwplO4KVv1Gg7hJ+s6NSJWSkp0U2/S3F1N++MXFROa7YAXyqXvn1n6Md3QAAA=="
+  },
+  {
+    "file": "packages/package-birthday.webp",
+    "folder": "packages",
+    "alt": "עוגת יום הולדת עם נרות דולקים ובלונים צבעוניים, חבילת יום הולדת לזוגות",
+    "w": 640,
+    "h": 427,
+    "kb": 21,
+    "src": "Packages/birthday.jpg",
+    "license": "stock",
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMAAgAA4BaJagCdADhmI8391AA/q3eU11AkWGxdkdS5wFkdEUddhrLsv31AE/lZr/eoxH/Zdwq79rv5CZJBVDMCqtwGgAA"
+  },
+  {
+    "file": "packages/package-anniversary.webp",
+    "folder": "packages",
+    "alt": "זוג מרים כוסות יין לבן לחיים לצד זר טוליפים ורודים, חבילת יום נישואין ורומנטיקה",
+    "w": 640,
+    "h": 480,
+    "kb": 32,
+    "src": "Packages/anniversary.jpg",
+    "license": "stock",
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoMAAkAA4BaJbACdAEXv/6aMYAA/u0nSK8mrVOAu+10A8AE1nc65agZpipy2It7Yhil4G/34xOxz1SLAiozPll0tNL1sqahQ0a9iALAAAA="
+  },
+  {
+    "file": "packages/package-massage.webp",
+    "folder": "packages",
+    "alt": "מטפלת מעסה גב בעיסוי מרגיע באור טבעי, חבילת עיסוי זוגי בסוויטה",
+    "w": 640,
+    "h": 427,
+    "kb": 18,
+    "src": "Packages/massage.jpg",
+    "license": "stock",
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAgAA4BaJZgCdADcUNLwE8AAzaHnfeae+LW15Ijel6C8yj3iidQDMJEyhCGSrGh7vd3BZJm+0uDSVa9TzV4AAAA="
   }
 ]

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
+import { CtaBand } from "@/components/cta-band";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { siteConfig } from "@/lib/site-config";
+import { EmailLink } from "@/components/email-link";
 
 export const metadata: Metadata = {
   title: "מדיניות פרטיות | צימר מיקאסה",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
+    <>
     <Section band="cream" className="!pt-28">
       <Breadcrumbs items={[{ label: "בית", href: "/" }, { label: "מדיניות פרטיות", href: "/privacy" }]} />
       <div className="mt-6 max-w-3xl text-[--color-ink] leading-relaxed space-y-5">
@@ -56,7 +59,37 @@ export default function PrivacyPage() {
           <a href={siteConfig.telHref} dir="ltr" className="tabular-nums underline decoration-[--color-gold] underline-offset-4">
             {siteConfig.phoneDisplay}
           </a>
-          .
+          {" "}או במייל <EmailLink className="underline decoration-[--color-gold] underline-offset-4" />.
+        </p>
+
+        {/*
+          Attribution for the area glyphs, moved here from the footer bottom
+          bar. CC BY 3.0 requires the credit to be visible and reasonably
+          discoverable, not to sit in any particular place, so a named section
+          on a page linked from every footer satisfies it.
+          Do not delete this while components/area-icons.tsx uses those glyphs.
+        */}
+        <h2 className="font-display text-2xl text-[--color-ink]">קרדיטים</h2>
+        <p>
+          אייקוני האזור באתר לקוחים מ־
+          <a
+            href="https://game-icons.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-[--color-gold] underline-offset-4"
+          >
+            game-icons.net
+          </a>{" "}
+          ומשמשים תחת רישיון{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/3.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-[--color-gold] underline-offset-4"
+          >
+            CC BY 3.0
+          </a>
+          . כל צילומי הנכס והסוויטות הם צילומים מקוריים שלנו.
         </p>
 
         <p className="text-sm text-[--color-ink-soft]">
@@ -64,5 +97,8 @@ export default function PrivacyPage() {
         </p>
       </div>
     </Section>
+
+    <CtaBand location="privacy" />
+    </>
   );
 }

@@ -6,14 +6,37 @@ export type ImgMeta = {
   height: number;
   alt: string;
   file: string;
+  /** Tiny inline preview, where the manifest carries one. See `blur` below. */
+  blurDataURL?: string;
 };
 
-const rows = manifest as { file: string; folder: string; alt: string; w: number; h: number }[];
+/**
+ * `blur` is a ~100-byte 12px-wide WebP data URI baked into the manifest, so
+ * next/image can paint something in the card's slot immediately instead of
+ * leaving a hole while the real file downloads. Optional: only images
+ * processed since it was introduced carry one, and `Img` simply skips the
+ * placeholder for the rest.
+ */
+const rows = manifest as {
+  file: string;
+  folder: string;
+  alt: string;
+  w: number;
+  h: number;
+  blur?: string;
+}[];
 
 const byFile = new Map<string, ImgMeta>(
   rows.map((r) => [
     r.file,
-    { src: `/images/${r.file}`, width: r.w, height: r.h, alt: r.alt, file: r.file },
+    {
+      src: `/images/${r.file}`,
+      width: r.w,
+      height: r.h,
+      alt: r.alt,
+      file: r.file,
+      blurDataURL: r.blur,
+    },
   ])
 );
 

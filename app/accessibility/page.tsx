@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/section";
+import { CtaBand } from "@/components/cta-band";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { siteConfig } from "@/lib/site-config";
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function AccessibilityPage() {
   return (
+    <>
     <Section band="cream" className="!pt-28">
       <Breadcrumbs items={[{ label: "בית", href: "/" }, { label: "הצהרת נגישות", href: "/accessibility" }]} />
       <div className="mt-6 max-w-3xl text-[--color-ink] leading-relaxed space-y-5">
@@ -58,5 +60,8 @@ export default function AccessibilityPage() {
         </p>
       </div>
     </Section>
+
+    <CtaBand location="accessibility" />
+    </>
   );
 }

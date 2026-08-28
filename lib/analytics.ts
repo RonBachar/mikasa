@@ -2,7 +2,10 @@
 export type GaEventName =
   | "phone_click"
   | "whatsapp_click"
-  | "cta_click";
+  | "cta_click"
+  // Waze / Google Maps taps. Not a conversion in itself, but a strong intent
+  // signal: someone getting directions has usually already booked.
+  | "navigate_click";
 
 type GaParams = Record<string, string | number | boolean | undefined>;
 

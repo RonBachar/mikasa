@@ -1,28 +1,44 @@
 @import "tailwindcss";
 
 /* =====================================================================
-   MIKASA · Almaris-match palette (beige + brass gold)
-   RTL-first. Airy, elegant, generous whitespace.
+   MIKASA · Golan crate-label world (direction contract: app/layout.tsx)
+   Two rare "crops" — סוויטת יער (orchard green) and סוויטת גשם (cherry red)
+   — told through the region's own fruit-crate/roadside-stand branding
+   language: raw timber, kraft label paper, stamped ink seals, thick
+   condensed display type. RTL-first.
+
+   MIGRATION NOTE: legacy Almaris tokens/classes below the base layer are
+   kept temporarily so not-yet-rebuilt components keep working while each
+   is re-skinned section by section. They are being removed as that work
+   lands, not extended.
    ===================================================================== */
 
 @theme {
-  /* ---- Color (Almaris) ---- */
-  --color-cream: #fff5ed; /* page background */
-  --color-cream-2: #efe7d8; /* subtle section separation */
-  --color-gold: #b5936d; /* primary accent: Almaris tan/brass */
-  --color-gold-deep: #9e7a55; /* button hover / darker gold */
-  --color-gold-soft: #c9a86a; /* gold text on dark backgrounds */
-  --color-ink: #2b2620; /* headings + body text */
-  --color-ink-soft: #606060; /* body / secondary text */
-  --color-line: #e0d5c0; /* hairline borders, dividers */
-  --color-white: #ffffff; /* card backgrounds */
-  --color-dark: #1e1b17; /* dark footer + dark bands */
+  /* ---- Color: Golan crate-label world ---- */
+  --color-parchment: #f2e6ce; /* kraft label paper — page background */
+  --color-kraft: #dfc294; /* warm cardboard/crate tone — section band separation */
+  --color-timber: #7a5230; /* raw timber wood — borders, crate-frame lines */
+  --color-cherry: #8b2635; /* variety accent: סוויטת גשם — committed, page-scale */
+  --color-cherry-deep: #6b1b26; /* cherry hover/active */
+  --color-ink: #1c140d; /* stencil ink — headings + body text */
+  --color-ink-soft: #4a3b2c; /* softer stencil ink — secondary text */
+  --color-line: #b99b6b; /* hairline borders, dividers */
+  --color-white: #fffdf8; /* card backgrounds */
+  --color-dark: #14100a; /* near-black timber — footer + dark bands */
+
+  /* Legacy Almaris aliases — still read by not-yet-rebuilt components.
+     Remove once every component in Tasks 3-9 is migrated. */
+  --color-cream: var(--color-parchment);
+  --color-cream-2: var(--color-kraft);
+  --color-gold: var(--color-cherry);
+  --color-gold-deep: var(--color-cherry-deep);
+  --color-gold-soft: #d9a24a;
 
   /* ---- Fonts ---- */
-  --font-display: var(--font-display), "Frank Ruhl Libre", Georgia, serif;
+  --font-display: var(--font-display), "Alef", system-ui, sans-serif;
   --font-body: var(--font-body), "Heebo", system-ui, sans-serif;
 
-  /* ---- Type scale (airy, Almaris-like) ---- */
+  /* ---- Type scale ---- */
   --text-xs: 0.8rem;
   --text-sm: 0.9rem;
   --text-base: 1.0625rem; /* ~17px body */
@@ -32,21 +48,36 @@
   --text-3xl: clamp(1.85rem, 1.5rem + 1.4vw, 2.4rem);
   --text-4xl: clamp(2.25rem, 1.7rem + 2.4vw, 3.25rem); /* section H2 ~36-52 */
   --text-5xl: clamp(2.5rem, 1.9rem + 3vw, 3.75rem);
-  --text-hero: clamp(2.6rem, 1.9rem + 3.1vw, 4.25rem); /* hero H1 ~42-68 */
+  --text-hero: clamp(2.9rem, 2rem + 4.2vw, 5.25rem); /* hero wordmark, bolder & bigger than before */
 
-  /* ---- Radii (Almaris: clean, slight) ---- */
-  --radius-control: 4px; /* buttons: near-rectangular */
-  --radius-card: 12px; /* image frames / cards */
+  /* ---- Radii: raw crate wood, not soft hotel-card corners ---- */
+  --radius-control: 0px; /* buttons: sharp corners, no radius */
+  --radius-card: 2px; /* image frames — plank-edge, barely eased */
 
-  /* ---- Shadows (soft, warm, Almaris) ---- */
-  --shadow-card: 0 2px 6px rgba(43, 38, 32, 0.05), 0 14px 36px rgba(43, 38, 32, 0.1);
-  --shadow-lift: 0 10px 24px rgba(43, 38, 32, 0.12), 0 26px 60px rgba(43, 38, 32, 0.16);
+  /* ---- Shadows: graphic and hard, not soft/blurred ---- */
+  --shadow-card: 0 1px 0 rgba(28, 20, 13, 0.1), 0 8px 18px rgba(28, 20, 13, 0.2);
+  --shadow-lift: 0 14px 26px rgba(28, 20, 13, 0.3);
 
   /* ---- Layout ---- */
   --container-content: 80rem; /* 1280px */
 
   /* ---- Motion ---- */
   --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Plain CSS custom properties (not inside @theme) — a small set of Tailwind
+   v4 theme tokens reproducibly fail to register under Turbopack in this
+   project (confirmed across renames, positions, and a full dev-server
+   restart). Declaring them as ordinary :root variables sidesteps Tailwind's
+   @theme static analysis entirely; the browser reads plain CSS unconditionally.
+   These are only ever consumed via var(), never as Tailwind utilities, so
+   nothing is lost by moving them here. */
+:root {
+  --color-forest: #4b6b39; /* variety accent: סוויטת יער — committed, page-scale */
+  --color-forest-deep: #38512a; /* forest hover/active */
+  --color-brown: var(--color-timber);
+  --shadow-stamp: 3px 4px 0 rgba(28, 20, 13, 0.85); /* hard offset — rubber-stamp print */
+  --shadow-stamp-lg: 7px 9px 0 rgba(28, 20, 13, 0.8); /* same idea, hero scale */
 }
 
 /* ---- Base ---------------------------------------------------------- */
@@ -59,7 +90,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.75;
-  color: #606060;
+  color: var(--color-ink-soft);
   text-rendering: optimizeLegibility;
 }
 
@@ -69,8 +100,9 @@ h3,
 h4 {
   font-family: var(--font-display);
   color: var(--color-ink);
-  line-height: 1.12;
-  font-weight: 500;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
@@ -79,19 +111,278 @@ p {
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: #fff;
+  background: var(--color-cherry);
+  color: var(--color-parchment);
+}
+
+/* Visually hidden but read aloud. Tailwind ships this, but it is declared
+   here too so components that rely on it keep working if a class is ever
+   purged from the utility layer. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ---- Accessibility: visible focus ---------------------------------- */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-cherry);
   outline-offset: 3px;
   border-radius: 2px;
 }
 .on-dark:focus-visible,
 .on-dark :focus-visible {
-  outline-color: var(--color-gold-soft);
+  outline-color: var(--color-kraft);
+}
+
+/* ---- Crate-label world: reusable motifs -----------------------------
+   Stamped ink badges, ruled crate-frame borders, kraft/woodgrain bands.
+   Used by the hero, suite variety cards, and section chrome as each is
+   rebuilt. */
+
+/* Subtle diagonal wood-crate grain, for section bands and photo frames. */
+.kraft-grain {
+  background-image:
+    repeating-linear-gradient(
+      115deg,
+      rgba(28, 20, 13, 0.07) 0px,
+      rgba(28, 20, 13, 0.07) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
+    repeating-linear-gradient(
+      25deg,
+      rgba(28, 20, 13, 0.04) 0px,
+      rgba(28, 20, 13, 0.04) 1px,
+      transparent 1px,
+      transparent 16px
+    );
+}
+
+/* Circular rubber-stamp ink badge — used for the harvest-seal / variety
+   marks. Slight rotation + hard offset shadow reads as physically stamped,
+   not printed flat. */
+.stamp-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  box-shadow: inset 0 0 0 4px rgba(242, 230, 206, 0.9);
+  transform: rotate(-4deg);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   The crate label.
+
+   One card, every page. A kraft label pinned over full-bleed photography,
+   tilted a degree or two so it reads as a tag stapled to a crate corner
+   rather than a box centred by a layout engine. The tilt angle is set per
+   page through --hero-angle: same object, never the same twice, which is how
+   real labels on real crates look.
+
+   Used by components/page-hero.tsx and components/hero-split.tsx.
+   --------------------------------------------------------------------------- */
+.hero-card {
+  position: relative;
+  max-width: 36rem;
+  padding: 2rem 1.75rem;
+  /* A hair of the photo behind shows through the kraft, so the card reads as
+     a translucent label pinned over the crate rather than an opaque sticker.
+     8% is deliberately subtle: push it much further and body text loses
+     contrast against whatever the photo is doing underneath. The backdrop
+     blur keeps the peeking photo soft rather than distractingly sharp. */
+  background: color-mix(in srgb, var(--color-kraft) 92%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--color-timber);
+  box-shadow: var(--shadow-stamp-lg);
+  transform: rotate(var(--hero-angle, -1.1deg));
+}
+@media (min-width: 768px) {
+  .hero-card {
+    padding: 2.75rem 2.5rem;
+  }
+}
+/* The tilt is decoration, so it goes when the visitor has asked for less
+   motion and less visual noise. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-card {
+    transform: none;
+  }
+}
+.hero-card__crumbs {
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+.hero-card__title {
+  margin-top: 0.75rem;
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+.hero-card__body {
+  margin-top: 1rem;
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+}
+/* Row of swing tags under the body: suite varieties on the home page, price
+   tags on /prices, whatever names the page's two or three real things. */
+.hero-card__marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.hero-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Ruled double-line crate-label frame — for photo frames and info cards. */
+.crate-frame {
+  border: 1px solid var(--color-timber);
+  outline: 1px solid var(--color-timber);
+  outline-offset: 4px;
+}
+
+/* Swing-tag — a real luggage/crate tag: a notched point, a punched hole,
+   icon + text inline. Replaces an earlier circular "achievement badge"
+   treatment that read as a kids'-app icon, not a crate mark. */
+/* Point deliberately on the physical left (site is RTL-only, so this is
+   consistently the trailing edge, like a tag hanging off the sentence).
+   clip-path coordinates are always physical, not logical — mixing them
+   with inset-inline-* would put the hole on the wrong side in RTL. */
+/* A real CSS `border` cannot survive here: clip-path cuts the box along the
+   notch, and the cut edges carry no border. Faking it with an oversized
+   pseudo also fails, because clip-path clips the element's whole painted
+   subtree, pseudo-elements included, so any outward overhang is discarded.
+   So the rim is painted the other way round: the tag's own background IS
+   the rim colour, and an inset pseudo lays the parchment fill back on top,
+   leaving 1.5px of colour showing on every edge, the notch included. */
+.variety-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  /* 0.5rem block padding put these at 39px, just under a comfortable tap
+     target. They are real links to the two suite pages, so they get the same
+     44px floor as .btn. */
+  padding: 0.72rem 0.85rem 0.72rem 1.5rem;
+  min-height: 44px;
+  background: currentColor;
+  clip-path: polygon(100% 0, 14px 0, 0 50%, 14px 100%, 100% 100%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+/* Inset 1.5px on every side; the notch vertex moves in with it, so its x
+   grows from 14px to 15px to keep the point's rim the same visual weight. */
+.variety-tag::before {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  background: var(--color-parchment);
+  clip-path: polygon(100% 0, 15px 0, 0 50%, 15px 100%, 100% 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+.variety-tag__hole {
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: var(--color-parchment);
+}
+/* Hover: the tag swings on its punched hole.
+   A real swing tag is hung from that hole, so it pivots there rather than
+   sliding or scaling. transform-origin sits on the hole (9px in, centred),
+   and the rotation is small enough to read as weight settling rather than as
+   a wobble. The fill warms toward the variety colour at the same time, so the
+   tag also looks picked up and turned toward the light. */
+.variety-tag {
+  transition:
+    transform 0.35s var(--ease-out-soft),
+    filter 0.35s var(--ease-out-soft);
+  transform-origin: 12px 50%;
+}
+.variety-tag::before {
+  transition: background-color 0.35s var(--ease-out-soft);
+}
+@media (hover: hover) {
+  .variety-tag:hover,
+  .variety-tag:focus-visible {
+    transform: rotate(-3deg);
+  }
+  .variety-tag:hover::before,
+  .variety-tag:focus-visible::before {
+    /* Parchment tinted 12% toward the tag's own colour: enough to register,
+       not enough to hurt the ink-on-parchment contrast of the label. */
+    background: color-mix(in srgb, currentColor 12%, var(--color-parchment));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .variety-tag {
+    transition: none;
+  }
+  .variety-tag:hover,
+  .variety-tag:focus-visible {
+    transform: none;
+  }
+}
+.variety-tag__icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* Diagonal corner-ribbon — classic produce/quality-seal banner draped
+   across a photo corner. Replaces the circular corner badge on suite
+   cards (the same shape family already retired from the hero after it
+   read as a game-achievement icon). Physical positioning, not logical —
+   the site is RTL-only and a rotated diagonal element needs a fixed
+   physical corner regardless. */
+.corner-ribbon {
+  position: absolute;
+  top: 20px;
+  right: -42px;
+  z-index: 2;
+  width: 160px;
+  padding-block: 0.4rem;
+  text-align: center;
+  transform: rotate(45deg);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(28, 20, 13, 0.4);
+}
+
+/* Big stamped wordmark treatment for hero-scale headlines. */
+.stencil-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+  color: var(--color-ink);
+  text-wrap: balance;
 }
 
 /* ---- Almaris eyebrow: small gold label -------------- */
@@ -105,18 +396,41 @@ p {
   text-transform: uppercase;
 }
 
-/* Navbar links — 16px / #181818 / weight 400, brown on hover */
+/* Navbar links — bold, tracked, stencil-tag feel: a growing underline
+   tick on hover/active instead of a flat color swap. */
 .nav-link {
+  position: relative;
   padding-block: 0.5rem;
   font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: #181818;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-ink);
   transition: color 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    to left,
+    var(--color-cherry) 0,
+    var(--color-cherry) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  transform: scaleX(0);
+  transform-origin: right; /* site is RTL-only; "start" edge is physically right */
+  transition: transform 0.25s var(--ease-out-soft);
 }
 .nav-link:hover,
 .nav-link.is-active {
-  color: var(--color-gold);
+  color: var(--color-cherry);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
 }
 
 /* Soft dropdown reveal — slides top → bottom */
@@ -134,28 +448,124 @@ p {
     transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
     visibility 0.4s;
 }
-.group:hover .nav-dropdown,
-.group:focus-within .nav-dropdown {
+.nav-dropdown.is-open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Navbar dropdown link — Almaris hover: brown bg + white text */
+/* Navbar dropdown link — kraft ticket panel, cherry-stamp hover */
 .nav-dropdown-link {
   display: block;
   padding: 0.85rem 1.25rem;
   font-size: 0.9rem;
-  font-weight: 400;
-  color: #181818;
+  font-weight: 600;
+  color: var(--color-ink);
   background: transparent;
+  border-bottom: 1px solid var(--color-line);
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+.nav-dropdown-link:last-child {
+  border-bottom: none;
 }
 .nav-dropdown-link:hover,
 .nav-dropdown-link:focus-visible {
-  background-color: var(--color-gold);
+  background-color: var(--color-cherry);
   color: #fff;
+}
+/* The suite you are currently reading — marked, but not as loud as hover. */
+.nav-dropdown-link.is-active {
+  color: var(--color-cherry);
+}
+
+/* ---- Icon side-rail buttons (explicit colors, never disappear) -----
+   DEFAULT: dark brown bg (--ink #2B2620) + WHITE icon.
+   HOVER/FOCUS: white bg + dark icon.
+   All rail icons render via currentColor, so `color` drives the glyph
+   in both states. Background and icon color are always different, so an
+   icon can never blend into its background. */
+.rail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-cherry); /* stamped-ink red, the committed accent */
+  color: #ffffff; /* white icon on cherry */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.rail-item:hover,
+.rail-item:focus-visible {
+  background-color: #ffffff; /* white bg */
+  color: var(--color-cherry); /* cherry icon on white */
+}
+
+/* ---- Almaris pre-footer gallery strip ------------------------------
+   Full-bleed, edge-to-edge row of square tiles, no gaps. Sits directly
+   above the footer. Each tile shows a clean centered camera icon (no
+   frame) by default. On hover the icon fades away and the photo does a
+   slow Ken Burns zoom. */
+.gallery-strip {
+  width: 100%;
+}
+.gallery-strip__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* mobile: 4 across, 2 rows */
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .gallery-strip__row {
+    grid-template-columns: repeat(8, 1fr); /* desktop: single row of 8 */
+  }
+}
+.gallery-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-cream-2);
+}
+/* Slow Ken Burns zoom timing lives on the image itself. */
+.gallery-tile img {
+  transition: transform 5s var(--ease-out-soft);
+}
+/* Icon layer: centered, no frame, visible by default. */
+.gallery-tile__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.gallery-tile__icon {
+  display: flex;
+  color: #fff;
+  /* soft shadow so the white camera reads on light or dark photos */
+  filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.55));
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* On hover the camera icon disappears... */
+  .gallery-tile:hover .gallery-tile__overlay,
+  .gallery-tile:focus-visible .gallery-tile__overlay {
+    opacity: 0;
+  }
+  /* ...and the photo zooms in slowly (Ken Burns). */
+  .gallery-tile:hover img,
+  .gallery-tile:focus-visible img {
+    transform: scale(1.14);
+  }
 }
 
 /* ---- Dividers / hairline motif ------------------------------------- */
@@ -171,11 +581,21 @@ p {
     transparent
   );
 }
+/* The short rule is the same mark as .hairline, just at label scale: it fades
+   out at both ends instead of stopping dead, so it reads as a drawn stroke
+   rather than a cut bar. Slightly wider than the old 3rem stub because a
+   tapered line needs room to actually taper. */
 .hairline-short {
   height: 2px;
-  width: 3rem;
-  background: var(--color-gold);
-  border-radius: 2px;
+  width: 4.5rem;
+  background: linear-gradient(
+    to left,
+    transparent,
+    color-mix(in srgb, var(--color-gold) 60%, transparent) 20%,
+    var(--color-gold) 50%,
+    color-mix(in srgb, var(--color-gold) 60%, transparent) 80%,
+    transparent
+  );
 }
 
 /* ---- Motion: gentle reveal ----------------------------------------- */
@@ -262,6 +682,37 @@ p {
   padding-inline: 1.5rem;
 }
 
+/* ---- Unified warm image grade (reversible) --------------------------
+   One warm tint laid over site imagery so every photo shares a single
+   cohesive tone (Almaris-style). Applied purely as a CSS overlay, the
+   source files are untouched.
+
+   Dial the whole site in ONE place with --image-tint-opacity below
+   (0 = off). The tint always paints just above the photo and BELOW any
+   existing dark scrim/caption, so images that already carry a text
+   gradient (suite cards, special offers, full-bleed hero) warm on their
+   clean areas without being double-darkened where the text sits. */
+:root {
+  --image-tint: 58, 46, 26; /* warm brown, ~ #3A2E1A (near --ink) */
+  --image-tint-opacity: 0.12; /* subtle by default; tune 0.08 - 0.18 */
+}
+
+/* Clean photos: wrap the image container with .img-tint. */
+.img-tint {
+  position: relative;
+  isolation: isolate; /* keep the multiply blend inside this box */
+}
+.img-tint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(var(--image-tint));
+  mix-blend-mode: multiply;
+  opacity: var(--image-tint-opacity);
+  pointer-events: none;
+}
+
 /* ---- Buttons (Almaris: compact, slim weight, text only) ------------ */
 .btn {
   display: inline-flex;
@@ -270,15 +721,20 @@ p {
   gap: 0.45rem;
   border-radius: var(--radius-control);
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.06em;
-  padding: 0.55rem 1.25rem;
+  padding: 0.62rem 1.35rem;
   line-height: 1.2;
+  /* Every .btn measured 40px tall, under the 44px a thumb needs. The padding
+     alone cannot fix it without changing the proportions, so the floor is set
+     here and the label stays vertically centred inside it. */
+  min-height: 44px;
   transition:
-    background-color 0.2s var(--ease-out-soft),
-    color 0.2s,
-    border-color 0.2s,
-    filter 0.2s;
+    background-color 0.25s var(--ease-out-soft),
+    color 0.25s var(--ease-out-soft),
+    border-color 0.25s var(--ease-out-soft),
+    transform 0.25s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft);
   cursor: pointer;
 }
 .btn svg {
@@ -286,50 +742,187 @@ p {
   height: 0.95rem;
   flex-shrink: 0;
 }
+/* Button motion.
+   Four buttons, two behaviours, one physics. Everything else in this design
+   casts a hard zero-blur shadow down and to the right, which means the light
+   comes from the upper left. The buttons obey the same light.
+
+   Solid buttons (primary, whatsapp) are objects: hovering picks them up off
+   the page so a shadow appears under them, and pressing puts them back down
+   flat. Outlined buttons (outline, ghost) are labels: hovering floods them
+   with ink from the reading edge instead of snapping the background on.
+
+   The sweep needs the pseudo to sit above the button's own background but
+   below its label, which is what z-index -1 inside an isolated stacking
+   context does. `overflow: hidden` keeps the flood inside the rule. */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  /* Physical `right`, not a logical property: the site is RTL only, and the
+     ink should enter from the edge the reader starts at. */
+  transform-origin: right center;
+  transition: transform 0.38s var(--ease-out-soft);
+}
+
+/* --- Solid: lift on hover, press on click --- */
 .btn-primary {
   background: var(--color-gold);
   color: #fff;
   border: 1px solid var(--color-gold);
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 rgba(28, 20, 13, 0);
 }
 .btn-primary:hover {
   background: var(--color-gold-deep);
   border-color: var(--color-gold-deep);
+  transform: translate(-2px, -3px);
+  box-shadow: 4px 5px 0 rgba(28, 20, 13, 0.45);
 }
+.btn-primary:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 rgba(28, 20, 13, 0);
+}
+
+/* Orchard green, not WhatsApp brand green (#25d366). The brand colour is a
+   screen-native neon that fought every earthy tone on the page and pulled the
+   eye off the primary phone CTA sitting next to it. Forest is the site's own
+   green, so the button now belongs to Mikasa and reads as secondary to the
+   cherry primary — which matches the actual priority. */
+.btn-whatsapp {
+  background: var(--color-forest);
+  color: var(--color-white);
+  border: 1px solid var(--color-forest-deep);
+  letter-spacing: 0.04em;
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 rgba(28, 20, 13, 0);
+}
+.btn-whatsapp:hover {
+  background: var(--color-forest-deep);
+  border-color: var(--color-forest-deep);
+  transform: translate(-2px, -3px);
+  box-shadow: 4px 5px 0 rgba(28, 20, 13, 0.32);
+}
+.btn-whatsapp:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 rgba(28, 20, 13, 0);
+}
+/* The message mark leans forward as it goes, which is the one place a small
+   piece of character costs nothing. */
+.btn-whatsapp svg {
+  transition: transform 0.38s var(--ease-out-soft);
+}
+.btn-whatsapp:hover svg {
+  transform: translateX(-2px) rotate(-8deg);
+}
+
+/* --- Outlined: ink floods in from the reading edge --- */
 .btn-outline {
   background: transparent;
   color: var(--color-gold);
   border: 1px solid var(--color-gold);
 }
-.btn-outline:hover {
+.btn-outline::before {
   background: var(--color-gold);
+}
+.btn-outline:hover {
   color: #fff;
 }
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
 .btn-ghost-light {
   background: transparent;
   color: #fff;
   border: 1px solid #fff;
 }
-.btn-ghost-light:hover {
+.btn-ghost-light::before {
   background: #fff;
+}
+.btn-ghost-light:hover {
   color: var(--color-gold);
 }
-.btn-whatsapp {
-  background: #25d366;
-  color: #06231a;
-  border: 1px solid #1fb457;
-  letter-spacing: 0.04em;
+.btn-ghost-light:hover::before {
+  transform: scaleX(1);
 }
-.btn-whatsapp:hover {
-  filter: brightness(0.96);
+
+/* Keyboard users get the same treatment as the mouse, not a lesser one. */
+.btn-primary:focus-visible,
+.btn-whatsapp:focus-visible {
+  transform: translate(-2px, -3px);
+}
+.btn-outline:focus-visible::before,
+.btn-ghost-light:focus-visible::before {
+  transform: scaleX(1);
+}
+.btn-outline:focus-visible {
+  color: #fff;
+}
+.btn-ghost-light:focus-visible {
+  color: var(--color-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::before,
+  .btn-whatsapp svg {
+    transition: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible,
+  .btn-whatsapp:hover,
+  .btn-whatsapp:focus-visible {
+    transform: none;
+  }
+  .btn-whatsapp:hover svg {
+    transform: none;
+  }
+  /* The flood still happens, it just arrives at once instead of sweeping. */
+  .btn::before {
+    transform-origin: center;
+  }
 }
 
 /* ---- Card ---------------------------------------------------------- */
+/* One card treatment for the whole site.
+   Was a 2px --color-line rule over a blurred --shadow-card. That, the suite
+   card's double crate-frame, and .pkg-card's own border made three different
+   card systems, which is what dropped Consistency to 2/4 in the 2026-08-26
+   critique. All three now share the same language: a fine timber rule and the
+   hard zero-blur stamp shadow that .icon-stamp and .suite-card already use. */
 .card {
   background: var(--color-white);
-  border: 1px solid var(--color-line);
+  border: 1px solid var(--color-timber);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-stamp);
   overflow: hidden;
+  transition:
+    transform 0.3s var(--ease-out-soft),
+    box-shadow 0.3s var(--ease-out-soft);
+}
+/* Only cards that actually go somewhere lift. A static card that moves under
+   the cursor promises a click that is not there. */
+a.card:hover,
+a.card:focus-visible {
+  transform: translate(-2px, -3px);
+  box-shadow: 5px 7px 0 rgba(28, 20, 13, 0.85);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  a.card:hover,
+  a.card:focus-visible {
+    transform: none;
+  }
 }
 
 /* Gentle hover lift for interactive/elevated cards (Almaris). */
@@ -348,191 +941,191 @@ p {
 /* ---- Almaris accommodation card -------------------------------------
    Front: photo + warm brown foot gradient + white title.
    Hover: soft fade to gold panel with ghost CTA. */
+/* Mounted print, not a framed box.
+   The card used to be a photo inside .crate-frame (a 1px rule plus a 1px
+   outline offset 4px) sitting on a soft blurred shadow. Two thin lines and a
+   blur read as a border someone drew, not as an object. Now the photo is
+   pasted onto a parchment mount that peeks out around it, and the whole thing
+   carries the same hard zero-blur offset shadow as .icon-stamp, so it reads
+   as a physical card resting on the page. One treatment, used in two places. */
 .suite-card {
   display: block;
+  padding: 0.5rem;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-timber);
   border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+  transition:
+    transform 0.3s var(--ease-out-soft),
+    box-shadow 0.3s var(--ease-out-soft);
+}
+/* Lifts against the light: moving up and left widens the gap the shadow
+   already sits in, so the card looks picked up rather than merely recoloured. */
+.suite-card:hover,
+.suite-card:focus-visible {
+  transform: translate(-2px, -3px);
+  box-shadow: 5px 7px 0 rgba(28, 20, 13, 0.85);
+}
+@media (prefers-reduced-motion: reduce) {
+  .suite-card {
+    transition: none;
+  }
+  .suite-card:hover,
+  .suite-card:focus-visible {
+    transform: none;
+  }
 }
 .suite-card__media {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: var(--radius-card);
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
   background: var(--color-cream-2);
+  isolation: isolate; /* contain the warm-grade multiply */
 }
-.suite-card__scrim {
+/* Warm grade — sits above the photo, below the foot scrim/caption. */
+.suite-card__media::after {
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(90, 58, 32, 0.88) 0%,
-    rgba(90, 58, 32, 0.55) 22%,
-    rgba(90, 58, 32, 0.2) 42%,
-    rgba(90, 58, 32, 0) 62%
-  );
+  background: rgb(var(--image-tint));
+  mix-blend-mode: multiply;
+  opacity: var(--image-tint-opacity);
   pointer-events: none;
-  transition: opacity 0.4s ease;
 }
-.suite-card__caption {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: 2;
-  padding: 3.5rem 1.25rem 1.5rem;
+/* The label, on the mount below the photo. This is where the caption moved
+   when the foot gradient came off: the text now sits on parchment at full
+   contrast instead of white-on-photograph, so nothing has to be darkened to
+   keep it readable. */
+.suite-card__label {
+  padding: 1.1rem 1rem 0.9rem;
   text-align: center;
-  color: #fff;
-  transition: opacity 0.35s ease;
 }
-.suite-card__caption h3 {
-  color: #fff !important;
-}
-.suite-card__media img {
-  transition: transform 0.6s ease;
-}
-.suite-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  padding: 1.5rem;
-  text-align: center;
-  background: var(--color-gold);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.4s ease,
-    visibility 0.4s ease;
-}
-.suite-card__overlay-label {
+.suite-card__name {
   margin: 0;
-  font-size: 0.8125rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.9);
-}
-.suite-card__overlay-title {
-  margin: 0;
-  font-size: clamp(1.75rem, 2.4vw, 2.35rem);
-  font-weight: 500;
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.9rem);
+  font-weight: 700;
   line-height: 1.15;
-  color: #fff;
+  color: var(--color-ink);
 }
-/* Ghost CTA - white border + white text, transparent bg */
-.suite-card__book {
-  display: inline-flex;
+.suite-card__meta {
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.35rem;
-  padding: 0.55rem 1.4rem;
-  border: 1px solid #fff;
-  border-radius: 0;
-  background-color: transparent;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  line-height: 1.2;
+  gap: 0.6rem;
+  margin-top: 0.45rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+.suite-card__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--variety-color, var(--color-timber));
+}
+/* The only colour on the label. With the variety no longer painting a whole
+   hover overlay, this rule and the corner ribbon are what still tell the two
+   cards apart without reading a word. */
+.suite-card__rule {
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin: 0.9rem auto 0;
+  background: var(--variety-color, var(--color-cherry));
+}
+.suite-card__more {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--variety-color, var(--color-cherry));
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .suite-card:hover .suite-card__overlay,
-  .suite-card:focus-visible .suite-card__overlay {
-    opacity: 1;
-    visibility: visible;
-  }
-  .suite-card:hover .suite-card__caption,
-  .suite-card:focus-visible .suite-card__caption {
-    opacity: 0;
-  }
-  .suite-card:hover .suite-card__scrim,
-  .suite-card:focus-visible .suite-card__scrim {
-    opacity: 0;
-  }
   .suite-card:hover .suite-card__media img,
   .suite-card:focus-visible .suite-card__media img {
     transform: scale(1.03);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .suite-card__overlay,
-  .suite-card__caption,
-  .suite-card__scrim {
-    transition: none;
+
+/* ---- Trust seals: honest fact row, replaces the fabricated-review
+   carousel (see trust-seals.tsx for why). Grade-seal badges, crate-label
+   idiom for "certified true." ---------------------------------------- */
+.trust-seals {
+  padding-block: 3.5rem;
+}
+.trust-seals__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .trust-seals__row {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-
-/* ---- Almaris testimonials carousel --------------------------------- */
-.testimonials {
-  padding-block: 4.5rem 5rem;
-}
-.testimonials__slide {
-  transition: opacity 0.35s ease;
-  cursor: grab;
-  user-select: none;
-  touch-action: pan-y;
-}
-.testimonials__slide:active {
-  cursor: grabbing;
-}
-.testimonials__quote {
-  margin: 0.85rem 0 0;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 1.55;
-  letter-spacing: 0.01em;
-  color: #606060;
-}
-.testimonials__author {
-  margin: 1.75rem 0 0;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: #606060;
-}
-.testimonials__dots {
+.trust-seals__item {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
-  margin-top: 3.25rem;
+  text-align: center;
+  gap: 0.85rem;
 }
-.testimonials__dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: #d9d0c6;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+/* Rectangular double-ruled stamp block — a certificate/ledger mark, not
+   the circular badge shape retired after it read as a game-achievement
+   icon. Used here instead of .stamp-badge. */
+.trust-seals__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6.5rem; /* fits a four-digit count without the badge resizing */
+  height: 4.25rem;
+  padding-inline: 0.65rem;
+  background: var(--color-parchment);
+  border: 3px double currentColor;
+  box-shadow: var(--shadow-stamp);
 }
-.testimonials__dot.is-active {
-  background: var(--color-gold);
-  transform: scale(1.15);
+.trust-seals__value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.65rem;
+  line-height: 1;
+  /* The digits change width as the counter runs; tabular figures stop the
+     badge contents from jittering on every frame. */
+  font-variant-numeric: tabular-nums;
 }
-.testimonials__dot:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
+.trust-seals__label {
+  max-width: 9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
 }
 
 /* ---- Almaris Special Offers ----------------------------------------- */
 .offers {
-  padding-block: 5rem 5.5rem;
+  padding-block: 5rem;
+}
+@media (min-width: 768px) {
+  .offers {
+    padding-block: 8rem;
+  }
 }
 .offers__header {
-  margin-bottom: 2.75rem;
+  margin-bottom: 3rem;
 }
 .offers__title {
   margin: 0.85rem 0 0;
   font-size: var(--text-4xl);
-  font-weight: 500;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
-  line-height: 1.15;
+  line-height: 1.05;
 }
 .offers__grid {
   display: grid;
@@ -544,73 +1137,792 @@ p {
 }
 @media (min-width: 768px) {
   .offers__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 x 2 */
     gap: 1.75rem;
   }
 }
-.offers__card {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
+@media (min-width: 1024px) {
+  .offers__grid {
+    grid-template-columns: repeat(4, 1fr); /* desktop: single row of 4 */
+  }
 }
-.offers__scrim {
+.offers__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+  overflow: hidden;
+}
+.offers__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-kraft);
+  isolation: isolate; /* contain the warm-grade multiply */
+  /* Darker than the site-wide default (0.12): these are bright stock photos
+     (candles, a plated breakfast, daylight), and at the default grade they
+     sat noticeably lighter than every other photo on the page. */
+  --image-tint-opacity: 0.32;
+}
+/* Warm grade, kept: it is a colour grade on the photograph itself, not the
+   readability scrim that used to sit on top of it. */
+.offers__media::after {
+  content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(62, 42, 26, 0.94) 0%,
-    rgba(62, 42, 26, 0.72) 28%,
-    rgba(62, 42, 26, 0.28) 55%,
-    rgba(62, 42, 26, 0) 78%
-  );
+  background: rgb(var(--image-tint));
+  mix-blend-mode: multiply;
+  opacity: var(--image-tint-opacity);
   pointer-events: none;
 }
 .offers__content {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem 1.5rem 2.25rem;
+  padding: 1.25rem 1.1rem 1.5rem;
 }
+/* Reserving a fixed number of lines for both keeps every card the same height
+   so the four titles share a baseline and the four blurbs start on the same
+   line. Ink on parchment now, not white over a photograph. */
 .offers__card-title {
   margin: 0;
-  font-size: clamp(1.35rem, 1.15rem + 0.6vw, 1.65rem);
-  font-weight: 500;
-  line-height: 1.25;
-  color: #fff;
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-ink);
+  min-height: 2.4em; /* two lines */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 .offers__card-desc {
-  margin: 0.7rem 0 0;
+  margin: 0.5rem 0 0;
   max-width: 18rem;
   font-size: 0.875rem;
-  font-weight: 300;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--color-ink-soft);
+  min-height: 6.6em; /* four lines, the longest blurb in the set */
 }
-.offers__btn {
+/* ---------------------------------------------------------------------------
+   Google reviews band (components/reviews-band.tsx)
+
+   Sits on kraft rather than parchment on purpose: it lands between the area
+   grid and the FAQ, and a third consecutive parchment section there made the
+   whole lower page read as one undifferentiated block.
+   --------------------------------------------------------------------------- */
+/* Dark, and the only dark band in the page body. Two reasons: the section
+   above it (area) is kraft and an identical kraft here left a 1px rule doing
+   all the separating, which read as a seam rather than a new section; and
+   this is the emotional peak, real five-star reviews immediately before the
+   ask, so it earns the contrast. Parchment cards on near-black read as paper
+   slips pinned to a board. */
+.reviews {
+  background: var(--color-dark);
+  padding-block: 5rem;
+}
+@media (min-width: 768px) {
+  .reviews {
+    padding-block: 8rem;
+  }
+}
+.reviews__head {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.reviews__head .hairline-short {
+  margin-inline: auto;
+}
+
+/* Aggregate score: the one number that speaks for every review, including
+   the ones Places does not return. */
+.reviews__aggregate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+.reviews__aggregate-value {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-parchment);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.reviews__aggregate-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+.reviews__aggregate-count {
+  font-size: var(--text-sm);
+  color: rgba(242, 230, 206, 0.72);
+}
+/* Kraft rather than cherry on the dark band: the cherry reads muddy against
+   near-black, and gold-on-dark is what a star actually looks like. Inside a
+   parchment card the stars keep the cherry below. */
+.reviews__stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--color-kraft);
+}
+.reviews__card .reviews__stars {
+  color: var(--color-cherry);
+}
+/* The heading block sits directly on the dark band, so its type inverts. */
+.reviews__head .eyebrow {
+  color: var(--color-kraft);
+}
+.reviews__head h2 {
+  color: var(--color-parchment);
+}
+.reviews__head .hairline-short {
+  background: rgba(242, 230, 206, 0.35);
+}
+
+.reviews__grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .reviews__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* A grade slip: parchment stock, ruled edge, hard stamp shadow. Same family
+   as .trust-seals__badge so the two honest-signal blocks read as one system. */
+.reviews__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.reviews__card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+/* Initials in a rubber stamp, standing in for a Google avatar. Timber rather
+   than a variety colour: cherry or forest here would read as a suite label. */
+.reviews__monogram {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.25rem;
-  padding: 0.55rem 1.35rem;
-  border: 1px solid #fff;
-  border-radius: 0;
-  background: transparent;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-timber);
+  box-shadow: inset 0 0 0 3px var(--color-parchment);
+  background: var(--color-kraft);
+  color: var(--color-timber);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transform: rotate(-4deg);
 }
-.offers__btn:hover {
-  background: #fff;
-  color: var(--color-gold);
+.reviews__name {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.reviews__text {
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.reviews__source {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: rgba(242, 230, 206, 0.72);
+}
+.reviews__source a {
+  color: var(--color-kraft);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   About-page photo stack (app/about/page.tsx)
+
+   Two photos overlapping diagonally rather than stacked full-width — the
+   back one anchored to the reading-start corner, the front one overlapping
+   it toward the end with a counter-tilt and a harder shadow, so it reads as
+   physically resting on top. Height is set on the wrapper (not derived from
+   an aspect-ratio) because the two children overlap rather than stack, so
+   there's no single natural content height to derive from.
+   --------------------------------------------------------------------------- */
+.photo-stack {
+  position: relative;
+  height: 26rem;
+}
+@media (min-width: 640px) {
+  .photo-stack {
+    height: 30rem;
+  }
+}
+.photo-stack__back,
+.photo-stack__front {
+  position: absolute;
+  overflow: hidden;
+  width: 68%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-timber);
+}
+.photo-stack__back {
+  top: 0;
+  inset-inline-start: 0;
+  box-shadow: var(--shadow-stamp);
+  z-index: 1;
+}
+.photo-stack__front {
+  bottom: 0;
+  inset-inline-end: 0;
+  transform: rotate(-3deg);
+  box-shadow: var(--shadow-stamp-lg);
+  z-index: 2;
+}
+
+/* Mirrored arrangement. Both suite pages carry a stack right under the hero;
+   running the identical diagonal on both made them read as one template
+   printed twice, so the second suite gets the corners and the tilt swapped. */
+.photo-stack--alt .photo-stack__back {
+  top: auto;
+  bottom: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.photo-stack--alt .photo-stack__front {
+  bottom: auto;
+  top: 0;
+  inset-inline-end: auto;
+  inset-inline-start: 0;
+  transform: rotate(2.5deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-stack__front,
+  .photo-stack--alt .photo-stack__front {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Gallery mobile carousel (components/gallery.tsx)
+
+   Below sm the <ul> is a horizontal snap-scroller (see the flex/overflow/snap
+   classes in the component); this just sizes and centres each tile and hides
+   the scrollbar, since the snap points are the only scroll affordance a
+   visitor needs. Everything here is undone at sm+ where the component
+   switches back to a real CSS grid.
+   --------------------------------------------------------------------------- */
+.gallery-scroller {
+  scrollbar-width: none;
+}
+.gallery-scroller::-webkit-scrollbar {
+  display: none;
+}
+.gallery-scroller__item {
+  width: 78%;
+  scroll-snap-align: center;
+}
+@media (min-width: 640px) {
+  .gallery-scroller__item {
+    width: auto;
+    scroll-snap-align: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Suite gallery carousel (components/gallery-carousel.tsx)
+
+   A native scroll-snap strip, not a transform track: the arrows call
+   scrollBy() on the same element a swipe moves, so the two controls can never
+   disagree about position. Visible-count is expressed purely as item width
+   here (1 / 2 / 3 across the breakpoints) rather than in JS, so resizing needs
+   no re-measure.
+   --------------------------------------------------------------------------- */
+.carousel {
+  position: relative;
+}
+.carousel__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Full-bleed on a phone so the peeking next tile reaches the screen edge. */
+  margin-inline: -1rem;
+  padding-inline: 1rem;
+}
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+.carousel__track:focus-visible {
+  outline: 2px solid var(--color-cherry);
+  outline-offset: 4px;
+}
+.carousel__item {
+  flex: 0 0 auto;
+  width: 86%;
+  scroll-snap-align: start;
+}
+@media (min-width: 640px) {
+  .carousel__track {
+    gap: 1.25rem;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .carousel__item {
+    width: calc((100% - 1.25rem) / 2);
+  }
+}
+@media (min-width: 1024px) {
+  .carousel__track {
+    gap: 1.5rem;
+  }
+  /* Three across: two gaps to subtract, then split three ways. */
+  .carousel__item {
+    width: calc((100% - 3rem) / 3);
+  }
+}
+.carousel__figure {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+/* Arrows live outside the track on desktop so they never sit on a photo. On
+   narrow screens there is no room beside it, so they tuck over the edges. */
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-white);
+  background: var(--color-cherry);
+  border: 1px solid var(--color-cherry-deep);
+  border-radius: 50%;
+  box-shadow: var(--shadow-stamp);
+  transition:
+    background-color 0.25s var(--ease-out-soft),
+    opacity 0.25s var(--ease-out-soft);
+}
+.carousel__arrow:hover:not(:disabled) {
+  background: var(--color-cherry-deep);
+}
+.carousel__arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.carousel__arrow--prev {
+  inset-inline-start: -0.5rem;
+}
+.carousel__arrow--next {
+  inset-inline-end: -0.5rem;
+}
+@media (min-width: 1024px) {
+  .carousel__arrow--prev {
+    inset-inline-start: -1.75rem;
+  }
+  .carousel__arrow--next {
+    inset-inline-end: -1.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Discount popup (components/discount-popup.tsx)
+
+   Reuses .hero-card rather than inventing a second card language for one
+   more surface — same kraft label, same tilt mechanism, same stamp shadow.
+   A dimmed backdrop sits behind it, tap-to-dismiss, matching the mobile nav
+   panel's own backdrop pattern.
+   --------------------------------------------------------------------------- */
+.discount-popup__layer {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Extra bottom padding matches the fixed mobile call/WhatsApp bar's own
+     height (see components/site-actions.tsx), so a centred popup never sits
+     underneath it or gets visually pinched against it on a short screen. */
+  padding: 1.25rem 1.25rem calc(1.25rem + 3.75rem + env(safe-area-inset-bottom));
+  background: rgba(20, 16, 10, 0.45);
+  overflow-y: auto;
+  animation: discount-popup-fade 0.3s var(--ease-out-soft);
+}
+@media (min-width: 1024px) {
+  /* The mobile bar only renders below lg (see site-actions.tsx), so above
+     that breakpoint the popup doesn't need to reserve space for it. */
+  .discount-popup__layer {
+    padding: 1.25rem;
+  }
+}
+@keyframes discount-popup-fade {
+  from {
+    opacity: 0;
+  }
+}
+.discount-popup {
+  position: relative;
+  max-width: 26rem;
+  width: 100%;
+  animation: discount-popup-rise 0.4s var(--ease-out-soft);
+}
+@keyframes discount-popup-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(var(--hero-angle, -1deg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--hero-angle, -1deg));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .discount-popup__layer,
+  .discount-popup {
+    animation: none;
+  }
+}
+.discount-popup__close {
+  position: absolute;
+  top: 0.75rem;
+  inset-inline-end: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: color 0.2s var(--ease-out-soft);
+}
+.discount-popup__close:hover,
+.discount-popup__close:focus-visible {
+  color: var(--color-cherry);
+}
+
+/* ---------------------------------------------------------------------------
+   Pricing (app/prices/page.tsx)
+
+   A roadside produce-stand price board, not a hotel rate table. The number is
+   the largest thing in the block because it is the one fact the visitor came
+   for; burying it under a label is what booking sites do and it reads as
+   evasive. Hard stamp shadow, no blur, same family as .trust-seals__badge.
+   --------------------------------------------------------------------------- */
+.rate-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  max-width: 42rem;
+  margin-inline: auto;
+}
+.rate-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--color-parchment);
+  border: 2px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+}
+.rate-stamp__amount {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.75rem, 2.2rem + 2.2vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-ink);
+  /* The shekel sign and digits are one LTR run; without this the sign can
+     jump to the wrong end of the number inside an RTL paragraph. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.rate-stamp__label {
+  margin-top: 0.9rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.rate-stamp__detail {
+  margin-top: 0.2rem;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+.rate-foot {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+}
+
+/* Multi-night deals. The struck-through full price sits next to the real one
+   because a discount you can see beats a discount you are told about. */
+.deal-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  max-width: 42rem;
+  margin: 2rem auto 0;
+}
+.deal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: var(--color-kraft);
+  border: 1px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+}
+.deal__badge {
+  position: absolute;
+  top: -0.75rem;
+  inset-inline-start: 50%;
+  transform: translateX(50%);
+  padding: 0.2rem 0.7rem;
+  background: var(--color-cherry);
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.deal__label {
+  margin-top: 0.5rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+.deal__detail {
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+.deal__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+.deal__was {
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  opacity: 0.75;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.deal__now {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-cherry);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.deal__saving {
+  margin-top: 0.4rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.deal__footnote {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+
+
+/* The honest caveat. Boxed rather than set as body copy so it reads as part
+   of the price, which it is, instead of small print someone can miss. */
+.rate-note {
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--color-kraft);
+  border: 1px dashed var(--color-timber);
+  border-radius: var(--radius-card);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-ink);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* Package card with a price tag in the corner. */
+/* Drawn, not typed.
+   These bullets used to be the character U+25C6 (BLACK DIAMOND), which is in
+   neither Alef nor Heebo, not even in the unsubsetted originals. It was
+   therefore always being rendered by whatever fallback the visitor's OS
+   happened to supply: a different shape on every device, and an empty box
+   wherever no fallback covered it. A rotated square is the same mark, drawn
+   by the browser, identical everywhere and in the site's own colour. */
+.pkg-bullet {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: 0.62em; /* optical centring against the first line of text */
+  background: var(--color-cherry);
+  transform: rotate(45deg);
+}
+
+/* Same treatment as .card; kept as its own class only for the price-tag
+   layout in the head. */
+.pkg-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+}
+.pkg-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.pkg-card__price {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-parchment);
+  border: 1.5px solid var(--color-timber);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-stamp);
+}
+.pkg-card__amount {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-ink);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.pkg-card__unit {
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+/* Stands in for the amount on a package whose price is not published. Narrow
+   and wrapped so the stamp keeps its shape instead of stretching into a
+   banner across the card head. */
+.pkg-card__note {
+  max-width: 7.5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-cherry);
+}
+
+/* ---------------------------------------------------------------------------
+   Waze / Google Maps navigation (components/navigate-actions.tsx)
+
+   House shape, borrowed mark. Sharp corners, tracked type and a timber
+   hairline keep these inside the crate system; the only thing that carries a
+   third-party brand is the logo itself, the same compromise docs/DESIGN.md records
+   for the WhatsApp button.
+   --------------------------------------------------------------------------- */
+.navigate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.navigate-actions--stacked {
+  flex-direction: column;
+  align-items: stretch;
+}
+.navigate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  min-height: 44px; /* thumb-sized: these are tapped on a phone, in a car park */
+  background: var(--color-parchment);
+  border: 1px solid var(--color-timber);
+  border-radius: var(--radius-control);
+  color: var(--color-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.25s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft);
+}
+.navigate-btn:hover {
+  background: var(--color-kraft);
+  box-shadow: var(--shadow-card);
+}
+.navigate-btn svg {
+  flex-shrink: 0;
+}
+/* On a dark band the parchment fill would punch a hole in the section. */
+.on-dark .navigate-btn {
+  background: transparent;
+  border-color: rgba(242, 230, 206, 0.35);
+  color: var(--color-parchment);
+}
+.on-dark .navigate-btn:hover {
+  background: rgba(242, 230, 206, 0.1);
 }

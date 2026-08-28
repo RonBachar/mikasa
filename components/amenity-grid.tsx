@@ -1,5 +1,6 @@
 import type { SVGProps } from "react";
 import { sharedAmenities } from "@/content/suites";
+import { IconStamp } from "@/components/icon-stamp";
 
 const iconBase = {
   width: 22,
@@ -39,24 +40,26 @@ function Icon({ name, ...p }: { name: string } & SVGProps<SVGSVGElement>) {
         <circle cx="9" cy="16" r="1.5" />
       </>
     ),
-    breakfast: (
-      <>
-        <path d="M18 8h1a3 3 0 0 1 0 6h-1" />
-        <path d="M2 8h16v3a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z" />
-        <path d="M6 2c0 1-1 1-1 2M10 2c0 1-1 1-1 2M14 2c0 1-1 1-1 2" />
-      </>
-    ),
     parking: (
       <>
         <rect x="3" y="3" width="18" height="18" rx="3" />
         <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
       </>
     ),
-    ac: (
+    garden: (
       <>
-        <rect x="2" y="4" width="20" height="8" rx="2" />
-        <path d="M6 8h8" />
-        <path d="M7 16c0 1.5 1 1.5 1 3M12 16c0 1.5 1 1.5 1 3M17 16c0 1.5 1 1.5 1 3" />
+        <path d="M12 3c3 2.5 4 6 2 9-2-1.5-3-4-2-9z" />
+        <path d="M12 3c-3 2.5-4 6-2 9 2-1.5 3-4 2-9z" />
+        <path d="M12 12v9" />
+        <path d="M8 21h8" />
+      </>
+    ),
+    bbq: (
+      <>
+        <path d="M5 11a7 7 0 0 0 14 0" />
+        <path d="M4 11h16" />
+        <path d="M9 21l1-5M15 21l-1-5" />
+        <path d="M12 3c1.2 1.2 1.2 2.4 0 3.6-1.2-1.2-1.2-2.4 0-3.6z" />
       </>
     ),
   };
@@ -81,21 +84,13 @@ export function AmenityGrid({ compact = false }: { compact?: boolean }) {
     >
       {sharedAmenities.map((a) => (
         <li key={a.label} className="flex items-start gap-4">
-          <span
-            className="shrink-0 flex items-center justify-center"
-            style={{
-              width: "3.25rem",
-              height: "3.25rem",
-              borderRadius: "8px",
-              background: "var(--color-gold)",
-            }}
-          >
+          <IconStamp variant="cherry">
             <Icon name={a.icon} />
-          </span>
+          </IconStamp>
           <span className="min-w-0 pt-0.5">
             <span
               className="block font-display text-lg md:text-xl"
-              style={{ color: "var(--color-ink)", fontWeight: 500, lineHeight: 1.3 }}
+              style={{ color: "var(--color-ink)", fontWeight: 800, lineHeight: 1.3 }}
             >
               {a.label}
             </span>

@@ -137,14 +137,39 @@ const area = {
 for (const [idx, [name, alt]] of Object.entries(area))
   add("area", name, alt, { dir: "אטרקציות", idx: Number(idx) }, { license: "TBD" });
 
-// BLOG (Latin) — placeholder imagery, replace with licensed photos later
-const blog = [
-  ["Blog/Blog-01.jpg", "blog-golan-spring", "מעיין מים זכים בטבע רמת הגולן"],
-  ["Blog/Blog-02.jpg", "blog-kinneret-sunset", "שקיעה מעל הכנרת בנוף צפון הארץ"],
-  ["Blog/Blog-03.jpg", "blog-hermon-ski", "אתר החרמון המושלג בעונת הסקי"],
-  ["Blog/Blog-04.jpg", "blog-cherry-picking", "קטיף דובדבנים אדומים מהעץ ברמת הגולן"],
+// PACKAGES — the four add-on cards on the homepage strip and /prices.
+// Owner-supplied 2026-08-28. Named after the package slug in
+// content/pricing.ts so the mapping in components/special-offers.tsx is
+// obvious rather than a lookup you have to trust.
+//
+// NOTE: these are stock/licensed photos, not shot at Mikasa (the ALT text is
+// written accordingly — it describes what is in the frame and does not claim
+// the photo was taken at the guesthouse).
+const packages = [
+  [
+    "Packages/breakfast.jpg",
+    "package-breakfast",
+    "ארוחת בוקר כפרית עשירה עם ביצי עין, לחם כפרי אפוי וקפה, מוגשת לזוג",
+  ],
+  [
+    "Packages/birthday.jpg",
+    "package-birthday",
+    "עוגת יום הולדת עם נרות דולקים ובלונים צבעוניים, חבילת יום הולדת לזוגות",
+  ],
+  [
+    "Packages/anniversary.jpg",
+    "package-anniversary",
+    "זוג מרים כוסות יין לבן לחיים לצד זר טוליפים ורודים, חבילת יום נישואין ורומנטיקה",
+  ],
+  [
+    "Packages/massage.jpg",
+    "package-massage",
+    "מטפלת מעסה גב בעיסוי מרגיע באור טבעי, חבילת עיסוי זוגי בסוויטה",
+  ],
 ];
-blog.forEach(([file, name, alt]) => add("blog", name, alt, { file }, { license: "placeholder" }));
+packages.forEach(([file, name, alt]) =>
+  add("packages", name, alt, { file }, { license: "stock" })
+);
 
 // ---- CONVERT -----------------------------------------------------------
 const rows = [];

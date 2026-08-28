@@ -21,6 +21,11 @@ export function Img({
   width?: number;
 }) {
   const m = img(file);
+  // Only images whose manifest row carries a baked blur get a placeholder;
+  // passing placeholder="blur" without a blurDataURL throws in next/image.
+  const blur = m.blurDataURL
+    ? ({ placeholder: "blur", blurDataURL: m.blurDataURL } as const)
+    : {};
   if (fill) {
     return (
       <Image
@@ -30,6 +35,7 @@ export function Img({
         sizes={sizes ?? "100vw"}
         priority={priority}
         className={className}
+        {...blur}
       />
     );
   }
@@ -44,6 +50,7 @@ export function Img({
       sizes={sizes}
       priority={priority}
       className={className}
+      {...blur}
     />
   );
 }

@@ -35,7 +35,7 @@ export function PhoneCTA({
     >
       <PhoneIcon />
       <span>
-        {children ?? "חייגו עכשיו"}
+        {children ?? "להזמנות התקשרו"}
         {showNumber && (
           <span dir="ltr" className="ms-2 font-semibold tabular-nums">
             {siteConfig.phoneDisplay}
@@ -69,7 +69,7 @@ export function WhatsAppCTA({
       data-cta="whatsapp"
     >
       <WhatsAppIcon />
-      <span>{children ?? "שלחו וואטסאפ"}</span>
+      <span>{children ?? "דברו איתי בוואטסאפ"}</span>
     </a>
   );
 }
