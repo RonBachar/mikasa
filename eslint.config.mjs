@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party skills checked out under .claude/ are not ours to lint.
+    // They were contributing 34 of the 36 errors in a full run, which is
+    // enough noise to hide a real one in our own code.
+    ".claude/**",
   ]),
 ]);
 

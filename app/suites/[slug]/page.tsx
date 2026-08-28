@@ -9,6 +9,9 @@ import { GalleryCarousel } from "@/components/gallery-carousel";
 import { CtaBand } from "@/components/cta-band";
 import { suites, suiteList } from "@/content/suites";
 import { imagesIn } from "@/lib/images";
+import { JsonLd } from "@/components/json-ld";
+import { pageMeta } from "@/lib/seo";
+import { suiteSchema } from "@/lib/schema";
 
 type Params = { slug: string };
 
@@ -20,11 +23,12 @@ export async function generateMetadata(props: { params: Promise<Params> }): Prom
   const { slug } = await props.params;
   const suite = suites[slug as keyof typeof suites];
   if (!suite) return {};
-  return {
+  return pageMeta({
     title: suite.metaTitle,
     description: suite.metaDescription,
-    alternates: { canonical: `/suites/${suite.slug}` },
-  };
+    path: `/suites/${suite.slug}`,
+    ogImage: suite.slug,
+  });
 }
 
 export default async function SuitePage(props: { params: Promise<Params> }) {
@@ -37,6 +41,9 @@ export default async function SuitePage(props: { params: Promise<Params> }) {
 
   return (
     <>
+      {/* BreadcrumbList comes from <Breadcrumbs> inside the hero below. */}
+      <JsonLd data={suiteSchema(suite)} />
+
       {/* Same crate label as every other page. The mark is this suite's own
           variety tag, so the card announces which of the two you are looking
           at before the heading is read. Angles differ per suite so the two

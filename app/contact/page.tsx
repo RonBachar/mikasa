@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Section } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
 import { PhoneCTA, WhatsAppCTA } from "@/components/cta";
 import { PhoneIcon, WhatsAppIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "הזמנת סוויטה אישית ויצירת קשר | צימר מיקאסה, שעל",
   description:
     "ליצירת קשר עם מיקאסה בשעל, רמת הגולן, והזמנת סוויטה בטלפון או בוואטסאפ. כתובת, שעות ודרכי הגעה. חייגו למיקה: 054-586-9818.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 const mapsQuery = encodeURIComponent(siteConfig.address.full);
 

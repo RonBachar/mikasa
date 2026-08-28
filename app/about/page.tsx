@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Section } from "@/components/section";
 import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { Img } from "@/components/manifest-image";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "הסיפור האישי של מיקאסה | אירוח זוגי כפרי בשעל, גולן",
   description:
     "הכירו את מיקאסה: הסיפור האישי של צימר בוטיק לזוגות במושב שעל, רמת הגולן. אירוח חם ומלא השראה ממיקה. לפרטים, חייגו: 054-586-9818.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

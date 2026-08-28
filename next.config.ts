@@ -30,6 +30,29 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        // The WordPress site this replaces had exactly two indexed URLs: the
+        // home page and /test/. Measured in Search Console on 2026-08-28,
+        // /test/ held 66 impressions and no clicks at position 38.5 — worth
+        // nothing, but indexed, so letting it 404 on cutover would hand
+        // Google a fresh error on a domain it already trusts.
+        source: "/test",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        // /blog never reached the index, so this is housekeeping rather than
+        // equity preservation: the journal was cut before launch and any
+        // surviving link should land somewhere real.
+        source: "/blog",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

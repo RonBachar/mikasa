@@ -8,6 +8,8 @@ import { SiteActions } from "@/components/site-actions";
 import { DiscountPopup } from "@/components/discount-popup";
 import { Analytics } from "@/components/analytics";
 import { Smartlook } from "@/components/smartlook";
+import { JsonLd } from "@/components/json-ld";
+import { lodgingBusinessSchema, organizationSchema } from "@/lib/schema";
 
 // Self-hosted locally (no runtime CDN, no Google fetch) via next/font/local.
 const display = localFont({
@@ -42,6 +44,21 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: siteConfig.shortDescription,
+  // Pages build their own openGraph via lib/seo.ts rather than inheriting
+  // from here, because Next replaces the whole object rather than merging it.
+  // What stays here is what no page overrides.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { telephone: true, address: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -66,6 +83,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           דילוג לתוכן הראשי
         </a>
+        {/* Identity, on every page. A visitor can land on /prices or a suite
+            from search without ever seeing the home page, and the business
+            entity has to be attached wherever they land — otherwise only one
+            page in the site tells Google and the answer engines who this is. */}
+        <JsonLd data={[organizationSchema(), lodgingBusinessSchema()]} />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}
