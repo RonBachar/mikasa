@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
+import { MikasaMark } from "./mikasa-mark";
 
 export function Logo({
   onDark = false,
@@ -31,9 +32,14 @@ export function Logo({
         }
       }}
     >
-      {/* Owner's call, 2026-08-27: text only, no mark. A graphic logo is
-          planned separately with a designer; this component drops it rather
-          than shipping a placeholder. */}
+      {/* The mark landed 2026-08-28, replacing the text-only lockup this
+          component shipped while it was still being drawn. It takes the same
+          ink as the wordmark rather than a colour of its own: the crate-label
+          system spends its cherry and forest on the two suites, and a third
+          coloured element competing with them at the top of every page is
+          exactly the noise DESIGN.md sets out to avoid. */}
+      <MikasaMark size={38} style={{ color: ink }} className="shrink-0" />
+
       <span className="inline-flex flex-col">
         <span
           className="font-display"
