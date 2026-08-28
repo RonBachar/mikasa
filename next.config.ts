@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
     imageSizes: [96, 160, 256, 384],
   },
   async redirects() {
-    // Canonical host + legacy WordPress URL map is added in Phase 9.
     return [
       {
         // /packages became /prices when the site started publishing rates:

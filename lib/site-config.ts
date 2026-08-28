@@ -12,6 +12,22 @@ const WHATSAPP_NUMBER = "972545869818"; // wa.me path (no + or dashes)
 export const WHATSAPP_MESSAGE =
   "היי מיקה, הגעתי דרך האתר של מיקאסה 🌿 אשמח לשמוע על מחירי אירוח ותאריכים פנויים לחופשה זוגית. תודה רבה!";
 
+/**
+ * Route path to absolute URL, in one place.
+ *
+ * The `"/"` case is the whole point. Written inline, it gets forgotten: the
+ * breadcrumb schema emitted `https://mikasa-guest.com/` for the home page
+ * while the canonical tag and the sitemap emitted `https://mikasa-guest.com`,
+ * so a single document showed Google two URLs for one page. Every absolute
+ * URL the site emits — canonical, OG, sitemap, JSON-LD, llms.txt — comes
+ * through here so that decision is made once.
+ */
+export function absoluteUrl(path: string): string {
+  return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
+}
+
+const SITE_URL = "https://mikasa-guest.com";
+
 export const siteConfig = {
   // Identity
   name: "מיקאסה",
@@ -26,7 +42,7 @@ export const siteConfig = {
   dir: "rtl",
 
   // Canonical site
-  url: "https://mikasa-guest.com",
+  url: SITE_URL,
   domain: "mikasa-guest.com",
 
   // Contact

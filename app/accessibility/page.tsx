@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Section } from "@/components/section";
 import { CtaBand } from "@/components/cta-band";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = pageMeta({
+export const metadata = pageMeta({
   title: "הצהרת נגישות | צימר מיקאסה",
   description: "הצהרת הנגישות של אתר צימר מיקאסה, בהתאם לחוק ולתקן הישראלי.",
   path: "/accessibility",

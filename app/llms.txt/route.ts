@@ -1,6 +1,5 @@
-import { siteConfig } from "@/lib/site-config";
-import { suiteList } from "@/content/suites";
-import { sharedAmenities } from "@/content/suites";
+import { absoluteUrl, siteConfig } from "@/lib/site-config";
+import { suiteList, sharedAmenities } from "@/content/suites";
 import { homeFaqs } from "@/content/faq";
 import {
   nightlyRates,
@@ -44,7 +43,7 @@ function build(): string {
   const suites = suiteList
     .map(
       (s) =>
-        `- **${s.name}** (${siteConfig.url}/suites/${s.slug}): ${s.teaser}`
+        `- **${s.name}** (${absoluteUrl(`/suites/${s.slug}`)}): ${s.teaser}`
     )
     .join("\n");
 
@@ -73,7 +72,7 @@ arranged in a direct conversation with the owner.
 - Coordinates: ${siteConfig.geo.lat}, ${siteConfig.geo.lng}
 - Phone / WhatsApp: ${siteConfig.phoneDisplay} (${siteConfig.phoneE164})
 - Owner: ${siteConfig.owner.name}
-- Suites: 2, couples only
+- Suites: ${suiteList.length}, couples only
 - Google rating: ${siteConfig.reviews.ratingValue} from ${siteConfig.reviews.reviewCount} reviews
 - Kosher: yes
 - Languages: Hebrew, English
@@ -122,12 +121,12 @@ ${faqs}
 
 ## Pages
 
-- [Home](${siteConfig.url}/): overview, suites, area, reviews
-- [Prices and packages](${siteConfig.url}/prices): nightly rates, discounts, add-ons
-${suiteList.map((s) => `- [${s.name}](${siteConfig.url}/suites/${s.slug}): ${s.metaDescription}`).join("\n")}
-- [Gallery](${siteConfig.url}/gallery): photographs of the suites and grounds
-- [About](${siteConfig.url}/about): the owner's own account of the place
-- [Contact](${siteConfig.url}/contact): phone, WhatsApp and directions
+- [Home](${absoluteUrl("/")}): overview, suites, area, reviews
+- [Prices and packages](${absoluteUrl("/prices")}): nightly rates, discounts, add-ons
+${suiteList.map((s) => `- [${s.name}](${absoluteUrl(`/suites/${s.slug}`)}): ${s.metaDescription}`).join("\n")}
+- [Gallery](${absoluteUrl("/gallery")}): photographs of the suites and grounds
+- [About](${absoluteUrl("/about")}): the owner's own account of the place
+- [Contact](${absoluteUrl("/contact")}): phone, WhatsApp and directions
 `;
 }
 

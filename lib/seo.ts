@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "./site-config";
+import { absoluteUrl, siteConfig } from "./site-config";
 
 /**
  * One builder for every page's metadata.
@@ -15,18 +15,29 @@ import { siteConfig } from "./site-config";
  * See node_modules/next/dist/docs/01-app/03-api-reference/04-functions/generate-metadata.md
  * ("Merging").
  */
+/**
+ * The share cards that exist in public/og/, as written by
+ * scripts/make-og-images.mjs. Keep this list and the script's CARDS in step:
+ * a name here with no card behind it ships a 404 to every social preview.
+ */
+export type OgCard = "default" | "forest" | "rain" | "prices";
+
+/** Path to a share card. The `/og/{name}.jpg` convention lives only here. */
+export function ogImagePath(card: OgCard): string {
+  return `/og/${card}.jpg`;
+}
+
 export type PageMetaInput = {
   title: string;
   description: string;
   /** Route path with a leading slash, "/" for the home page. */
   path: string;
   /**
-   * Share-card image under /og/, without the directory or extension.
-   * These are 1200x630 JPEGs rather than the site's WebP originals on
-   * purpose: WhatsApp is the main sharing surface for this audience and it
-   * renders JPEG reliably where WebP is hit-or-miss.
+   * Share card for this page. These are 1200x630 JPEGs rather than the
+   * site's WebP originals on purpose: WhatsApp is the main sharing surface
+   * for this audience and it renders JPEG reliably where WebP is hit-or-miss.
    */
-  ogImage?: "default" | "forest" | "rain" | "prices";
+  ogImage?: OgCard;
 };
 
 export function pageMeta({
@@ -35,8 +46,8 @@ export function pageMeta({
   path,
   ogImage = "default",
 }: PageMetaInput): Metadata {
-  const url = path === "/" ? siteConfig.url : `${siteConfig.url}${path}`;
-  const image = `/og/${ogImage}.jpg`;
+  const url = absoluteUrl(path);
+  const image = ogImagePath(ogImage);
 
   return {
     title,

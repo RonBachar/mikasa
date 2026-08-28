@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site-config";
+import { absoluteUrl, siteConfig } from "@/lib/site-config";
 
 /**
  * The sitemap line is the point of this file. Without it a crawler only
@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: absoluteUrl("/sitemap.xml"),
     host: siteConfig.url,
   };
 }

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Section } from "@/components/section";
 import { CtaBand } from "@/components/cta-band";
@@ -6,7 +5,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { siteConfig } from "@/lib/site-config";
 import { EmailLink } from "@/components/email-link";
 
-export const metadata: Metadata = pageMeta({
+export const metadata = pageMeta({
   title: "מדיניות פרטיות | צימר מיקאסה",
   description: "מדיניות הפרטיות של אתר צימר מיקאסה, איזה מידע נאסף וכיצד נעשה בו שימוש.",
   path: "/privacy",

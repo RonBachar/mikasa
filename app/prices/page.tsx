@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Section, SectionHeading } from "@/components/section";
 import { CtaBand } from "@/components/cta-band";
@@ -13,7 +12,7 @@ import {
   packagesNote,
 } from "@/content/pricing";
 
-export const metadata: Metadata = pageMeta({
+export const metadata = pageMeta({
   title: "מחירים וחבילות פינוק במיקאסה | צימר זוגי בגולן, שעל",
   description:
     "מחירי הסוויטות במיקאסה, מושב שעל: אמצע שבוע, סוף שבוע, ארוחת בוקר כפרית וחבילות פינוק ליום הולדת, יום נישואין ועיסוי זוגי. למחיר מדויק לתאריכים שלכם, חייגו למיקה: 054-586-9818.",

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { HeroSplit } from "@/components/hero-split";
 import { Section, SectionHeading } from "@/components/section";
 import { SuiteCard } from "@/components/suite-card";
@@ -24,9 +23,7 @@ import {
   CafeIcon,
 } from "@/components/area-icons";
 import { IconStamp } from "@/components/icon-stamp";
-import { JsonLd } from "@/components/json-ld";
 import { pageMeta } from "@/lib/seo";
-import { faqSchema } from "@/lib/schema";
 import type { AreaCategoryIcon } from "@/content/area";
 
 const areaIcons: Record<AreaCategoryIcon, typeof TrailIcon> = {
@@ -38,7 +35,7 @@ const areaIcons: Record<AreaCategoryIcon, typeof TrailIcon> = {
   cafe: CafeIcon,
 };
 
-export const metadata: Metadata = pageMeta({
+export const metadata = pageMeta({
   title: "צימר מיקאסה | צימר רומנטי לזוגות ברמת הגולן, שעל | ג'קוזי ונוף",
   description:
     "במיקאסה בשעל, רמת הגולן, מחכות לכם שתי סוויטות זוגיות עם ג'קוזי פרטי ומרפסת. חופשה כפרית רומנטית בלב הגולן, הרחק מהשגרה. לפרטים ותיאום, חייגו למיקה: 054-586-9818.",
@@ -69,11 +66,6 @@ const galleryAll = [
 export default function Home() {
   return (
     <>
-      {/* The eight questions below are the same ones the FAQ section renders,
-          so the answers Google expands in the results are literally Mika's,
-          not a summary of them. */}
-      <JsonLd data={faqSchema(homeFaqs)} />
-
       {/* The newline in `title` is deliberate and rendered via
           white-space: pre-line in hero-split.tsx, so the line always breaks
           after the moshav rather than wherever the container runs out. */}

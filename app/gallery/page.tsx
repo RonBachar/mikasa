@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { Section, SectionHeading } from "@/components/section";
 import { Gallery } from "@/components/gallery";
@@ -6,7 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { CtaBand } from "@/components/cta-band";
 import { imagesIn } from "@/lib/images";
 
-export const metadata: Metadata = pageMeta({
+export const metadata = pageMeta({
   title: "גלריית תמונות מהצימר | מיקאסה, שעל רמת הגולן",
   description:
     "הצצה ויזואלית לצימר מיקאסה בשעל: סוויטת יער, סוויטת גשם, הגינה הפורחת והנוף עוצר הנשימה של רמת הגולן. חייגו לתיאום: 054-586-9818.",

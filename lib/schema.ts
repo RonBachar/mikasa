@@ -12,13 +12,12 @@
  * Everything derives from lib/site-config.ts and content/, so there is one
  * source of truth per fact and the schema cannot drift from the page.
  */
-import { siteConfig } from "./site-config";
+import { absoluteUrl as abs, siteConfig } from "./site-config";
+import { ogImagePath } from "./seo";
 import type { Faq } from "@/content/faq";
 import type { Suite } from "@/content/suites";
-import { sharedAmenities } from "@/content/suites";
+import { sharedAmenities, suiteList } from "@/content/suites";
 import { nightlyRates } from "@/content/pricing";
-
-const abs = (path: string) => `${siteConfig.url}${path}`;
 
 /** Stable node ids, so the graph cross-references instead of duplicating. */
 const BUSINESS_ID = `${siteConfig.url}/#lodging`;
@@ -30,6 +29,20 @@ const ORG_ID = `${siteConfig.url}/#organization`;
  * the SERP too, instead of leaving a stale price in the markup.
  */
 const lowestRate = Math.min(...nightlyRates.map((r) => r.amount));
+
+/**
+ * Both the property and each suite advertise the same amenities — the two
+ * suites are identical in what they provide, which is the point content/
+ * suites.ts makes. Built once here rather than mapped inside each builder.
+ */
+const amenityFeatures = sharedAmenities.map((a) => ({
+  "@type": "LocationFeatureSpecification",
+  name: a.label,
+  value: true,
+}));
+
+/** The default share card, used as the property's lead photo. */
+const OG_DEFAULT = abs(ogImagePath("default"));
 
 /**
  * The property itself. LodgingBusiness rather than the broader LocalBusiness:
@@ -54,7 +67,7 @@ export function lodgingBusinessSchema() {
     paymentAccepted: "Cash, Bit, Paybox, Bank transfer",
     petsAllowed: false,
     smokingAllowed: false,
-    numberOfRooms: 2,
+    numberOfRooms: suiteList.length,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -69,8 +82,11 @@ export function lodgingBusinessSchema() {
       longitude: siteConfig.geo.lng,
     },
     hasMap: siteConfig.social.googleMaps,
-    image: [abs("/og/default.jpg"), abs("/og/forest.jpg"), abs("/og/rain.jpg")],
-    photo: abs("/og/default.jpg"),
+    image: [
+      OG_DEFAULT,
+      ...suiteList.map((s) => abs(ogImagePath(s.slug))),
+    ],
+    photo: OG_DEFAULT,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: siteConfig.reviews.ratingValue,
@@ -78,11 +94,7 @@ export function lodgingBusinessSchema() {
       bestRating: 5,
       worstRating: 1,
     },
-    amenityFeature: sharedAmenities.map((a) => ({
-      "@type": "LocationFeatureSpecification",
-      name: a.label,
-      value: true,
-    })),
+    amenityFeature: amenityFeatures,
     makesOffer: {
       "@type": "Offer",
       priceCurrency: "ILS",
@@ -120,9 +132,12 @@ export function organizationSchema() {
     "@id": ORG_ID,
     name: siteConfig.legalName,
     url: siteConfig.url,
-    logo: abs("/og/default.jpg"),
+    // The mark, not a photograph. Google reads this for the knowledge panel
+    // and wants the brand's actual logo; a 1200x630 shot of the patio was
+    // both the wrong shape and the wrong thing.
+    logo: abs("/og/logo.png"),
     telephone: siteConfig.phoneE164,
-    sameAs: [siteConfig.social.googleMaps].filter(Boolean),
+    sameAs: [siteConfig.social.googleMaps],
     founder: { "@type": "Person", name: siteConfig.owner.name },
   };
 }
@@ -148,7 +163,7 @@ export function suiteSchema(suite: Suite) {
     name: suite.name,
     description: suite.lead,
     url: abs(`/suites/${suite.slug}`),
-    image: abs(`/og/${suite.slug}.jpg`),
+    image: abs(ogImagePath(suite.slug)),
     occupancy: {
       "@type": "QuantitativeValue",
       // Couples only, with a child under 12 by prior arrangement. maxValue 2
@@ -157,11 +172,7 @@ export function suiteSchema(suite: Suite) {
       unitCode: "C62",
     },
     bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Queen" },
-    amenityFeature: sharedAmenities.map((a) => ({
-      "@type": "LocationFeatureSpecification",
-      name: a.label,
-      value: true,
-    })),
+    amenityFeature: amenityFeatures,
     containedInPlace: { "@id": BUSINESS_ID },
   };
 }

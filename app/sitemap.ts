@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site-config";
+import { absoluteUrl } from "@/lib/site-config";
 import { suiteList } from "@/content/suites";
 
 /**
@@ -13,59 +13,39 @@ import { suiteList } from "@/content/suites";
  * that adding a page is a deliberate act — a stray route cannot leak into
  * the index just by existing.
  */
+/**
+ * The fixed routes, as a table so the priority ladder is readable at a
+ * glance. The suite routes are derived from content/suites.ts separately,
+ * since those are the ones that actually vary.
+ *
+ * Cross-check when adding a page: it should appear here AND in the footer
+ * navigation in lib/nav.ts. Neither derives from the other on purpose.
+ */
+const ROUTES = [
+  { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/prices", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/gallery", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/about", changeFrequency: "yearly", priority: 0.6 },
+  { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
+  { path: "/accessibility", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
+] as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const url = (path: string) =>
-    path === "/" ? siteConfig.url : `${siteConfig.url}${path}`;
 
   return [
-    {
-      url: url("/"),
+    ...ROUTES.map((r) => ({
+      url: absoluteUrl(r.path),
       lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+      changeFrequency: r.changeFrequency,
+      priority: r.priority,
+    })),
     ...suiteList.map((suite) => ({
-      url: url(`/suites/${suite.slug}`),
+      url: absoluteUrl(`/suites/${suite.slug}`),
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    {
-      url: url("/prices"),
-      lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
-    {
-      url: url("/gallery"),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: url("/about"),
-      lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
-    },
-    {
-      url: url("/contact"),
-      lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
-    },
-    {
-      url: url("/accessibility"),
-      lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: url("/privacy"),
-      lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
   ];
 }
