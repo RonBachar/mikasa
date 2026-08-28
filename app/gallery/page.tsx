@@ -28,7 +28,6 @@ export default function GalleryPage() {
         image="exterior/exterior-garden-patio-hero.webp"
         eyebrow="הצצה למיקאסה"
         title="גלריית תמונות ממיקאסה"
-        body={"מבט פנימה אל הסוויטות המעוצבות, אל הגינה הירוקה ואל הנוף הפנורמי. כל התמונות צולמו כאן אצלנו במושב שעל."}
         angle={0.9}
       />
 
