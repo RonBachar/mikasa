@@ -78,6 +78,22 @@
   --color-brown: var(--color-timber);
   --shadow-stamp: 3px 4px 0 rgba(28, 20, 13, 0.85); /* hard offset — rubber-stamp print */
   --shadow-stamp-lg: 7px 9px 0 rgba(28, 20, 13, 0.8); /* same idea, hero scale */
+
+  /* The two pieces of furniture every hero sits between. Declared here so
+     .hero-shell can subtract them from the viewport instead of each hero
+     component guessing at a percentage of it. */
+  --header-h: 71px; /* components/site-header.tsx — sticky, and in flow */
+  --action-bar-h: calc(3.75rem + env(safe-area-inset-bottom)); /* site-actions.tsx */
+  --hero-max-h: 840px; /* ceiling, so a tall desktop window is not letterboxed */
+}
+
+/* Above lg the header grows and the action bar becomes a vertical side rail,
+   costing no height at all. Both measured from the rendered page. */
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 77px;
+    --action-bar-h: 0px;
+  }
 }
 
 /* ---- Base ---------------------------------------------------------- */
@@ -191,6 +207,37 @@ p {
 
    Used by components/page-hero.tsx and components/hero-split.tsx.
    --------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------
+   Hero shell — the box the card is centred in.
+
+   Every hero on the site used to pick its own height: the home page
+   min(94vh,840px), the suite pages min(88vh,780px), everything else
+   min(72vh,640px). Three numbers, no relationship between them, so no two
+   pages started at the same place.
+
+   Worse, none of them subtracted the furniture. The header is sticky and in
+   flow (71px) and the mobile action bar is fixed over the bottom (~59px), so
+   a 94vh hero on a 812px phone ran 22px past the fold and left the card six
+   pixels clear of the call button — measured. A longer heading, a shorter
+   phone, and the card is under the bar.
+
+   One height now, derived rather than guessed: exactly the space between the
+   header and the action bar, capped so a tall desktop window does not turn
+   the photo into a letterbox. `align-items: center` then centres the card in
+   the region the visitor can actually see.
+   --------------------------------------------------------------------------- */
+.hero-shell {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: min(
+    calc(100svh - var(--header-h) - var(--action-bar-h)),
+    var(--hero-max-h)
+  );
+}
+
 .hero-card {
   position: relative;
   max-width: 36rem;

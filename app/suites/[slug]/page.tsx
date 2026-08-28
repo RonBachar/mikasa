@@ -63,7 +63,6 @@ export default async function SuitePage(props: { params: Promise<Params> }) {
         title={suite.h1}
         body={suite.teaser}
         angle={isForest ? -1.9 : 1.2}
-        size="tall"
         marks={
           <span
             className="variety-tag"

@@ -26,8 +26,8 @@ export function HeroSplit({
 }) {
   return (
     <section
-      className="img-tint relative isolate flex items-center"
-      style={{ minHeight: "min(94vh, 840px)", "--image-tint-opacity": "0.22" } as React.CSSProperties}
+      className="img-tint hero-shell"
+      style={{ "--image-tint-opacity": "0.22" } as React.CSSProperties}
     >
       <Img
         file={image}
@@ -46,7 +46,10 @@ export function HeroSplit({
         }}
       />
 
-      <div className="container-content pb-16 pt-28 lg:py-24">
+      {/* Symmetric padding. It used to be pt-28/pb-16 — 112px against 64px —
+          which pushed the card below the centre of its own shell even before
+          the action bar was accounted for. */}
+      <div className="container-content py-10 lg:py-16">
         {/* The label card — pinned like a tag to the crate's corner */}
         {/* Same .hero-card as every other page (see globals.css and
             components/page-hero.tsx). Only the tilt differs per page, and the

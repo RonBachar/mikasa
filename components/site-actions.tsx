@@ -108,11 +108,12 @@ export function SiteActions() {
       </div>
 
       {/* Spacer matching the bar's real height, so the last of the page is not
-          hidden underneath it. 1rem padding top and bottom plus a ~21px line. */}
+          hidden underneath it. Reads the same token .hero-shell subtracts, so
+          the two cannot disagree about how tall this bar is. */}
       <div
         aria-hidden
         className="lg:hidden"
-        style={{ height: "calc(3.75rem + env(safe-area-inset-bottom))" }}
+        style={{ height: "var(--action-bar-h)" }}
       />
     </>
   );

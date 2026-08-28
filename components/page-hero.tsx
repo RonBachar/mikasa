@@ -30,7 +30,6 @@ export function PageHero({
   marks,
   ctaLabel,
   ctaHref,
-  size = "page",
   as: Heading = "h1",
   breadcrumbs,
   cardAlign = "start",
@@ -44,7 +43,6 @@ export function PageHero({
   marks?: ReactNode;
   ctaLabel?: string;
   ctaHref?: string;
-  size?: "page" | "tall";
   /**
    * Which side of the photo the card sits on, logical (RTL-correct): "start"
    * is the right edge (the default, everywhere else), "end" is the left. Set
@@ -63,13 +61,8 @@ export function PageHero({
 }) {
   return (
     <section
-      className="img-tint relative isolate flex items-center"
-      style={
-        {
-          minHeight: size === "tall" ? "min(88vh, 780px)" : "min(72vh, 640px)",
-          "--image-tint-opacity": "0.22",
-        } as React.CSSProperties
-      }
+      className="img-tint hero-shell"
+      style={{ "--image-tint-opacity": "0.22" } as React.CSSProperties}
     >
       <Img file={image} fill priority sizes="100vw" className="object-cover -z-10" />
 
@@ -84,7 +77,7 @@ export function PageHero({
         }}
       />
 
-      <div className="container-content pb-16 pt-28 lg:py-24">
+      <div className="container-content py-10 lg:py-16">
         <div
           className="hero-card kraft-grain"
           style={
