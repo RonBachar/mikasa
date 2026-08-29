@@ -82,6 +82,28 @@ export function lodgingBusinessSchema() {
       longitude: siteConfig.geo.lng,
     },
     hasMap: siteConfig.social.googleMaps,
+    // Google's Organization profile applies to LodgingBusiness too (it is a
+    // subtype), and wants the logo and sameAs on the business node itself —
+    // having them only on the separate Organization node does not satisfy it.
+    logo: abs("/og/logo.png"),
+    sameAs: [siteConfig.social.googleMaps],
+    // Bookings are taken by phone, every day. Stated as a real
+    // OpeningHoursSpecification rather than left to the prose in
+    // siteConfig.hours, which no crawler can parse.
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "21:00",
+    },
     image: [
       OG_DEFAULT,
       ...suiteList.map((s) => abs(ogImagePath(s.slug))),
@@ -138,6 +160,16 @@ export function organizationSchema() {
     logo: abs("/og/logo.png"),
     telephone: siteConfig.phoneE164,
     sameAs: [siteConfig.social.googleMaps],
+    // Recommended by Google's Organization profile: an address is part of how
+    // it confirms the entity is a real business rather than a name.
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.locality,
+      addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.country,
+    },
     founder: { "@type": "Person", name: siteConfig.owner.name },
   };
 }
