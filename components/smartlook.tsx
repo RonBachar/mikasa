@@ -17,6 +17,12 @@ import Script from "next/script";
  *
  * Only runs in production. In development it would fill the session list with
  * recordings of this dev server.
+ *
+ * The script id must NOT be "smartlook". An element id becomes a named global,
+ * so `<Script id="smartlook">` makes `window.smartlook` the script tag itself.
+ * The vendor's `window.smartlook || (loader)` guard then short-circuits on a
+ * truthy DOM node, the recorder is never fetched, and the next line dies with
+ * "smartlook is not a function". That shipped to production once already.
  */
 const SMARTLOOK_KEY = "c5b28692a94485d17171249a65dee80b11b01908";
 
@@ -24,7 +30,7 @@ export function Smartlook() {
   if (process.env.NODE_ENV !== "production") return null;
 
   return (
-    <Script id="smartlook" strategy="afterInteractive">
+    <Script id="smartlook-loader" strategy="afterInteractive">
       {`
         window.smartlook||(function(d) {
           var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
