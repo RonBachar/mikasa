@@ -5,12 +5,10 @@ export type NavItem = {
   children?: { label: string; href: string }[];
 };
 
-// "היומן של מיקאסה" (/blog and its children) is deliberately absent from
-// both nav objects below. The pages exist and stay noindex (see
-// app/robots.ts) — owner's call 2026-08-27 is to also keep them unlinked
-// from site navigation until the section has real content. Reachable only
-// by direct URL until that changes; remove both this comment and the
-// robots/noindex setup together, not one without the other.
+// /area and "היומן של מיקאסה" (/blog) were held back from both nav objects
+// while the section had no content — owner's call 2026-08-27. Both now have
+// real pages and are linked here, indexed like every other page. See
+// content/journal.ts for why the journal exists at all.
 export const mainNav: NavItem[] = [
   {
     label: "הסוויטות שלנו",
@@ -22,6 +20,14 @@ export const mainNav: NavItem[] = [
   },
   { label: "גלריה", href: "/gallery" },
   { label: "מחירים", href: "/prices" },
+  {
+    label: "האזור שלנו",
+    href: "/area",
+    children: [
+      { label: "אטרקציות ליד שעל", href: "/area" },
+      { label: "היומן של מיקאסה", href: "/blog" },
+    ],
+  },
   { label: "אודות", href: "/about" },
   { label: "צור קשר", href: "/contact" },
 ];
@@ -36,6 +42,8 @@ export const footerNav = {
   secondary: [
     { label: "אודות מיקאסה", href: "/about" },
     { label: "גלריית תמונות", href: "/gallery" },
+    { label: "האזור והאטרקציות", href: "/area" },
+    { label: "היומן של מיקאסה", href: "/blog" },
     { label: "צור קשר", href: "/contact" },
   ],
   legal: [

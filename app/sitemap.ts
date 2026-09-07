@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site-config";
 import { suiteList } from "@/content/suites";
+import { journal, journalPosts } from "@/content/journal";
 
 /**
  * Priorities follow the conversion path, not the page count: the home page
@@ -24,7 +25,12 @@ import { suiteList } from "@/content/suites";
 const ROUTES = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/prices", changeFrequency: "weekly", priority: 0.9 },
+  // /area is the entry point for everyone who searches the region rather
+  // than the brand, which is most of the traffic the site does not yet have.
+  // Ranked here alongside /gallery rather than with the legal pages.
+  { path: "/area", changeFrequency: "monthly", priority: 0.8 },
   { path: "/gallery", changeFrequency: "monthly", priority: 0.7 },
+  { path: journal.path, changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "yearly", priority: 0.6 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.6 },
   { path: "/accessibility", changeFrequency: "yearly", priority: 0.3 },
@@ -46,6 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+    })),
+    // Posts carry their own publication date rather than the build time:
+    // a journal entry that claims to have changed on every deploy is telling
+    // Google something untrue about content that has not moved.
+    ...journalPosts.map((post) => ({
+      url: absoluteUrl(`${journal.path}/${post.slug}`),
+      lastModified: new Date(post.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
     })),
   ];
 }

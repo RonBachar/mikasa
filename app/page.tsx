@@ -35,8 +35,12 @@ const areaIcons: Record<AreaCategoryIcon, typeof TrailIcon> = {
   cafe: CafeIcon,
 };
 
+// The one page that keeps the brand first (see the title rule in lib/seo.ts):
+// it already ranks 1.1 for "מיקאסה שעל". What changed is the tail — "שעל" was
+// the last word after a second pipe, and the queries the site loses on are
+// "צימרים שעל" and "מושב שעל צימרים".
 export const metadata = pageMeta({
-  title: "צימר מיקאסה | צימר רומנטי לזוגות ברמת הגולן, שעל | ג'קוזי ונוף",
+  title: "צימר מיקאסה, מושב שעל | צימרים לזוגות ברמת הגולן עם ג'קוזי",
   description:
     "במיקאסה בשעל, רמת הגולן, מחכות לכם שתי סוויטות זוגיות עם ג'קוזי פרטי ומרפסת. חופשה כפרית רומנטית בלב הגולן, הרחק מהשגרה. לפרטים ותיאום, חייגו למיקה: 054-586-9818.",
   path: "/",

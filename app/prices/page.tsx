@@ -12,8 +12,18 @@ import {
   packagesNote,
 } from "@/content/pricing";
 
+/**
+ * The cheapest published nightly rate, in the title.
+ *
+ * Someone searching for a price wants a number, and a result that shows one
+ * gets the click over five that do not. Derived rather than typed, for the
+ * same reason lib/schema.ts derives it: a rate change in content/pricing.ts
+ * must not leave a stale figure sitting in Google's index.
+ */
+const lowestRate = Math.min(...nightlyRates.map((r) => r.amount));
+
 export const metadata = pageMeta({
-  title: "מחירים וחבילות פינוק במיקאסה | צימר זוגי בגולן, שעל",
+  title: `מחירון צימרים בשעל | מיקאסה, מ-${lowestRate} ש"ח ללילה לזוג`,
   description:
     "מחירי הסוויטות במיקאסה, מושב שעל: אמצע שבוע, סוף שבוע, ארוחת בוקר כפרית וחבילות פינוק ליום הולדת, יום נישואין ועיסוי זוגי. למחיר מדויק לתאריכים שלכם, חייגו למיקה: 054-586-9818.",
   path: "/prices",

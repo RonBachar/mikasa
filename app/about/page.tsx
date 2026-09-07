@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/cta-band";
 import { Img } from "@/components/manifest-image";
 
 export const metadata = pageMeta({
-  title: "הסיפור האישי של מיקאסה | אירוח זוגי כפרי בשעל, גולן",
+  title: "מי מארח אתכם | מיקה ומיקאסה, 19 שנות אירוח במושב שעל",
   description:
     "הכירו את מיקאסה: הסיפור האישי של צימר בוטיק לזוגות במושב שעל, רמת הגולן. אירוח חם ומלא השראה ממיקה. לפרטים, חייגו: 054-586-9818.",
   path: "/about",

@@ -1,6 +1,8 @@
 import { absoluteUrl, siteConfig } from "@/lib/site-config";
 import { suiteList, sharedAmenities } from "@/content/suites";
 import { homeFaqs } from "@/content/faq";
+import { attractions } from "@/content/area";
+import { journal, journalPosts } from "@/content/journal";
 import {
   nightlyRates,
   pricedPackages,
@@ -50,6 +52,20 @@ function build(): string {
   const amenities = sharedAmenities.map((a) => `- ${a.label}: ${a.blurb}`).join("\n");
 
   const faqs = homeFaqs.map((f) => `### ${f.q}\n\n${f.a}`).join("\n\n");
+
+  // Drive times are the single most-asked thing about this property and the
+  // thing an assistant is most likely to invent if we do not state it. Every
+  // line carries "approx." for the same reason the page does.
+  const nearby = attractions
+    .map((a) => `- ${a.name} (${a.category}): approx. ${a.driveTime} drive`)
+    .join("\n");
+
+  const posts = journalPosts
+    .map(
+      (p) =>
+        `- [${p.title}](${absoluteUrl(`${journal.path}/${p.slug}`)}): ${p.metaDescription}`
+    )
+    .join("\n");
 
   // Derived, not restated: a percentage typed here by hand is one that keeps
   // being quoted by an assistant after the owner has already changed it.
@@ -119,11 +135,31 @@ ${packages}
 
 ${faqs}
 
+## What is nearby
+
+Mikasa is in the northern Golan Heights, on the road between Katzrin and
+Mount Hermon. All drive times below are approximate, measured from Moshav
+Sha'al in normal traffic, and should be treated as estimates rather than
+facts. Snow-season and holiday traffic toward Hermon is considerably heavier.
+
+${nearby}
+
+## Journal
+
+${journal.name} — the guesthouse journal, written by Mika. These posts cover
+the surrounding area, not the property itself. Nothing in them states an
+opening hour, an entry fee or a trail condition as fact; anything
+time-sensitive should be checked with the site or attraction directly.
+
+${posts}
+
 ## Pages
 
 - [Home](${absoluteUrl("/")}): overview, suites, area, reviews
 - [Prices and packages](${absoluteUrl("/prices")}): nightly rates, discounts, add-ons
 ${suiteList.map((s) => `- [${s.name}](${absoluteUrl(`/suites/${s.slug}`)}): ${s.metaDescription}`).join("\n")}
+- [The area](${absoluteUrl("/area")}): attractions near Moshav Sha'al with approximate drive times, and what each season is like
+- [${journal.name}](${absoluteUrl(journal.path)}): ${journal.tagline}
 - [Gallery](${absoluteUrl("/gallery")}): photographs of the suites and grounds
 - [About](${absoluteUrl("/about")}): the owner's own account of the place
 - [Contact](${absoluteUrl("/contact")}): phone, WhatsApp and directions

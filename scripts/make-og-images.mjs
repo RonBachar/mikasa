@@ -19,11 +19,26 @@ const SRC = path.join(ROOT, "public", "images");
 const OUT = path.join(ROOT, "public", "og");
 
 /** Which photo represents which share context. */
+// Keep in step with OgCard in lib/seo.ts — a name there with no card here
+// ships a 404 to every social preview, and a card here with no name there is
+// dead weight. Each page's card is a crop of that page's own hero, so a link
+// pasted into WhatsApp shows what the page is about rather than the patio.
 const CARDS = [
   { name: "default", from: "exterior/exterior-patio-01.webp" },
   { name: "forest", from: "forest-suite/forest-suite-hero.webp" },
   { name: "rain", from: "rain-suite/rain-suite-hero.webp" },
   { name: "prices", from: "exterior/exterior-garden-hammock-hero.webp" },
+  { name: "area", from: "views/view-waterfall-saar.webp" },
+  { name: "journal", from: "exterior/exterior-garden-path-01.webp" },
+  {
+    name: "journal-couples-weekend-golan",
+    from: "exterior/exterior-garden-hammock-hero.webp",
+  },
+  { name: "journal-hermon-snow-season", from: "views/view-golan-valley.webp" },
+  {
+    name: "journal-saar-waterfall-water-trails",
+    from: "views/view-waterfall-saar.webp",
+  },
 ];
 
 await mkdir(OUT, { recursive: true });

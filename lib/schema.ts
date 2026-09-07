@@ -14,8 +14,12 @@
  */
 import { absoluteUrl as abs, siteConfig } from "./site-config";
 import { ogImagePath } from "./seo";
+import { img } from "./images";
+import type { Attraction } from "@/content/area";
 import type { Faq } from "@/content/faq";
 import type { Suite } from "@/content/suites";
+import type { JournalPost } from "@/content/journal";
+import { journal } from "@/content/journal";
 import { sharedAmenities, suiteList } from "@/content/suites";
 import { nightlyRates } from "@/content/pricing";
 
@@ -206,6 +210,104 @@ export function suiteSchema(suite: Suite) {
     bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Queen" },
     amenityFeature: amenityFeatures,
     containedInPlace: { "@id": BUSINESS_ID },
+  };
+}
+
+/**
+ * The attractions on /area, as a list of real places with their distance
+ * from the property.
+ *
+ * There is no Google rich result for this and it is not meant to produce
+ * one. It is for the answer engines: "how far is Hermon from Sha'al" is the
+ * question this business gets asked most, and an assistant that cannot find
+ * a structured answer will invent one. The prose on the page says the same
+ * thing, but a TouristAttraction with a named containedInPlace is the form a
+ * model actually lifts.
+ *
+ * Every distance is an estimate and the page says so in three places; the
+ * `description` carries the hedge into the markup too, so a quote of the
+ * data alone still arrives with the caveat attached.
+ *
+ * `url` is an anchor into this page rather than an outbound link, and it is
+ * not optional: Google reads any ItemList as a candidate Carousel and rejects
+ * every item that has no url. It will not build a carousel out of
+ * TouristAttraction whatever we do — that list is Recipe, Course, Restaurant,
+ * Movie — but there is no reason to hand it markup it has to throw away, and
+ * the anchors are useful on their own. Each id must exist on the rendered
+ * card; app/area/page.tsx sets them from the same field.
+ */
+export function areaAttractionsSchema(items: Attraction[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "אטרקציות ליד מושב שעל, רמת הגולן",
+    numberOfItems: items.length,
+    itemListElement: items.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "TouristAttraction",
+        name: a.name,
+        description: `${a.description} מרחק נסיעה משוער ממיקאסה, מושב שעל: ${a.driveTime}.`,
+        url: abs(`/area#${a.id}`),
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: siteConfig.address.region,
+        },
+      },
+    })),
+  };
+}
+
+/**
+ * One journal post.
+ *
+ * BlogPosting rather than Article: it is what the section is, and it is the
+ * type that ties cleanly to the Blog node below. The author is the business
+ * rather than a bare person name — Mika writes these, but she is the
+ * guesthouse, and an Organization author is what Google's own guidance asks
+ * for when the two are the same entity.
+ */
+export function blogPostingSchema(post: JournalPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    url: abs(`${journal.path}/${post.slug}`),
+    image: abs(img(post.heroImage).src),
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: siteConfig.lang,
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    // The posts are about the area this business sits in, and saying so is
+    // how an answer engine connects "what is there to do near Sha'al" to the
+    // property rather than treating the post as free-floating travel copy.
+    about: { "@id": BUSINESS_ID },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": abs(`${journal.path}/${post.slug}`),
+    },
+  };
+}
+
+/** The journal as a whole, for the index page. */
+export function blogSchema(posts: JournalPost[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: journal.name,
+    description: journal.tagline,
+    url: abs(journal.path),
+    inLanguage: siteConfig.lang,
+    publisher: { "@id": ORG_ID },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: abs(`${journal.path}/${p.slug}`),
+      datePublished: p.date,
+    })),
   };
 }
 

@@ -6,7 +6,7 @@ import { PhoneIcon, WhatsAppIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = pageMeta({
-  title: "הזמנת סוויטה אישית ויצירת קשר | צימר מיקאסה, שעל",
+  title: "איך מגיעים ואיך מזמינים | צימר מיקאסה, מושב שעל",
   description:
     "ליצירת קשר עם מיקאסה בשעל, רמת הגולן, והזמנת סוויטה בטלפון או בוואטסאפ. כתובת, שעות ודרכי הגעה. חייגו למיקה: 054-586-9818.",
   path: "/contact",
