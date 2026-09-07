@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { ImgMeta } from "@/lib/images";
-import { CloseIcon } from "./icons";
+import { ChevronLeftIcon, ChevronRightIcon, CloseIcon } from "./icons";
 
 /** Shared lightbox state: current index + navigation, reused by any trigger. */
 export function useLightbox(count: number) {
@@ -97,13 +97,10 @@ export function Lightbox({
           go(-1);
         }}
         aria-label="התמונה הקודמת"
-        // The angle-quote glyphs are bidi-mirrored: inside the RTL page they
-        // render pointing the other way. Forcing LTR keeps them literal.
-        dir="ltr"
-        className="absolute right-2 md:right-8 text-4xl px-3 py-2"
+        className="absolute right-2 md:right-8 p-3"
         style={{ color: "var(--color-gold)" }}
       >
-        ›
+        <ChevronRightIcon width={34} height={34} />
       </button>
 
       <figure className="max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
@@ -134,11 +131,10 @@ export function Lightbox({
           go(1);
         }}
         aria-label="התמונה הבאה"
-        dir="ltr"
-        className="absolute left-2 md:left-8 text-4xl px-3 py-2"
+        className="absolute left-2 md:left-8 p-3"
         style={{ color: "var(--color-gold)" }}
       >
-        ‹
+        <ChevronLeftIcon width={34} height={34} />
       </button>
     </div>
   );

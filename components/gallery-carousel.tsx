@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { ImgMeta } from "@/lib/images";
 import { Lightbox, useLightbox } from "./lightbox";
+import { ChevronLeftIcon, ChevronRightIcon } from "./icons";
 
 /**
  * Suite-page photo carousel: three photos in frame at a time on desktop,
@@ -117,11 +118,8 @@ export function GalleryCarousel({ images }: { images: ImgMeta[] }) {
           disabled={atStart}
           className="carousel__arrow carousel__arrow--prev"
           aria-label="התמונות הקודמות"
-          // The angle-quote glyphs are bidi-mirrored: inside the RTL page they
-          // render pointing the other way. Forcing LTR keeps them literal.
-          dir="ltr"
         >
-          ›
+          <ChevronRightIcon />
         </button>
         <button
           type="button"
@@ -129,9 +127,8 @@ export function GalleryCarousel({ images }: { images: ImgMeta[] }) {
           disabled={atEnd}
           className="carousel__arrow carousel__arrow--next"
           aria-label="התמונות הבאות"
-          dir="ltr"
         >
-          ‹
+          <ChevronLeftIcon />
         </button>
       </div>
 

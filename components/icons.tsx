@@ -54,6 +54,27 @@ export function ChevronDownIcon(p: SVGProps<SVGSVGElement>) {
   );
 }
 
+/**
+ * Gallery arrows. Drawn rather than typed: the `‹` `›` glyphs are
+ * bidi-mirrored, so in this RTL page they flip and end up pointing away
+ * from the side they sit on. An SVG path always points where it is drawn.
+ */
+export function ChevronRightIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} width={20} height={20} {...p}>
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+export function ChevronLeftIcon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} width={20} height={20} {...p}>
+      <path d="m15 6-6 6 6 6" />
+    </svg>
+  );
+}
+
 /** Camera glyph — bolder crate-stencil treatment, used for gallery links and hover badges. */
 export function GalleryIcon(p: SVGProps<SVGSVGElement>) {
   return (

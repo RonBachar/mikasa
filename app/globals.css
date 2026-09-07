@@ -110,6 +110,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Tailwind's reset leaves buttons on the default arrow cursor. Anything
+   clickable should say so under the pointer. */
+button:not(:disabled),
+summary,
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
 h1,
 h2,
 h3,
@@ -1600,18 +1608,20 @@ a.card:focus-visible {
   opacity: 0.3;
   cursor: default;
 }
+/* Physical sides, not logical: each arrow has to sit on the side its own
+   drawn chevron points to, whatever the writing direction says. */
 .carousel__arrow--prev {
-  inset-inline-start: -0.5rem;
+  right: -0.5rem;
 }
 .carousel__arrow--next {
-  inset-inline-end: -0.5rem;
+  left: -0.5rem;
 }
 @media (min-width: 1024px) {
   .carousel__arrow--prev {
-    inset-inline-start: -1.75rem;
+    right: -1.75rem;
   }
   .carousel__arrow--next {
-    inset-inline-end: -1.75rem;
+    left: -1.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
