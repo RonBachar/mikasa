@@ -97,6 +97,9 @@ export function Lightbox({
           go(-1);
         }}
         aria-label="התמונה הקודמת"
+        // The angle-quote glyphs are bidi-mirrored: inside the RTL page they
+        // render pointing the other way. Forcing LTR keeps them literal.
+        dir="ltr"
         className="absolute right-2 md:right-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >
@@ -131,6 +134,7 @@ export function Lightbox({
           go(1);
         }}
         aria-label="התמונה הבאה"
+        dir="ltr"
         className="absolute left-2 md:left-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >

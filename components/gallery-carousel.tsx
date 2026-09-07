@@ -117,6 +117,9 @@ export function GalleryCarousel({ images }: { images: ImgMeta[] }) {
           disabled={atStart}
           className="carousel__arrow carousel__arrow--prev"
           aria-label="התמונות הקודמות"
+          // The angle-quote glyphs are bidi-mirrored: inside the RTL page they
+          // render pointing the other way. Forcing LTR keeps them literal.
+          dir="ltr"
         >
           ›
         </button>
@@ -126,6 +129,7 @@ export function GalleryCarousel({ images }: { images: ImgMeta[] }) {
           disabled={atEnd}
           className="carousel__arrow carousel__arrow--next"
           aria-label="התמונות הבאות"
+          dir="ltr"
         >
           ‹
         </button>
