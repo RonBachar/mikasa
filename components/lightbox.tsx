@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { ImgMeta } from "@/lib/images";
 import { CloseIcon } from "./icons";
@@ -48,6 +48,25 @@ export function Lightbox({
     };
   }, [open, close, go]);
 
+  // Swipe navigation. A horizontal drag past the threshold moves one image;
+  // vertical drags are ignored so the gesture never fights page scrolling.
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    // RTL: dragging leftwards moves forward through the gallery.
+    go(dx < 0 ? 1 : -1);
+  };
+
   if (open === null) return null;
 
   return (
@@ -56,8 +75,10 @@ export function Lightbox({
       aria-modal="true"
       aria-label="גלריית תמונות"
       className="fixed inset-0 z-[80] flex items-center justify-center p-4"
-      style={{ background: "rgba(24,24,24,0.94)" }}
+      style={{ background: "rgba(24,24,24,0.94)", touchAction: "pan-y" }}
       onClick={close}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <button
         type="button"
@@ -76,7 +97,7 @@ export function Lightbox({
           go(-1);
         }}
         aria-label="התמונה הקודמת"
-        className="absolute end-2 md:end-8 text-4xl px-3 py-2"
+        className="absolute start-2 md:start-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >
         ›
@@ -110,7 +131,7 @@ export function Lightbox({
           go(1);
         }}
         aria-label="התמונה הבאה"
-        className="absolute start-2 md:start-8 text-4xl px-3 py-2"
+        className="absolute end-2 md:end-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >
         ‹
