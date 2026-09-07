@@ -97,7 +97,7 @@ export function Lightbox({
           go(-1);
         }}
         aria-label="התמונה הקודמת"
-        className="absolute start-2 md:start-8 text-4xl px-3 py-2"
+        className="absolute right-2 md:right-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >
         ›
@@ -131,7 +131,7 @@ export function Lightbox({
           go(1);
         }}
         aria-label="התמונה הבאה"
-        className="absolute end-2 md:end-8 text-4xl px-3 py-2"
+        className="absolute left-2 md:left-8 text-4xl px-3 py-2"
         style={{ color: "var(--color-gold)" }}
       >
         ‹
