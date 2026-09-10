@@ -25,7 +25,7 @@ import {
   type AreaCategoryIcon,
 } from "@/content/area";
 import { areaFaqs } from "@/content/faq";
-import { journalPosts } from "@/content/journal";
+import { publishedPosts } from "@/content/journal";
 
 /**
  * /area — the location pillar.
@@ -200,7 +200,7 @@ export default function AreaPage() {
           intro="מסלולים ועונות, בפירוט שלא נכנס לעמוד הזה."
         />
         <ul className="grid gap-5 md:grid-cols-3">
-          {journalPosts.map((post) => (
+          {publishedPosts.map((post) => (
             <li key={post.slug}>
               <Link href={`/blog/${post.slug}`} className="card p-6 block h-full">
                 <span className="eyebrow">{post.tag}</span>

@@ -2,7 +2,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site-config";
 import { suiteList, sharedAmenities } from "@/content/suites";
 import { homeFaqs } from "@/content/faq";
 import { attractions } from "@/content/area";
-import { journal, journalPosts } from "@/content/journal";
+import { journal, publishedPosts } from "@/content/journal";
 import {
   nightlyRates,
   pricedPackages,
@@ -60,7 +60,7 @@ function build(): string {
     .map((a) => `- ${a.name} (${a.category}): approx. ${a.driveTime} drive`)
     .join("\n");
 
-  const posts = journalPosts
+  const posts = publishedPosts
     .map(
       (p) =>
         `- [${p.title}](${absoluteUrl(`${journal.path}/${p.slug}`)}): ${p.metaDescription}`

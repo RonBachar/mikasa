@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site-config";
 import { suiteList } from "@/content/suites";
-import { journal, journalPosts } from "@/content/journal";
+import { journal, publishedPosts } from "@/content/journal";
 
 /**
  * Priorities follow the conversion path, not the page count: the home page
@@ -53,12 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
+    // Released posts only — a draft has no business in the sitemap.
     // Posts carry their own publication date rather than the build time:
     // a journal entry that claims to have changed on every deploy is telling
     // Google something untrue about content that has not moved.
-    ...journalPosts.map((post) => ({
+    ...publishedPosts.map((post) => ({
       url: absoluteUrl(`${journal.path}/${post.slug}`),
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.updated ?? post.date),
       changeFrequency: "yearly" as const,
       priority: 0.6,
     })),

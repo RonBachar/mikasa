@@ -259,14 +259,50 @@ export function areaAttractionsSchema(items: Attraction[]) {
   };
 }
 
+/** Stable id for the author node, so posts reference her instead of copying. */
+const AUTHOR_ID = `${siteConfig.url}/#mika`;
+
+/**
+ * Mika, as the author entity behind every journal post.
+ *
+ * This was an Organization reference until 2026-09-10. Both are permitted,
+ * but the posts make first-person claims — "I see this every winter", "what
+ * I tell guests on the phone" — and the thing that makes those worth reading
+ * is that a named person who has hosted in this valley for nineteen years is
+ * making them. `knowsAbout` states the ground she actually has: the area she
+ * lives in, not travel in general.
+ */
+export function authorSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": AUTHOR_ID,
+    name: siteConfig.owner.name,
+    jobTitle: "מארחת ובעלת הבית",
+    worksFor: { "@id": ORG_ID },
+    url: abs("/about"),
+    knowsAbout: [
+      "רמת הגולן",
+      "מושב שעל",
+      "אתר החרמון",
+      "מסלולי טיול בצפון",
+      "אירוח כפרי",
+    ],
+    description:
+      "מיקה מארחת זוגות במיקאסה, במושב שעל שבצפון רמת הגולן, כבר 19 שנה, ומלווה כל הזמנה באופן אישי.",
+  };
+}
+
 /**
  * One journal post.
  *
  * BlogPosting rather than Article: it is what the section is, and it is the
- * type that ties cleanly to the Blog node below. The author is the business
- * rather than a bare person name — Mika writes these, but she is the
- * guesthouse, and an Organization author is what Google's own guidance asks
- * for when the two are the same entity.
+ * type that ties cleanly to the Blog node below.
+ *
+ * `dateModified` falls back to `datePublished` when the post has never been
+ * revised. That is the honest reading and it is deliberate: emitting today's
+ * build date would tell Google the content changed on every deploy, which is
+ * both false and a good way to lose the trust the field is meant to earn.
  */
 export function blogPostingSchema(post: JournalPost) {
   return {
@@ -277,9 +313,9 @@ export function blogPostingSchema(post: JournalPost) {
     url: abs(`${journal.path}/${post.slug}`),
     image: abs(img(post.heroImage).src),
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     inLanguage: siteConfig.lang,
-    author: { "@id": ORG_ID },
+    author: { "@id": AUTHOR_ID },
     publisher: { "@id": ORG_ID },
     // The posts are about the area this business sits in, and saying so is
     // how an answer engine connects "what is there to do near Sha'al" to the

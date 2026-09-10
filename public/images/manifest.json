@@ -4,476 +4,544 @@
     "folder": "exterior",
     "alt": "ארוחת בוקר עשירה עם ביצים, לחם, סלט ומיץ תפוזים בצימר מיקאסה",
     "w": 640,
-    "h": 427
+    "h": 427,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoMAAgAA8BgJaACdAYs3bVhOfgA90lMrFyu8kl2u2HmADTHxIRwPO+7iiP5KOixoPa9i0phbkwYyIkhVDu8gtgHSgTEGblS6mLKGMPeQAA="
   },
   {
     "file": "exterior/exterior-building-01.webp",
     "folder": "exterior",
     "alt": "מבנה צימר מיקאסה עם גינה פורחת במושב שעל שברמת הגולן",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMAAgAA8BgJZACdAD8Knm79gAA/oPCYZEwZWoMQ9XiXviB+ywlLpgaxUCAh1tDRHla6Pdmqla5lKwLDd05BSRHR10WCgAA"
   },
   {
     "file": "exterior/exterior-entrance-01.webp",
     "folder": "exterior",
     "alt": "פינת כניסה עם כיסאות ראטן ופרחים בצימר מיקאסה",
     "w": 740,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoMAAgAA8BgJZACdAEYGQbKCoAA/uhKiuPaTsO/XuwQ5FVR/40ygm7PeHt3vlzmXN0hnai4FEHoqAsSTGfStCmoKAZkbCgAAAA="
   },
   {
     "file": "exterior/exterior-garden-bench.webp",
     "folder": "exterior",
     "alt": "ספסל עץ בפינה מוצלת בגינת צימר מיקאסה",
     "w": 737,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoMAAgAA8BgJYgCdACRoGIAAP5Axuv202PdU0bPZCBI5zxgQMTycpBRQ+8r4UHLMs6+Dic2SOYLl38QAAA="
   },
   {
     "file": "exterior/exterior-garden-building.webp",
     "folder": "exterior",
     "alt": "מבנה הצימר משקיף על גינה מטופחת עם פרחים בצימר מיקאסה",
     "w": 738,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAgAA8BgJZACdAD8LvKyen8AAP6DwmGRMGVqDEPV5zhXk9LFALKuxGj2l4kHkggNKiJrkbvcFXmZzC5+1wG6Z/KbE2QAAAA="
   },
   {
     "file": "exterior/exterior-garden-deck-lounge.webp",
     "folder": "exterior",
     "alt": "דק עץ עם פינת ישיבה נינוחה בגינת מיקאסה, אירוח כפרי בגולן",
     "w": 738,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAgAA8BgJQBOgB+Ff3DsomAA/jN9GYyaK0f4wHWgwHY+113efEZbvcIyvm7KLThtgxxuH4MC3X5w6LtAAA=="
   },
   {
     "file": "exterior/exterior-garden-dining.webp",
     "folder": "exterior",
     "alt": "פינת אוכל מוצלת עם שמשייה בגינת צימר מיקאסה",
     "w": 739,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoMAAgAA8BgJQAAS1rOj2sAAP1PQN5sYwWi48ZFtCQ2kI1AFUgbeCHTJq63zjHL6WYJR83FCENP6HcckUAAAA=="
   },
   {
     "file": "exterior/exterior-garden-egg-chair-01.webp",
     "folder": "exterior",
     "alt": "כיסא ביצה תלוי על דק עץ בגינת צימר מיקאסה",
     "w": 740,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAgAA8BgJYgCdAYt9YTwcwAA+oP5dG//4uLOeKNnxAEJAfiuzRRynxWlznTgC06HXC0BLVE0n2D1S/3fIgAA"
   },
   {
     "file": "exterior/exterior-garden-flower-path.webp",
     "folder": "exterior",
     "alt": "שביל בין ערוגות פרחים צבעוניות בגינת מיקאסה",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAgAA8BgJYgCdADZoPW/gAD+6fgvoD/dnr23A96EyJ3Yk1HjJz31Ku9D98DUOxGWYVcPOJNQ0L6AAAA="
   },
   {
     "file": "exterior/exterior-garden-flowers-01.webp",
     "folder": "exterior",
     "alt": "פריחה סגולה עשירה בגינת צימר מיקאסה ברמת הגולן",
     "w": 740,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoMAAgAA8BgJZACdAEQXsVci2AAAP7c6hdEq4gMKlmqgabIQzvgNk57lQkkbL4X0K5vzxYjAdfnjAwUkKNh2QAA"
   },
   {
     "file": "exterior/exterior-garden-flowers-02.webp",
     "folder": "exterior",
     "alt": "עציץ פרחים תלוי בגינת צימר מיקאסה בשעל",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoMAAgAA8BgJagC7ADdA72AAP59S1WnQqqX3YCnTMCWUoFlxvGyy2IMBpVgpHjuer8Ht5h0j+cAAA=="
   },
   {
     "file": "exterior/exterior-garden-hammock-01.webp",
     "folder": "exterior",
     "alt": "ערסל תלוי בין עצים בגינה הפורחת של מיקאסה ברמת הגולן",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAgAA8BgJZgCsAD7E7MDPeAA/s9z/6pXbvQZHk6wu/G+MnWT+6rk8jybRooRAGktOTbgsFVhIPw7IAA="
   },
   {
     "file": "exterior/exterior-garden-hammock-02.webp",
     "folder": "exterior",
     "alt": "ערסל ושולחן פיקניק בגינה ירוקה בצימר מיקאסה בשעל",
     "w": 738,
-    "h": 489
+    "h": 489,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJZgCdADceCksAAD+fKQONVRp/E2IxP/FbSD1OuBLyO0xvXjYD0OqYyZi9DZDe/9TeNflQSXgAAAA"
   },
   {
     "file": "exterior/exterior-garden-hammock-03.webp",
     "folder": "exterior",
     "alt": "ערסל פרוש על רקע גינה ירוקה בצימר מיקאסה",
     "w": 742,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAgAA8BgJaAC7AEKLpMRM5AA/oXXFUdNjvqaY53WJNJ5IrMYhcHn0V8PScPBjb6NGb5SpDwyF7HkXY4AAA=="
   },
   {
     "file": "exterior/exterior-garden-hammock-hero.webp",
     "folder": "exterior",
     "alt": "ערסל לבן על רקע מדשאה וגינה פורחת בצימר מיקאסה",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoMAAgAA8BgJbACdACRqqIQAAD+qdQq+TWs9+D73oOmEpiqMpKORJZo+jkbCtpFswmqeU9j8kaxxHCUZg/iD0dMZDDQwAAA"
   },
   {
     "file": "exterior/exterior-garden-hero.webp",
     "folder": "exterior",
     "alt": "גינה ירוקה עם שביל אבן, פרחים וצמחייה עשירה בצימר מיקאסה ברמת הגולן",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoMAAgAA8BgJZgAAY6YUnwAAP55EwafSfG+r3nrMp8NZj1hDr43vQvOpYefE7ZijCMXz3iI7saWCQS22u/ACvYAcAA="
   },
   {
     "file": "exterior/exterior-garden-lawn-01.webp",
     "folder": "exterior",
     "alt": "מדשאה ירוקה ופינות ישיבה בגינת צימר מיקאסה בשעל",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJbACdAECoLsuAAD+0nPxrqmUO7cwzVYrnu7kjQgedIT1/gGNk/PxOKDcZdNL91ptMPKe4BP7LfQA"
   },
   {
     "file": "exterior/exterior-garden-lawn-02.webp",
     "folder": "exterior",
     "alt": "מדשאה ירוקה ועצים בגינת צימר מיקאסה בשעל",
     "w": 739,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJbACdAEDlbBPSAD+zQw7av8vQUxJZKZMVKoIh7/CkImQskiNAcEcp2/ArNYtthiMhuWBIiA7gAAA"
   },
   {
     "file": "exterior/exterior-garden-path-01.webp",
     "folder": "exterior",
     "alt": "שביל אבן ומדרגות בגינה הפורחת של צימר מיקאסה בשעל",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoMAAgAA8BgJZgAAY6YUnwAAP55EwafSfG+r3nrMp8NZj1hDr43vQvOpYefE7ZijCMXz3iI7saWCQS22u/ACvYAcAA="
   },
   {
     "file": "exterior/exterior-garden-path-02.webp",
     "folder": "exterior",
     "alt": "שביל אבן בין ערוגות פרחים וכדי חרס בגינת מיקאסה",
     "w": 738,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoMAAgAA8BgJbAC7ADRYAA/AAD+76hix+1598FHhcCpYiHe4bXSdsKw8K249UEs4XlkCBQTBGMt/huFAo4HuwgAAAA="
   },
   {
     "file": "exterior/exterior-garden-path-03.webp",
     "folder": "exterior",
     "alt": "שביל אבן בין צמחייה עשירה וכדי חרס בגינת מיקאסה בשעל",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAgAA8BgJbACdADdcxiaQAAA/u+oYsfsALhO3ElaIExXcBXnhO2GZ9KOP+NbcOMkk6RG/w3CgUb1eDAAAA=="
   },
   {
     "file": "exterior/exterior-garden-path-building.webp",
     "folder": "exterior",
     "alt": "שביל אבן מוביל אל מבנה הצימר בגינת מיקאסה ברמת הגולן",
     "w": 739,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJZACdACRF7/4QAD+vJWq4eLiyTo+BjYlsWcyAiLBMJsTASoui/XLXJ23TXakbnn6cr8xJz+87AAA"
   },
   {
     "file": "exterior/exterior-patio-01.webp",
     "folder": "exterior",
     "alt": "פינת ישיבה עם כיסא נדנדה תלוי במרפסת העץ בגינת מיקאסה",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoMAAgAA8BgJQBOgB+EhXhLQAD+M31zeGigvzWXYnhE8oBj5V+Ou8fNkD2bZOCX/pvk1zPHYOxUBTYoAAAAAA=="
   },
   {
     "file": "exterior/exterior-sign-mikasa-ivy.webp",
     "folder": "exterior",
     "alt": "שלט צימר מיקאסה משובץ בקיר צמחייה ופרחים אדומים",
     "w": 736,
-    "h": 489
+    "h": 489,
+    "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoMAAgAA8BgJQBOgCFq15Y4AAD+2adJq39owSA/34KKqWW7+bPa38OerfvUoAzQAAA="
   },
   {
     "file": "exterior/exterior-sign-mikasa.webp",
     "folder": "exterior",
     "alt": "שלט צימר מיקאסה בין פרחים אדומים וצמחיית טיפוס, מושב שעל",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoMAAgAA8BgJQBOgBuKqChwAP7bhG2TiNlSQj9aSq73dr9v6lqMIorf3n1D1KVgzQAAAA=="
   },
   {
     "file": "exterior/exterior-sign-rural.webp",
     "folder": "exterior",
     "alt": "שלט כפרי חם בגינת צימר מיקאסה שעל",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAgCdASoMAAgAA8BgJagCdAEUVEmppdisJAAA/sJR7VWEq0qmYqe4X8SWvcA9Fif3fWp5ryb/rncbQOa3hR8gfmgAAA=="
   },
   {
     "file": "exterior/exterior-garden-patio-hero.webp",
     "folder": "exterior",
     "alt": "מרפסת עץ מרוהטת עם כיסא נדנדה תלוי, פינות ישיבה וגינה ירוקה בצימר מיקאסה, מושב שעל שברמת הגולן",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoMAAgAA8BgJQBOgB+EhXhLQAD+M31zeGigvzWXYnhE8oBj5V+Ou8fNkD2bZOCX/pvk1zPHYOxUBTYoAAAAAA=="
   },
   {
     "file": "forest-suite/forest-suite-balcony-01.webp",
     "folder": "forest-suite",
     "alt": "מרפסת פרטית עם פינת ישיבה ונוף ירוק בסוויטת יער, צימר בגולן",
     "w": 737,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoMAAgAA8BgJQBdgB6WAFdYnMAA9EnpNzyQNeazdnPUAlggh9gCKc7kq1ucxQ5vdZgls1Ni4iiQAAAA"
   },
   {
     "file": "forest-suite/forest-suite-balcony-02.webp",
     "folder": "forest-suite",
     "alt": "מרפסת עם כיסאות ונוף פתוח אל הגולן בסוויטת יער במיקאסה",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoMAAgAA8BgJQBOgBtHpfbgAPZ0dulWXXVPWTwnzfgi5/qmxXn47u1yHw6M1xnvvNluOAigSJQH1kUuPcf4vLicLkue4TB4AAA="
   },
   {
     "file": "forest-suite/forest-suite-bathroom-01.webp",
     "folder": "forest-suite",
     "alt": "חדר רחצה עם ג'קוזי ומקלחון בסוויטת יער, צימר עם ג'קוזי בגולן",
     "w": 740,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoMAAgAA8BgJYgCdACRpfK4AMyca9lrHoWh95SRIaI9Fm2a/lIfsYdprW12IvimHASaHtZafAA="
   },
   {
     "file": "forest-suite/forest-suite-bedroom-01.webp",
     "folder": "forest-suite",
     "alt": "מיטה זוגית ופינת ישיבה עם תקרת עץ בסוויטת יער, צימר זוגי במיקאסה שעל",
     "w": 738,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoMAAgAA8BgJbACdAECoNHIm4AA+p4ZiV0rNmptnGfRjkAJjNkYQ2P7tFO3YjSs4L0lLOx9d1AwE7yvyT3fG2TPv9sIHJ+mKfbgAA=="
   },
   {
     "file": "forest-suite/forest-suite-bedroom-02.webp",
     "folder": "forest-suite",
     "alt": "מיטה זוגית מול טלוויזיה בסוויטת יער, צימר בוטיק במיקאסה שעל",
     "w": 743,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoMAAgAA8BgJagCdAD7FS8TcyaAAOIwqlO1td0lb1Om2CQjHS0NmQcW8aHkujNIILe42T25DL0PWyZcqcIcKsv3WJrgAA=="
   },
   {
     "file": "forest-suite/forest-suite-bedroom-03.webp",
     "folder": "forest-suite",
     "alt": "מיטה זוגית מוצעת בלבן עם מנורת לילה חמה בסוויטת יער במיקאסה",
     "w": 737,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAgAA8BgJQBOgBu2JvsBV2AA/sIE/s4ZCeA3vwE/XwWqdal434EeVp8lkeeg1uPlz3O0dZdpWuXbBEPFfOPzIAA="
   },
   {
     "file": "forest-suite/forest-suite-bedroom-04.webp",
     "folder": "forest-suite",
     "alt": "מיטה זוגית ופינת ישיבה מוארת בסוויטת יער, צימר רומנטי בגולן",
     "w": 738,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAgAA8BgJYgCdAYsjZuDcQAA8D36w/syYgKzgU0b71p+o+ioJExk9o0fpWOFeyCty/K2Re/6v5D7ZOGjUe+CcuF0AA=="
   },
   {
     "file": "forest-suite/forest-suite-coffee-01.webp",
     "folder": "forest-suite",
     "alt": "מכונת קפה וצלחת עוגיות לאורחים בסוויטת יער, אירוח אישי במיקאסה",
     "w": 739,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAgAA8BgJYgCdADdrpT4SCAA/tz+7z7IeJtMVgZaj1NQdsyRHjs1aBfyNRRpRSO8aN1limvX2LMtjTsSAAAA"
   },
   {
     "file": "forest-suite/forest-suite-hero.webp",
     "folder": "forest-suite",
     "alt": "מבט אל המיטה ופינת המגורים בסוויטת יער, צימר זוגי כפרי במיקאסה שעל",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoMAAgAA8BgJbACdAYulZ/9ENQA4dzsMfiKj6sCKlrpAuXYwfN1YwVLo7Sn/mUw2Z8+pzYXtqU7/0CAkz/JPJ83lZn9SbbCWkl8bnqXAAA="
   },
   {
     "file": "forest-suite/forest-suite-interior-01.webp",
     "folder": "forest-suite",
     "alt": "מבט רחב על המיטה ופינת המגורים בסוויטת יער, צימר זוגי במיקאסה",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoMAAgAA8BgJbACdAEfpzmabWBAAN4PrnMHuTh1mDNeDZ7VPufnlonRO6THf+h8AqY8UKyNa4kVyogxa56SJkDLNcWEDlhJFxY6YZAA"
   },
   {
     "file": "forest-suite/forest-suite-interior-02.webp",
     "folder": "forest-suite",
     "alt": "מבט רחב על המיטה ופינת הישיבה בסוויטת יער במיקאסה שעל",
     "w": 741,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAgAA8BgJZACdADco/y4KAAA/iepLyhknHm2xrxcpzi6c7sBExgYpwTnZ+Qc6mezbaSe2jJUjDW6mLYDkYEAAAA="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-01.webp",
     "folder": "forest-suite",
     "alt": "ג'קוזי זוגי פרטי עם תאורה רומנטית וקיר לבנים בסוויטת יער, צימר מיקאסה בשעל שברמת הגולן",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoMAAgAA8BgJagCdAEXrhR7VeoAAP6rG28GvmUgXCeRYpVrj0P4BRZypMTW6GY8+IMQJ7VPTx8CRTTWUlspBdj6VtaAAA=="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-02.webp",
     "folder": "forest-suite",
     "alt": "ג'קוזי מבעבע במים בתאורה כחולה עם זר ורדים אדומים בסוויטת יער במיקאסה",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAgAA8BgJbACdADhl7s6kEAA/P+Es4XLi847eLyr2LKhww6iD9W3OpU6IVlMZCUh574bQG+LYiSfvCIdxVgAAAA="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-03.webp",
     "folder": "forest-suite",
     "alt": "ג'קוזי זוגי בתאורה כחולה מול קיר לבנים חשוף בסוויטת יער במיקאסה",
     "w": 739,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAgAA8BgJaACdADdgrIWYAD+Qc1yvRrGNhLbjuNFZp2xSxhB+QBw1dpYqLnim5m6ZXkJw5dAAA=="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-04.webp",
     "folder": "forest-suite",
     "alt": "פינת ג'קוזי עם כיור ומראה בסוויטת יער, צימר מיקאסה בשעל",
     "w": 736,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAgAA8BgJQBOgB+E4SSTYAD3zgdpuaxPCa/nTPMvkEvuJkoCWl5Ntpr03UsFvI3KlA8edZ7JIn4AAAA="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-05.webp",
     "folder": "forest-suite",
     "alt": "פינת ג'קוזי ומקלחון בסוויטת יער במיקאסה שברמת הגולן",
     "w": 737,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoMAAgAA8BgJQBOkERiuKZM6bfgAMoOhkJKslyzgoX0ZE2U12iwGuL1+FJdK+RmxvSLUradgAA="
   },
   {
     "file": "forest-suite/forest-suite-jacuzzi-romantic.webp",
     "folder": "forest-suite",
     "alt": "ג'קוזי זוגי עם מים כחולים וזר ורדים אדומים, פינוק רומנטי בסוויטת יער במיקאסה",
     "w": 740,
-    "h": 488
+    "h": 488,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoMAAgAA8BgJQBOgBsqWrMAAPaBNxh1gyN4SWI9ExXDsxLfdtMTK0xi24cUeoufLGZO5zSbX7XTE2c1F7gD+OjuAAA="
   },
   {
     "file": "forest-suite/forest-suite-kitchenette-01.webp",
     "folder": "forest-suite",
     "alt": "מטבחון מאובזר עם קומקום ומיקרוגל בסוויטת יער, צימר מיקאסה ברמת הגולן",
     "w": 738,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoMAAgAA8BgJZACdAELYMnC0S4AAPjzyDhpTOdO89qhXABEARPG/vXgjmGIP46OXkfDN/F0ylWMXk31EHVgjxvfLEAAAA=="
   },
   {
     "file": "forest-suite/forest-suite-living-01.webp",
     "folder": "forest-suite",
     "alt": "פינת מגורים עם טלוויזיה וישיבה נוחה בסוויטת יער במיקאסה",
     "w": 741,
-    "h": 489
+    "h": 489,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoMAAgAA8BgJZACdAEV+vx2gAD+eGEdwzVP0gI/v8mc7E6VgbjjyG5twWvbqMqIm/52oRfk2fI1Sejd8r3sxp8oAAA="
   },
   {
     "file": "forest-suite/forest-suite-lounge-01.webp",
     "folder": "forest-suite",
     "alt": "פינת ישיבה עם כורסאות ראטן ושולחן בסוויטת יער, אירוח זוגי במיקאסה שעל",
     "w": 740,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAgAA8BgJbACdADdZ1KoTeQAAP5qldCKuTf5c6VePlMyAjjuUBkxXGYjXNCcIllt2ZY4EHrjPvGN9p4l5K5rk1098xQAAAA="
   },
   {
     "file": "forest-suite/forest-suite-seating-01.webp",
     "folder": "forest-suite",
     "alt": "מיטה זוגית ופינת ישיבה עם כורסאות ראטן בסוויטת יער במיקאסה",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAgAA8BgJZACdADbWuCVnuAA/Z9r5zBm5aKjjvnGIMZ5T2mcjI76t9QRQCQP3HKhocMByMUxubZcfCHZAAAA"
   },
   {
     "file": "rain-suite/rain-suite-balcony-01.webp",
     "folder": "rain-suite",
     "alt": "מרפסת עם שולחן וכיסאות ונוף אל הגולן בסוויטת גשם במיקאסה",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoMAAgAA8BgJQBOgBhfPCA4APpOa/owky91LwynbHu10wcWY0GExfcdG6ieHKi8RrG0Sf09Reow/pyE3TZ5pLwAAAA="
   },
   {
     "file": "rain-suite/rain-suite-balcony-02.webp",
     "folder": "rain-suite",
     "alt": "מרפסת עם ארוחת בוקר ונוף פתוח בסוויטת גשם, אירוח כפרי ברמת הגולן",
     "w": 739,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAgAA8BgJQBOgB6TFvq2IAD9eITkspBMx+rxMdFA2Zzu7sN0EGC2n60McNK3epIxdCtrtPY9CGLCAAA="
   },
   {
     "file": "rain-suite/rain-suite-bathroom-01.webp",
     "folder": "rain-suite",
     "alt": "חדר רחצה עם כיור, מראה וחיפוי אבן בסוויטת גשם, צימר מיקאסה בשעל",
     "w": 741,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJQBOgB6AJAiwAAD+hbfWTNA/8ljRfXUM5DBt/HXeKHb6sWCTzLVz7iDSKFhGYQ0+QGR4ETdlUAAA"
   },
   {
     "file": "rain-suite/rain-suite-bathroom-02.webp",
     "folder": "rain-suite",
     "alt": "מקלחת ושירותים בחדר הרחצה של סוויטת גשם, צימר בצפון הגולן",
     "w": 740,
-    "h": 494
+    "h": 494,
+    "blur": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACQAQCdASoMAAgAA8BgJQBOgBsym7AA3k5ogcX3eq3oDSo5xtlocxoPtiNVblPLanLXun+I+Tg3TMAA"
   },
   {
     "file": "rain-suite/rain-suite-bed-01.webp",
     "folder": "rain-suite",
     "alt": "ראש מיטה זוגית מעוצב עם שתי מנורות לילה בסוויטת גשם במיקאסה",
     "w": 738,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoMAAgAA8BgJZQC7AELIXWwAP64Lzh41htHBpHNN79cBY/ICQs6baCNQNiHlh5Xs30JZccrXwAAAA=="
   },
   {
     "file": "rain-suite/rain-suite-bed-02.webp",
     "folder": "rain-suite",
     "alt": "מיטה זוגית רכה בתאורת לילה חמה בסוויטת גשם, צימר רומנטי לזוג בגולן",
     "w": 736,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoMAAgAA8BgJYwCdAEQ/aTyAAD339l9UzT3Jm2Ey1eAl74iixC0NnKbAAA="
   },
   {
     "file": "rain-suite/rain-suite-bedroom-01.webp",
     "folder": "rain-suite",
     "alt": "מיטה זוגית עם מטבחון ברקע בסוויטת גשם, צימר זוגי במיקאסה שעל",
     "w": 740,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAgAA8BgJQBOgCL0tD+Y43AA/VJs+U8wT94pB8jmNrFqLfyRhSeDYhiL5LT8QYiGPNbTeqXrTrIjfrIAAA=="
   },
   {
     "file": "rain-suite/rain-suite-bedroom-02.webp",
     "folder": "rain-suite",
     "alt": "מיטה זוגית מוצעת בלבן עם תאורה חמה בסוויטת גשם במיקאסה",
     "w": 741,
-    "h": 495
+    "h": 495,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAgAA8BgJYgCdAEO5EUxHwAAysTMqvL6y6DM7f2hTKlZQE4rw2a1tRLBTDG3nTFDbcPIvA9txlbrovfnEEmI+rrgAA=="
   },
   {
     "file": "rain-suite/rain-suite-hero.webp",
     "folder": "rain-suite",
     "alt": "מבט אל פינת המגורים והמיטה בסוויטת גשם, צימר זוגי מפנק במיקאסה",
     "w": 1600,
-    "h": 1066
+    "h": 1066,
+    "blur": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAgAA8BgJaACdADcUBK91dAA9ZtuTr3Ciby8xaOvcCXNK9lFdDHu04dNqNKNwpkyHOSFjRpkRqqIjDRrBlud/EqAAA=="
   },
   {
     "file": "rain-suite/rain-suite-interior-01.webp",
     "folder": "rain-suite",
     "alt": "מבט רחב על המיטה, פינת הישיבה והמטבחון בסוויטת גשם במיקאסה",
     "w": 737,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoMAAgAA8BgJQBOgMWg3CQPB4AA/VO2Doh8RexLGcOURfs9MfKQb7Vdcfa7kcHvZBionTSjbBIARunsZkn9utjjSwcR+iL2AAA="
   },
   {
     "file": "rain-suite/rain-suite-interior-02.webp",
     "folder": "rain-suite",
     "alt": "מיטה זוגית וג'קוזי באותו חלל בסוויטת גשם, צימר זוגי במיקאסה שעל",
     "w": 738,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoMAAgAA8BgJYgCdAYsjdDUkKVQAPkLHzcVKQAOgmDUdoPyQO6BijsrhIiT+8UJq15SQPxOxyBiMniK85w/ycEAAAA="
   },
   {
     "file": "rain-suite/rain-suite-jacuzzi-01.webp",
     "folder": "rain-suite",
     "alt": "ג'קוזי זוגי בתאורה כחולה מול קיר אבן בסוויטת גשם, צימר עם ג'קוזי בגולן",
     "w": 739,
-    "h": 490
+    "h": 490,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAQCdASoMAAgAA8BgJQBOgBO+vLgA9rfF7on3/H6PW16DUrCHy/OeRxc0cUip1ClMgLKbOcJ95YZDKjpqWzDVrADFBAAA"
   },
   {
     "file": "rain-suite/rain-suite-jacuzzi-02.webp",
     "folder": "rain-suite",
     "alt": "ג'קוזי זוגי לבן עם מים כחולים וחיפוי אבן בסוויטת גשם במיקאסה",
     "w": 739,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAgAA8BgJZACdADdauQZuADOJSK8LR3KtpfOsYKZZHoeYJtqGhZP88xGytq7JcAjiAu7IaXAAA=="
   },
   {
     "file": "rain-suite/rain-suite-jacuzzi-03.webp",
     "folder": "rain-suite",
     "alt": "פינת ג'קוזי זוגי עם צמח ירוק בסוויטת גשם במיקאסה",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA8BgJQBOgB9d2WxVlgD5EJJOnyq/Hqdn1OQti49SkgNJhiJ/3vH1TwPFbxe2PxgPBxVQ+EId79jIlwAA"
   },
   {
     "file": "rain-suite/rain-suite-kitchenette-01.webp",
     "folder": "rain-suite",
     "alt": "מטבחון מאובזר עם כיור ומיקרוגל בסוויטת גשם, אירוח כפרי בגולן",
     "w": 739,
-    "h": 492
+    "h": 492,
+    "blur": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoMAAgAA8BgJQBOgCFqqO9mAADiMp3D00j10vFxUcV/OzqajMsl/tTYzuQPgf4UKYxv9l1KG09+xKinvIAAAA=="
   },
   {
     "file": "rain-suite/rain-suite-living-01.webp",
     "folder": "rain-suite",
     "alt": "פינת מגורים עם ספה אדומה ומיטה זוגית בסוויטת גשם, צימר מיקאסה ברמת הגולן",
     "w": 741,
-    "h": 493
+    "h": 493,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMAAgAA8BgJaACdAC23908tcAA9ZtuTr3DQTeeyUsp6NC9HLEQBj3CKMqEdFOzmMtEivqgWdw4h8cDJaRCDlXrRZQlAAAA"
   },
   {
     "file": "rain-suite/rain-suite-seating-01.webp",
     "folder": "rain-suite",
     "alt": "פינת ישיבה עם כריות אדומות וטלוויזיה בסוויטת גשם במיקאסה",
     "w": 739,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoMAAgAA8BgJZACdAEXtlttxAeAAPZo/Lq5T85GG1kQC5fYK7ddHdmpOw7ilua89QCt6T0sixKUtmRtAqnljoiPpZIK4AAA"
   },
   {
     "file": "rain-suite/rain-suite-stone-sink.webp",
     "folder": "rain-suite",
     "alt": "כיור אבן מעוצב עם מגבות ופרחים בסוויטת גשם במיקאסה",
     "w": 737,
-    "h": 491
+    "h": 491,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAgAA8BgJYwCdADbIUxtQAD+5F7otT0ne2goTUWjRamB6SUon3UEzZ9UFd98zUHs3QxhwFg2lwQAAAA="
   },
   {
     "file": "views/view-golan-valley.webp",
     "folder": "views",
     "alt": "נוף מרחבי הגולן הירוקים סביב מושב שעל, אזור צימר מיקאסה",
     "w": 1920,
-    "h": 1080
+    "h": 1080,
+    "blur": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoMAAcAA8BgJQAAXU5QRLAA/I/1cZSLVUGTNQYpKay+98A3EIgAAA=="
   },
   {
     "file": "views/view-waterfall-saar.webp",
     "folder": "views",
     "alt": "מפל ובריכה טבעית בנחל סמוך למיקאסה ברמת הגולן",
     "w": 1920,
-    "h": 1280
+    "h": 1280,
+    "blur": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoMAAgAA8BgJZgCdAEQ/Z3tOlsoAP1SuZkw9M+oC3jKxPBsKpHzMiSjqCm1TrZoWmvxVnUAAAA="
   },
   {
     "file": "packages/package-breakfast.webp",
