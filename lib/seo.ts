@@ -29,7 +29,8 @@ export type OgCard =
   | "journal"
   | "journal-couples-weekend-golan"
   | "journal-hermon-snow-season"
-  | "journal-saar-waterfall-water-trails";
+  | "journal-saar-waterfall-water-trails"
+  | "journal-orchard";
 
 /** Path to a share card. The `/og/{name}.jpg` convention lives only here. */
 export function ogImagePath(card: OgCard): string {

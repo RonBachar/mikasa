@@ -39,6 +39,7 @@ const CARDS = [
     name: "journal-saar-waterfall-water-trails",
     from: "views/view-waterfall-saar.webp",
   },
+  { name: "journal-orchard", from: "exterior/exterior-garden-flower-path.webp" },
 ];
 
 await mkdir(OUT, { recursive: true });
