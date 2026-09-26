@@ -657,14 +657,13 @@ export const journalPosts: JournalPost[] = [
     slug: "hula-valley",
     ogCard: "journal-hermon-snow-season",
     cluster: "water",
-    draft: true,
     title: "עמק החולה: אגמון או שמורה, ומה ההבדל ביניהם",
     metaTitle: "עמק החולה | אגמון החולה או שמורת החולה? | מיקאסה, שעל",
     metaDescription:
       "בעמק החולה יש שני אתרים נפרדים שמבלבלים כמעט את כולם: אגמון החולה ושמורת הטבע החולה. מה ההבדל, איזה מהם מתאים לכם ומתי עונת העגורים. מדריך מצימר מיקאסה.",
     excerpt:
       "אורחים מבקשים ממני הנחיות ל\"עמק החולה\" ולא יודעים שיש שם שני אתרים שונים, בתשלום נפרד. זה ההבדל.",
-    date: "2026-10-12",
+    date: "2026-09-26",
     readMinutes: 6,
     heroImage: "views/view-golan-valley.webp",
     tag: "טבע ומסלולים",
@@ -740,14 +739,13 @@ export const journalPosts: JournalPost[] = [
     slug: "banias",
     ogCard: "journal-saar-waterfall-water-trails",
     cluster: "water",
-    draft: true,
     title: "הבניאס: איזה מסלול לבחור ומה ההבדל ביניהם",
     metaTitle: "הבניאס | איזה מסלול לבחור, המפל או העיינות | מיקאסה, שעל",
     metaDescription:
       "שמורת הבניאס בנויה משני חלקים עם כניסות נפרדות: אזור המפל ואזור העיינות. מה ההבדל, איזה מסלול מתאים למי, ומה כדאי לדעת לפני. מדריך מצימר מיקאסה בשעל.",
     excerpt:
       "רוב האנשים מגיעים לבניאס, רואים חלק אחד, וחושבים שראו את הכל. יש שם שני חלקים ושתי כניסות.",
-    date: "2026-10-19",
+    date: "2026-09-26",
     readMinutes: 5,
     heroImage: "views/view-waterfall-saar.webp",
     tag: "טבע ומסלולים",
@@ -815,14 +813,13 @@ export const journalPosts: JournalPost[] = [
     slug: "saar-stream-trail",
     ogCard: "journal-saar-waterfall-water-trails",
     cluster: "water",
-    draft: true,
     title: "נחל סער: המסלול, החניון ומה לדעת לפני שיורדים",
     metaTitle: "נחל סער | המסלול, החניון ומה לדעת | מיקאסה, מושב שעל",
     metaDescription:
       "נחל סער נמצא כעשר דקות ממושב שעל. מה יש שם, מתי הנחל זורם, איך נראית הירידה אל המפל ומה כדאי לנעול. המסלול הקרוב ביותר לצימר מיקאסה.",
     excerpt:
       "זה השכן הכי קרוב שלנו, ואני נוסעת לשם כל שנה מחדש. הנה מה שאני מספרת לאורחים לפני שהם יורדים.",
-    date: "2026-10-26",
+    date: "2026-09-26",
     readMinutes: 5,
     heroImage: "views/view-waterfall-saar.webp",
     tag: "טבע ומסלולים",
@@ -891,14 +888,13 @@ export const journalPosts: JournalPost[] = [
     slug: "natural-pools-north",
     ogCard: "journal-saar-waterfall-water-trails",
     cluster: "water",
-    draft: true,
     title: "בריכות טבעיות ומסלולי מים בצפון: מתי הם באמת זורמים",
     metaTitle: "מסלולי מים ובריכות טבעיות בצפון | לוח עונות | מיקאסה",
     metaDescription:
       "לוח עונות למסלולי המים והבריכות הטבעיות בצפון רמת הגולן: מה זורם בחורף, מה נשאר בקיץ, מה תמיד פעיל ומה כדאי לבדוק לפני שיוצאים. מדריך מצימר מיקאסה בשעל.",
     excerpt:
       "השאלה שאני הכי נשאלת בקיץ היא \"יש מים?\". התשובה תלויה בחודש, ולא באתר. הנה הלוח.",
-    date: "2026-11-02",
+    date: "2026-09-26",
     readMinutes: 6,
     heroImage: "views/view-waterfall-saar.webp",
     tag: "טבע ומסלולים",
