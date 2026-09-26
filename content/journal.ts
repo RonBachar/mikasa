@@ -284,14 +284,13 @@ export const journalPosts: JournalPost[] = [
     ogCard: "journal-hermon-snow-season",
     cluster: "hermon",
     pillar: true,
-    draft: true,
     title: "אתר החרמון: כל מה שצריך לדעת לפני שנוסעים",
     metaTitle: "אתר החרמון | מדריך מלא לפני הנסיעה | מיקאסה, מושב שעל",
     metaDescription:
       "מדריך לאתר החרמון ממושב שעל: איפה זה, כמה זמן נוסעים, ההבדל בין מתכונת חורף לקיץ, מה חשוב לבדוק לפני שיוצאים ואיך מתכננים יום שלא מתפוצץ בפקקים.",
     excerpt:
       "אנחנו גרים 25 דקות משם ורואים כל שנה את אותן שלוש טעויות. המדריך הזה נועד למנוע אותן.",
-    date: "2026-09-14",
+    date: "2026-09-26",
     readMinutes: 7,
     heroImage: "views/view-golan-valley.webp",
     tag: "מדריך אזור",
@@ -372,14 +371,13 @@ export const journalPosts: JournalPost[] = [
     slug: "hermon-tickets",
     ogCard: "journal-hermon-snow-season",
     cluster: "hermon",
-    draft: true,
     title: "כרטיסים לחרמון: איך מזמינים ומה כדאי לבדוק לפני שמשלמים",
     metaTitle: "כרטיסים לחרמון | איך מזמינים ומה לבדוק | מיקאסה, שעל",
     metaDescription:
       "איך מזמינים כרטיסים לאתר החרמון: הזמנה מראש באתר הרשמי, מה כלול בכרטיס, ביטולים בגלל מזג אוויר ומה חשוב לבדוק בימי שיא. מדריך מצימר מיקאסה במושב שעל.",
     excerpt:
       "רוב האכזבות שאני שומעת עליהן מתחילות בשלב הזמנת הכרטיס. ארבע בדיקות קצרות מונעות את כולן.",
-    date: "2026-09-21",
+    date: "2026-09-26",
     readMinutes: 5,
     heroImage: "exterior/exterior-sign-rural.webp",
     tag: "מדריך אזור",
@@ -446,14 +444,13 @@ export const journalPosts: JournalPost[] = [
     slug: "hermon-ski-beginners",
     ogCard: "journal-hermon-snow-season",
     cluster: "hermon",
-    draft: true,
     title: "סקי בחרמון למתחילים: ציוד, שיעורים והיום הראשון",
     metaTitle: "סקי בחרמון למתחילים | ציוד, שיעורים ויום ראשון | מיקאסה",
     metaDescription:
       "מדריך למתחילים לסקי בחרמון: מתי העונה, האם להשכיר ציוד במקום, האם צריך שיעור, מה ללבוש ואיך נראה יום ראשון ריאלי. נכתב מצימר מיקאסה במושב שעל.",
     excerpt:
       "אני מארחת כל חורף זוגות שעולים לסקי בפעם הראשונה. אלה הדברים שהם מספרים לי בחזרה בערב.",
-    date: "2026-09-28",
+    date: "2026-09-26",
     readMinutes: 6,
     heroImage: "views/view-golan-valley.webp",
     tag: "עונות בגולן",
@@ -522,14 +519,13 @@ export const journalPosts: JournalPost[] = [
     slug: "hermon-summer",
     ogCard: "journal-hermon-snow-season",
     cluster: "hermon",
-    draft: true,
     title: "החרמון בקיץ: הרכבל, התצפיות ולמה שווה לעלות בלי שלג",
     metaTitle: "החרמון בקיץ | רכבל, תצפיות ואטרקציות | מיקאסה, מושב שעל",
     metaDescription:
       "החרמון בקיץ עובד במתכונת שונה לגמרי: רכבל, תצפיות ואטרקציות במקום סקי. מה יש שם בקיץ, מתי כדאי להגיע ומה לבדוק מראש. מדריך מצימר מיקאסה בשעל.",
     excerpt:
       "רוב האנשים חושבים שהחרמון הוא מקום של חורף. בקיץ הוא קריר, ריק יחסית, והנוף מלמעלה הוא מהיפים בישראל.",
-    date: "2026-10-05",
+    date: "2026-09-26",
     readMinutes: 5,
     heroImage: "views/view-golan-valley.webp",
     tag: "עונות בגולן",
