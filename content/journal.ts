@@ -1790,6 +1790,33 @@ export const journal = {
     "מה שאני מספרת לאורחים בטלפון לפני שהם מגיעים: מסלולים, עונות ומקומות ששווים את הנסיעה, מהמושב שלנו בצפון הגולן.",
 } as const;
 
+/**
+ * The sourcing note, printed at the foot of every post.
+ *
+ * Why it exists, in the owner's words: so that a business named on this site
+ * never has cause to ask "who authorised this". Nothing here needs
+ * authorising — these are public facts about public businesses, gathered
+ * from their own sites — but the relationship should be stated rather than
+ * left to be assumed, and the correction channel is what turns a complaint
+ * into an email.
+ *
+ * Four things it has to say, and it says all four deliberately:
+ * where the information came from, that we are not affiliated and not paid,
+ * that anything time-sensitive belongs to the business and not to us, and
+ * how to reach us to fix or remove something.
+ *
+ * One constant, rendered by app/blog/[slug]/page.tsx on all posts, so it
+ * cannot drift between them or be forgotten on a new one.
+ */
+export const journalSourcingNote = {
+  heading: "על המידע בעמוד הזה",
+  body:
+    "המידע כאן נאסף ממקורות פומביים, בעיקר האתרים והפרסומים של העסקים והאתרים עצמם, והוא נכון למועד כתיבת הפוסט. איננו מפעילים אף אחד מהמקומות המוזכרים כאן, אין בינינו קשר עסקי ואיננו מקבלים תמורה על אזכור. שעות פעילות, מחירים, מועדי עונה ותנאי ביקור נקבעים אצל כל מקום בנפרד ומשתנים מעונה לעונה - לפני שאתם נוסעים, אמתו מולם.",
+  correctionLead: "בעל עסק שמוזכר כאן ומבקש תיקון, עדכון או הסרה מוזמן",
+  correctionLink: "לפנות אלינו",
+  correctionTail: ", ונטפל בזה מיד.",
+} as const;
+
 /** Hebrew dateline, e.g. "7 בספטמבר 2026". */
 export function journalDate(iso: string): string {
   return new Date(iso).toLocaleDateString("he-IL", {

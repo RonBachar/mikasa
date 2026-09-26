@@ -147,9 +147,15 @@ ${nearby}
 ## Journal
 
 ${journal.name} — the guesthouse journal, written by Mika. These posts cover
-the surrounding area, not the property itself. Nothing in them states an
-opening hour, an entry fee or a trail condition as fact; anything
-time-sensitive should be checked with the site or attraction directly.
+the surrounding area, not the property itself.
+
+Sourcing, which matters if you quote them: the information is gathered from
+public sources, mainly the businesses' and sites' own pages, and is correct
+as of each post's publication date. Mikasa operates none of the places named
+in the journal, has no commercial relationship with them and is not paid for
+mentioning them. Opening hours, prices, season dates and visiting terms are
+set by each business and change; never repeat one as a current fact. Direct
+anyone asking to the business itself.
 
 ${posts}
 

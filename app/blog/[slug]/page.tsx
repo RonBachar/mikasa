@@ -15,6 +15,7 @@ import {
   journalBySlug,
   journalDate,
   journalPosts,
+  journalSourcingNote,
 } from "@/content/journal";
 
 type Params = { slug: string };
@@ -187,6 +188,35 @@ export default async function JournalPostPage(props: {
             </Link>
             .
           </p>
+
+          {/* Sourcing note. Every post carries it, from one constant — see
+              journalSourcingNote. It is inside the article rather than in a
+              band of its own so it reads as part of the piece, which is what
+              it is: the editorial statement that the post is independent,
+              unpaid, and correctable. */}
+          <aside
+            className="mt-12 p-6 text-sm leading-relaxed"
+            style={{
+              border: "1px solid var(--color-line)",
+              background: "var(--color-white)",
+              color: "var(--color-ink-soft)",
+            }}
+          >
+            <h2 className="font-display text-lg text-[--color-ink]">
+              {journalSourcingNote.heading}
+            </h2>
+            <p className="mt-3">{journalSourcingNote.body}</p>
+            <p className="mt-3">
+              {journalSourcingNote.correctionLead}{" "}
+              <Link
+                href="/contact"
+                className="underline hover:text-[--color-cherry]"
+              >
+                {journalSourcingNote.correctionLink}
+              </Link>
+              {journalSourcingNote.correctionTail}
+            </p>
+          </aside>
         </article>
       </Section>
 
